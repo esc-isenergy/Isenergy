@@ -1,0 +1,54 @@
+@{
+	var grid = Html.DevExpress().GridView(settings => {
+        settings.Name = "GridViewOutputInvitation";
+        settings.CallbackRouteValues = new { Controller = "Contractors", Action = "GridViewPartialOutputInvitation" };
+
+        //settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "Contractors", Action = "CancelContractors" };
+        settings.SettingsEditing.Mode = GridViewEditingMode.EditFormAndDisplayRow;
+        settings.SettingsBehavior.ConfirmDelete = true;
+		
+		settings.CommandColumn.Visible = true;
+        //settings.CommandColumn.DeleteButton.Visible = true;
+        //settings.CommandColumn.DeleteButton.Text = "Отмена";
+
+        GridViewCommandColumnCustomButton CancelContractors = new GridViewCommandColumnCustomButton();
+        CancelContractors.Text = "Отмена";
+        CancelContractors.ID = "CancelContractor";
+
+
+        settings.CommandColumn.CustomButtons.Add(CancelContractors);
+
+
+        settings.ClientSideEvents.CustomButtonClick = "function(s, e){ if(e.buttonID == 'CancelContractor') CancelContractorFunc(s,e) ;}";
+   
+        
+        
+        
+				
+		settings.KeyFieldName = "IdContractor";
+		
+		settings.SettingsPager.Visible = true;
+		//settings.Settings.ShowGroupPanel = true;
+		settings.Settings.ShowFilterRow = true;
+		settings.SettingsBehavior.AllowSelectByRowClick = true;
+		
+				//settings.Columns.Add("IdContractor");
+				//settings.Columns.Add("IdentifierSubscriber");
+				//settings.Columns.Add("Comment");
+				//settings.Columns.Add("IdentifierSubscriberContractor");
+				//settings.Columns.Add("InvitationText");
+				//settings.Columns.Add("DenialText");
+				//settings.Columns.Add("State");
+				//settings.Columns.Add("Subscribers");
+
+
+                //settings.Columns.Add("SubscriberContractor.TypeElementAbonent", "Тип абонента");
+                settings.Columns.Add("SubscriberContractorName", "Название организации/ФИО");
+                settings.Columns.Add("SubscriberContractorRequisites", "Реквизиты");
+                settings.Columns.Add("InvitationText", "Текст приглашения");
+			});
+		if (ViewData["EditError"] != null){
+        grid.SetEditErrorText((string)ViewData["EditError"]);
+    }
+	}
+@grid.Bind(Model).GetHtml()

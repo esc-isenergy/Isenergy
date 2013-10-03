@@ -1,0 +1,118 @@
+﻿@model IsEnergyModel.Users
+
+@{
+    ViewBag.Title = "NotificationSettings";
+}
+<fieldset>
+    <legend>Контрагенты</legend>
+    @Html.HiddenFor(s => s.IdUser)
+<table>
+    <tr>
+        <td>@Html.DevExpress().CheckBoxFor(m => m.NoticesIncomingContractors, settings => {
+           settings.Name = "NoticesIncomingContractors";
+                }).GetHtml()</td>
+        <td>@Html.DevExpress().Label(settings => { settings.Width = 300; settings.Text = "Получение приглашения от контрагентов"; }).GetHtml()</td>
+        
+    </tr>
+    <tr>
+        <td>@Html.DevExpress().CheckBoxFor(m => m.NoticesOutContractors, settings => {
+           settings.Name = "NoticesOutContractors";
+                }).GetHtml()</td>
+        <td>@Html.DevExpress().Label(settings => { settings.Width = 300; settings.Text = "Ответы на приглашения от контрагентов"; }).GetHtml()</td>
+        
+    </tr>
+</table>
+</fieldset>
+
+
+<fieldset>
+    <legend>Контрагенты</legend>
+
+<table>
+    <tr>
+        <td>@Html.DevExpress().CheckBoxFor(m => m.NoticesNews, settings => {
+           settings.Name = "NoticesNews";
+                }).GetHtml()</td>
+        <td>@Html.DevExpress().Label(settings => { settings.Width = 300; settings.Text = "Сообщать о новостях в системе"; }).GetHtml()</td>
+        
+    </tr>
+    </table>
+</fieldset>
+
+
+<fieldset>
+    <legend>Электропотребление</legend>
+
+
+<table>
+    <tr>
+        <td>@Html.DevExpress().CheckBoxFor(m => m.NoticesEnergyConsumptionPrimaryDocuments, settings => {
+           settings.Name = "NoticesEnergyConsumptionPrimaryDocuments";
+                }).GetHtml()</td>
+        <td>@Html.DevExpress().Label(settings => { settings.Width = 300; settings.Text = "О первичной документации"; }).GetHtml()</td>
+        
+    </tr>
+
+    <tr>
+        <td>@Html.DevExpress().CheckBoxFor(m => m.NoticesEnergyConsumptionMaquettes16, settings => {
+           settings.Name = "NoticesEnergyConsumptionMaquettes16";
+                }).GetHtml()</td>
+        <td>@Html.DevExpress().Label(settings => { settings.Width = 300; settings.Text = "О макетах формы 16"; }).GetHtml()</td>
+        
+    </tr>
+
+
+    <tr>
+        <td>@Html.DevExpress().CheckBoxFor(m => m.NoticesEnergyConsumptionMaquettes80020, settings => {
+           settings.Name = "NoticesEnergyConsumptionMaquettes80020";
+                }).GetHtml()</td>
+        <td>@Html.DevExpress().Label(settings => { settings.Width = 300; settings.Text = "О макетах формы 80020"; }).GetHtml()</td>
+        
+    </tr>
+    </table>
+</fieldset>
+<fieldset>
+    <legend>Документы</legend>
+
+
+<table>
+    <tr>
+        <td>@Html.DevExpress().CheckBoxFor(m => m.NoticesInDoc, settings => {
+           settings.Name = "NoticesInDoc";
+                }).GetHtml()</td>
+        <td>@Html.DevExpress().Label(settings => { settings.Width = 300; settings.Text = "О входящих документах"; }).GetHtml()</td>
+        
+    </tr>
+    <tr>
+        <td>@Html.DevExpress().CheckBoxFor(m => m.NoticesOutDoc, settings => {
+           settings.Name = "NoticesOutDoc";
+                }).GetHtml()</td>
+        <td>@Html.DevExpress().Label(settings => { settings.Width = 300; settings.Text = "О изменении статуса документов"; }).GetHtml()</td>
+        
+    </tr>
+</table>
+</fieldset>
+
+<fieldset>
+    <legend>Сообщения</legend>
+
+
+<table>
+
+    <tr>
+        <td>@Html.DevExpress().CheckBoxFor(m => m.NoticesInMessages, settings => {
+           settings.Name = "NoticesInMessages";
+                }).GetHtml()</td>
+        <td>@Html.DevExpress().Label(settings => { settings.Width = 300; settings.Text = "О входящих сообщениях"; }).GetHtml()</td>
+        
+    </tr>
+    <tr>
+        <td>@Html.DevExpress().CheckBoxFor(m => m.NoticesOutMessages, settings => {
+           settings.Name = "NoticesOutMessages";
+                }).GetHtml()</td>
+        <td>@Html.DevExpress().Label(settings => { settings.Width = 300; settings.Text = "О изменении статуса сообщений"; }).GetHtml()</td>
+        
+    </tr>
+</table></fieldset>
+
+<button class="action bluebtn" type="submit"><span class="label">Сохранить</span></button>

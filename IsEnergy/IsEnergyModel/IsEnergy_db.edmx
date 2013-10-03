@@ -1,0 +1,2408 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище Is_EnergyModel" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="Хранилище Is_EnergyModelContainer">
+          <EntitySet Name="Address" EntityType="Хранилище Is_EnergyModel.Address" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Administrators" EntityType="Хранилище Is_EnergyModel.Administrators" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Certificates" EntityType="Хранилище Is_EnergyModel.Certificates" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Cities" EntityType="Хранилище Is_EnergyModel.Cities" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Contractors" EntityType="Хранилище Is_EnergyModel.Contractors" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Countries" EntityType="Хранилище Is_EnergyModel.Countries" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DocumentFlow" EntityType="Хранилище Is_EnergyModel.DocumentFlow" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Documents" EntityType="Хранилище Is_EnergyModel.Documents" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DocumentsTemp" EntityType="Хранилище Is_EnergyModel.DocumentsTemp" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="IFNS" EntityType="Хранилище Is_EnergyModel.IFNS" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LegalEntities" EntityType="Хранилище Is_EnergyModel.LegalEntities" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Operators" EntityType="Хранилище Is_EnergyModel.Operators" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PhysicalPersons" EntityType="Хранилище Is_EnergyModel.PhysicalPersons" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Regions" EntityType="Хранилище Is_EnergyModel.Regions" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RelateDocuments" EntityType="Хранилище Is_EnergyModel.RelateDocuments" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SoleTraders" EntityType="Хранилище Is_EnergyModel.SoleTraders" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Subscribers" EntityType="Хранилище Is_EnergyModel.Subscribers" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SubscribersCodesEnergySales" EntityType="Хранилище Is_EnergyModel.SubscribersCodesEnergySales" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SubscribersCodesGridCompany" EntityType="Хранилище Is_EnergyModel.SubscribersCodesGridCompany" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SubscribersConnectEnergySales" EntityType="Хранилище Is_EnergyModel.SubscribersConnectEnergySales" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SubscribersConnectGridCompany" EntityType="Хранилище Is_EnergyModel.SubscribersConnectGridCompany" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SubscribersContracts" EntityType="Хранилище Is_EnergyModel.SubscribersContracts" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SubscribersEnumerator" EntityType="Хранилище Is_EnergyModel.SubscribersEnumerator" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SubscribersSubdivision" EntityType="Хранилище Is_EnergyModel.SubscribersSubdivision" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SubscribersUserList" EntityType="Хранилище Is_EnergyModel.SubscribersUserList" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SubscribesLog" EntityType="Хранилище Is_EnergyModel.SubscribesLog" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Users" EntityType="Хранилище Is_EnergyModel.Users" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Address_Countries" Association="Хранилище Is_EnergyModel.FK_Address_Countries">
+            <End Role="Countries" EntitySet="Countries" />
+            <End Role="Address" EntitySet="Address" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Address_Regions" Association="Хранилище Is_EnergyModel.FK_Address_Regions">
+            <End Role="Regions" EntitySet="Regions" />
+            <End Role="Address" EntitySet="Address" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Administrators_Subscribers" Association="Хранилище Is_EnergyModel.FK_Administrators_Subscribers">
+            <End Role="Subscribers" EntitySet="Subscribers" />
+            <End Role="Administrators" EntitySet="Administrators" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Administrators_Users" Association="Хранилище Is_EnergyModel.FK_Administrators_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Administrators" EntitySet="Administrators" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contractors_Subscribers" Association="Хранилище Is_EnergyModel.FK_Contractors_Subscribers">
+            <End Role="Subscribers" EntitySet="Subscribers" />
+            <End Role="Contractors" EntitySet="Contractors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DocumentFlow_Documents" Association="Хранилище Is_EnergyModel.FK_DocumentFlow_Documents">
+            <End Role="Documents" EntitySet="Documents" />
+            <End Role="DocumentFlow" EntitySet="DocumentFlow" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DocumentsTemp_Users" Association="Хранилище Is_EnergyModel.FK_DocumentsTemp_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="DocumentsTemp" EntitySet="DocumentsTemp" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LegalEnitiesUserList_LegalEnitiesSubdivision" Association="Хранилище Is_EnergyModel.FK_LegalEnitiesUserList_LegalEnitiesSubdivision">
+            <End Role="SubscribersSubdivision" EntitySet="SubscribersSubdivision" />
+            <End Role="SubscribersUserList" EntitySet="SubscribersUserList" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LegalEnitiesUserList_Users" Association="Хранилище Is_EnergyModel.FK_LegalEnitiesUserList_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="SubscribersUserList" EntitySet="SubscribersUserList" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LegalEntities_Address" Association="Хранилище Is_EnergyModel.FK_LegalEntities_Address">
+            <End Role="Address" EntitySet="Address" />
+            <End Role="LegalEntities" EntitySet="LegalEntities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LegalEntities_Certificates" Association="Хранилище Is_EnergyModel.FK_LegalEntities_Certificates">
+            <End Role="Certificates" EntitySet="Certificates" />
+            <End Role="LegalEntities" EntitySet="LegalEntities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LegalEntities_IFNS" Association="Хранилище Is_EnergyModel.FK_LegalEntities_IFNS">
+            <End Role="IFNS" EntitySet="IFNS" />
+            <End Role="LegalEntities" EntitySet="LegalEntities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LegalEntities_Subscribers" Association="Хранилище Is_EnergyModel.FK_LegalEntities_Subscribers">
+            <End Role="Subscribers" EntitySet="Subscribers" />
+            <End Role="LegalEntities" EntitySet="LegalEntities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Operators_Subscribers" Association="Хранилище Is_EnergyModel.FK_Operators_Subscribers">
+            <End Role="Subscribers" EntitySet="Subscribers" />
+            <End Role="Operators" EntitySet="Operators" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Operators_Users" Association="Хранилище Is_EnergyModel.FK_Operators_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Operators" EntitySet="Operators" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhysicalPersons_Address" Association="Хранилище Is_EnergyModel.FK_PhysicalPersons_Address">
+            <End Role="Address" EntitySet="Address" />
+            <End Role="PhysicalPersons" EntitySet="PhysicalPersons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhysicalPersons_Subscribers" Association="Хранилище Is_EnergyModel.FK_PhysicalPersons_Subscribers">
+            <End Role="Subscribers" EntitySet="Subscribers" />
+            <End Role="PhysicalPersons" EntitySet="PhysicalPersons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RelateDocuments_Documents" Association="Хранилище Is_EnergyModel.FK_RelateDocuments_Documents">
+            <End Role="Documents" EntitySet="Documents" />
+            <End Role="RelateDocuments" EntitySet="RelateDocuments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SoleTraders_Address" Association="Хранилище Is_EnergyModel.FK_SoleTraders_Address">
+            <End Role="Address" EntitySet="Address" />
+            <End Role="SoleTraders" EntitySet="SoleTraders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SoleTraders_Certificates" Association="Хранилище Is_EnergyModel.FK_SoleTraders_Certificates">
+            <End Role="Certificates" EntitySet="Certificates" />
+            <End Role="SoleTraders" EntitySet="SoleTraders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SoleTraders_IFNS" Association="Хранилище Is_EnergyModel.FK_SoleTraders_IFNS">
+            <End Role="IFNS" EntitySet="IFNS" />
+            <End Role="SoleTraders" EntitySet="SoleTraders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SoleTraders_Subscribers" Association="Хранилище Is_EnergyModel.FK_SoleTraders_Subscribers">
+            <End Role="Subscribers" EntitySet="Subscribers" />
+            <End Role="SoleTraders" EntitySet="SoleTraders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubscribersCodesEnergySales_SubscribersSubdivision" Association="Хранилище Is_EnergyModel.FK_SubscribersCodesEnergySales_SubscribersSubdivision">
+            <End Role="SubscribersSubdivision" EntitySet="SubscribersSubdivision" />
+            <End Role="SubscribersCodesEnergySales" EntitySet="SubscribersCodesEnergySales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubscribersCodesGridCompany_SubscribersSubdivision" Association="Хранилище Is_EnergyModel.FK_SubscribersCodesGridCompany_SubscribersSubdivision">
+            <End Role="SubscribersSubdivision" EntitySet="SubscribersSubdivision" />
+            <End Role="SubscribersCodesGridCompany" EntitySet="SubscribersCodesGridCompany" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubscribersConnectEnergySales_Subscribers" Association="Хранилище Is_EnergyModel.FK_SubscribersConnectEnergySales_Subscribers">
+            <End Role="Subscribers" EntitySet="Subscribers" />
+            <End Role="SubscribersConnectEnergySales" EntitySet="SubscribersConnectEnergySales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubscribersConnectGridCompany_Subscribers" Association="Хранилище Is_EnergyModel.FK_SubscribersConnectGridCompany_Subscribers">
+            <End Role="Subscribers" EntitySet="Subscribers" />
+            <End Role="SubscribersConnectGridCompany" EntitySet="SubscribersConnectGridCompany" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubscribersContracts_Subscribers" Association="Хранилище Is_EnergyModel.FK_SubscribersContracts_Subscribers">
+            <End Role="Subscribers" EntitySet="Subscribers" />
+            <End Role="SubscribersContracts" EntitySet="SubscribersContracts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubscribersEnumerator_SubscribersContracts" Association="Хранилище Is_EnergyModel.FK_SubscribersEnumerator_SubscribersContracts">
+            <End Role="SubscribersContracts" EntitySet="SubscribersContracts" />
+            <End Role="SubscribersEnumerator" EntitySet="SubscribersEnumerator" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubscribersSubdivision_Address" Association="Хранилище Is_EnergyModel.FK_SubscribersSubdivision_Address">
+            <End Role="Address" EntitySet="Address" />
+            <End Role="SubscribersSubdivision" EntitySet="SubscribersSubdivision" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubscribersSubdivision_Subscribers" Association="Хранилище Is_EnergyModel.FK_SubscribersSubdivision_Subscribers">
+            <End Role="Subscribers" EntitySet="Subscribers" />
+            <End Role="SubscribersSubdivision" EntitySet="SubscribersSubdivision" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubscribesLog_Subscribers" Association="Хранилище Is_EnergyModel.FK_SubscribesLog_Subscribers">
+            <End Role="Subscribers" EntitySet="Subscribers" />
+            <End Role="SubscribesLog" EntitySet="SubscribesLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Certificates" Association="Хранилище Is_EnergyModel.FK_Users_Certificates">
+            <End Role="Certificates" EntitySet="Certificates" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="IdAddress" />
+          </Key>
+          <Property Name="IdAddress" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TypeAddress" Type="int" Nullable="false" />
+          <Property Name="RF_Index" Type="nvarchar(max)" />
+          <Property Name="RF_IdRegion" Type="int" />
+          <Property Name="RF_Area" Type="nvarchar(max)" />
+          <Property Name="RF_City" Type="nvarchar(max)" />
+          <Property Name="RF_localityCity" Type="nvarchar(max)" />
+          <Property Name="RF_Street" Type="nvarchar(max)" />
+          <Property Name="RF_Home" Type="nvarchar(max)" />
+          <Property Name="RF_Housing" Type="nvarchar(max)" />
+          <Property Name="RF_OfficeOrApartment" Type="nvarchar(max)" />
+          <Property Name="OtherCountry_Address" Type="nvarchar(max)" />
+          <Property Name="OtherCountry_IdCountry" Type="int" />
+          <Property Name="AddressShort" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Administrators">
+          <Key>
+            <PropertyRef Name="IdAdministrator" />
+          </Key>
+          <Property Name="IdAdministrator" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdUser" Type="int" Nullable="false" />
+          <Property Name="MainAdministrators" Type="bit" Nullable="false" />
+          <Property Name="ModifyingAdministrators" Type="bit" Nullable="false" />
+          <Property Name="ModifyingOperators" Type="bit" Nullable="false" />
+          <Property Name="ModifyingNews" Type="bit" Nullable="false" />
+          <Property Name="ModifyingMailing" Type="bit" Nullable="false" />
+          <Property Name="Comment" Type="text" />
+          <Property Name="IdentifierSubscriber" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Certificates">
+          <Key>
+            <PropertyRef Name="IdCertificate" />
+          </Key>
+          <Property Name="IdCertificate" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CertificateSerialNumber" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CertificateValidFrom" Type="datetime" Nullable="false" />
+          <Property Name="CertificateValidUntil" Type="datetime" Nullable="false" />
+          <Property Name="CertificateSubjectFIO" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CertificateFile" Type="varbinary(max)" Nullable="false" />
+          <Property Name="PublisherCertificate" Type="nvarchar(max)" />
+          <Property Name="IdUser" Type="int" />
+          <Property Name="CertificateSubject" Type="nvarchar(max)" />
+          <Property Name="CertificateCN" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cities">
+          <Key>
+            <PropertyRef Name="IdCity" />
+          </Key>
+          <Property Name="IdCity" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="IdRegion" Type="int" />
+          <Property Name="Comment" Type="text" />
+        </EntityType>
+        <EntityType Name="Contractors">
+          <Key>
+            <PropertyRef Name="IdContractor" />
+          </Key>
+          <Property Name="IdContractor" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdentifierSubscriber" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Comment" Type="text" />
+          <Property Name="IdentifierSubscriberContractor" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="InvitationText" Type="text" />
+          <Property Name="DenialText" Type="text" />
+          <Property Name="State" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Countries">
+          <Key>
+            <PropertyRef Name="IdCountry" />
+          </Key>
+          <Property Name="IdCountry" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Code" Type="nvarchar(max)" />
+          <Property Name="Comment" Type="text" />
+        </EntityType>
+        <EntityType Name="DocumentFlow">
+          <Key>
+            <PropertyRef Name="IdDocumentFlow" />
+          </Key>
+          <Property Name="IdDocumentFlow" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdDocumentMain" Type="int" Nullable="false" />
+          <Property Name="NameDocument" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DataFile" Type="varbinary(max)" Nullable="false" />
+          <Property Name="NameSign" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DataSign" Type="varbinary(max)" Nullable="false" />
+          <Property Name="DateCreate" Type="datetime" Nullable="false" />
+          <Property Name="Comment" Type="nvarchar(max)" />
+          <Property Name="IndexDocumentFlow" Type="int" />
+          <Property Name="NameFile" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="State" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Documents">
+          <Key>
+            <PropertyRef Name="IdDocument" />
+          </Key>
+          <Property Name="IdDocument" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NameDocument" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="TypeDocument" Type="int" Nullable="false" />
+          <Property Name="DateSend" Type="datetime" Nullable="false" />
+          <Property Name="State" Type="int" Nullable="false" />
+          <Property Name="DataFile" Type="varbinary(max)" Nullable="false" />
+          <Property Name="Comment" Type="text" />
+          <Property Name="IdentifierSubscriberSender" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="IdentifierSubscriberReceiver" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="idSubdivisionSender" Type="int" />
+          <Property Name="idSubdivisionReceiver" Type="int" />
+          <Property Name="SignatureContractor" Type="bit" />
+          <Property Name="DateReceive" Type="datetime" />
+          <Property Name="NameFile" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DocumentsTemp">
+          <Key>
+            <PropertyRef Name="IdDocumentTemp" />
+          </Key>
+          <Property Name="IdDocumentTemp" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NameDocument" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="TypeDocument" Type="int" Nullable="false" />
+          <Property Name="DataFile" Type="varbinary(max)" Nullable="false" />
+          <Property Name="Comment" Type="text" />
+          <Property Name="IdentifierSubscriberSender" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="IdentifierSubscriberReceiver" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="idSubdivisionSender" Type="int" />
+          <Property Name="idSubdivisionReceiver" Type="int" />
+          <Property Name="IdUserCreate" Type="int" Nullable="false" />
+          <Property Name="SignatureContractor" Type="bit" />
+          <Property Name="NameFile" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="IFNS">
+          <Key>
+            <PropertyRef Name="IdIFNS" />
+          </Key>
+          <Property Name="IdIFNS" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Code" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IdRegion" Type="int" />
+          <Property Name="Comment" Type="text" />
+          <Property Name="ShortName" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="LegalEntities">
+          <Key>
+            <PropertyRef Name="IdOrganization" />
+          </Key>
+          <Property Name="IdOrganization" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdCertificate" Type="int" />
+          <Property Name="NameOrganization" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="INN" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="KPP" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="OGRN" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ContactFaceFirstName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ContactFaceMidleName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ContactFaceLastName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="IdIFNS" Type="int" Nullable="false" />
+          <Property Name="IdentifierSubscriber" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="IdAddress" Type="int" />
+        </EntityType>
+        <EntityType Name="Operators">
+          <Key>
+            <PropertyRef Name="IdOperator" />
+          </Key>
+          <Property Name="IdOperator" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdUser" Type="int" Nullable="false" />
+          <Property Name="MainOperator" Type="bit" Nullable="false" />
+          <Property Name="ModifyingNews" Type="bit" Nullable="false" />
+          <Property Name="ModifyingMailing" Type="bit" Nullable="false" />
+          <Property Name="Comment" Type="text" />
+          <Property Name="IdentifierSubscriber" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PhysicalPersons">
+          <Key>
+            <PropertyRef Name="IdPhysicalPerson" />
+          </Key>
+          <Property Name="IdPhysicalPerson" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdCertificate" Type="int" />
+          <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="MidleName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="INN" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="IdentifierSubscriber" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="IdAddress" Type="int" />
+        </EntityType>
+        <EntityType Name="Regions">
+          <Key>
+            <PropertyRef Name="IdRegion" />
+          </Key>
+          <Property Name="IdRegion" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Code" Type="nvarchar(max)" />
+          <Property Name="Comment" Type="text" />
+        </EntityType>
+        <EntityType Name="RelateDocuments">
+          <Key>
+            <PropertyRef Name="IdRelateDocument" />
+          </Key>
+          <Property Name="IdRelateDocument" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdMainDocument" Type="int" Nullable="false" />
+          <Property Name="Idchildren" Type="int" Nullable="false" />
+          <Property Name="Comment" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="SoleTraders">
+          <Key>
+            <PropertyRef Name="IdSoleTrader" />
+          </Key>
+          <Property Name="IdSoleTrader" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdCertificate" Type="int" />
+          <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="MidleName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="INN" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="OGRN" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IdIFNS" Type="int" Nullable="false" />
+          <Property Name="ContactFaceFirstName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ContactFaceMidleName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ContactFaceLastName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="IdentifierSubscriber" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="IdAddress" Type="int" />
+        </EntityType>
+        <EntityType Name="Subscribers">
+          <Key>
+            <PropertyRef Name="IdentifierSubscriber" />
+          </Key>
+          <Property Name="IdentifierSubscriber" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="TypeElementAbonent" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Requisites" Type="nvarchar(max)" />
+          <Property Name="Comment" Type="text" />
+          <Property Name="AccessFormalizedDocuments" Type="bit" />
+          <Property Name="AccessUnformalizedDocuments" Type="bit" />
+          <Property Name="TypeGroupElectricity" Type="int" />
+          <Property Name="AccessElectricityPrimaryDocuments" Type="bit" />
+          <Property Name="AccessElectricityForm80020" Type="bit" />
+          <Property Name="AccessElectricityForm16" Type="bit" />
+          <Property Name="AccessFormalizedDocumentsAmount" Type="int" />
+          <Property Name="AccessFormalizedDocumentsDateStart" Type="datetime" />
+          <Property Name="AccessFormalizedDocumentsDateEnd" Type="datetime" />
+          <Property Name="AccessUnformalizedDocumentsAmount" Type="int" />
+          <Property Name="AccessUnformalizedDocumentsDateStart" Type="datetime" />
+          <Property Name="AccessUnformalizedDocumentsDateEnd" Type="datetime" />
+          <Property Name="AccessElectricityPrimaryDocumentsDateStart" Type="datetime" />
+          <Property Name="AccessElectricityPrimaryDocumentsDateEnd" Type="datetime" />
+          <Property Name="AccessElectricityForm80020Amount" Type="int" />
+          <Property Name="AccessElectricityForm80020DateStart" Type="datetime" />
+          <Property Name="AccessElectricityForm80020DateEnd" Type="datetime" />
+          <Property Name="AccessElectricityForm16Amount" Type="int" />
+          <Property Name="AccessElectricityForm16DateStart" Type="datetime" />
+          <Property Name="AccessElectricityForm16DateEnd" Type="datetime" />
+        </EntityType>
+        <EntityType Name="SubscribersCodesEnergySales">
+          <Key>
+            <PropertyRef Name="IdCodeEnergySales" />
+          </Key>
+          <Property Name="IdCodeEnergySales" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="idSubdivision" Type="int" Nullable="false" />
+          <Property Name="Code" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Comment" Type="text" />
+        </EntityType>
+        <EntityType Name="SubscribersCodesGridCompany">
+          <Key>
+            <PropertyRef Name="IdCodeGridCompany" />
+          </Key>
+          <Property Name="IdCodeGridCompany" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="idSubdivision" Type="int" Nullable="false" />
+          <Property Name="Code" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Comment" Type="text" />
+        </EntityType>
+        <EntityType Name="SubscribersConnectEnergySales">
+          <Key>
+            <PropertyRef Name="IdSubscribersConnectEnergySales" />
+          </Key>
+          <Property Name="IdSubscribersConnectEnergySales" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="idSubdivisionEnergySales" Type="int" Nullable="false" />
+          <Property Name="Comment" Type="text" />
+          <Property Name="IdentifierSubscriber" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SubscribersConnectGridCompany">
+          <Key>
+            <PropertyRef Name="IdSubscribersConnectGridCompany" />
+          </Key>
+          <Property Name="IdSubscribersConnectGridCompany" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="idSubdivisionGridCompany" Type="int" Nullable="false" />
+          <Property Name="Comment" Type="text" />
+          <Property Name="IdentifierSubscriber" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SubscribersContracts">
+          <Key>
+            <PropertyRef Name="IdContractSubscriber" />
+          </Key>
+          <Property Name="IdContractSubscriber" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NumberContract" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Comment" Type="text" />
+          <Property Name="IdentifierSubscriber" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SubscribersEnumerator">
+          <Key>
+            <PropertyRef Name="IdEnumerator" />
+          </Key>
+          <Property Name="IdEnumerator" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdContractSubscriber" Type="int" Nullable="false" />
+          <Property Name="Code" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Comment" Type="text" />
+        </EntityType>
+        <EntityType Name="SubscribersSubdivision">
+          <Key>
+            <PropertyRef Name="idSubdivision" />
+          </Key>
+          <Property Name="idSubdivision" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SubdivisionName" Type="nvarchar(max)" />
+          <Property Name="IdParent" Type="int" />
+          <Property Name="Comment" Type="text" />
+          <Property Name="SubdivisionCode" Type="nvarchar(max)" />
+          <Property Name="IdentifierSubscriber" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="IdAddress" Type="int" />
+        </EntityType>
+        <EntityType Name="SubscribersUserList">
+          <Key>
+            <PropertyRef Name="IdUsersList" />
+          </Key>
+          <Property Name="IdUsersList" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdUser" Type="int" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="Comment" Type="text" />
+          <Property Name="IdSubdivision" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SubscribesLog">
+          <Key>
+            <PropertyRef Name="IdSubscriberLog" />
+          </Key>
+          <Property Name="IdSubscriberLog" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdentifierSubscriber" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="IdUserEditor" Type="int" Nullable="false" />
+          <Property Name="DateEdit" Type="datetime" />
+          <Property Name="TextEdit" Type="text" />
+          <Property Name="IdentifierSubscriberEditor" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="NameSubscriberEditor" Type="nvarchar(max)" />
+          <Property Name="NameUserEditor" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="IdUser" />
+          </Key>
+          <Property Name="IdUser" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="nvarchar(max)" />
+          <Property Name="MidleName" Type="nvarchar(max)" />
+          <Property Name="LastName" Type="nvarchar(max)" />
+          <Property Name="Login" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="Comment" Type="text" />
+          <Property Name="IdCertificate" Type="int" />
+          <Property Name="IdentifierSubscriberDefault" Type="nvarchar" MaxLength="50" />
+          <Property Name="NoticesIncomingContractors" Type="bit" />
+          <Property Name="NoticesOutContractors" Type="bit" />
+          <Property Name="NoticesNews" Type="bit" />
+          <Property Name="NoticesEnergyConsumptionPrimaryDocuments" Type="bit" />
+          <Property Name="NoticesEnergyConsumptionMaquettes16" Type="bit" />
+          <Property Name="NoticesEnergyConsumptionMaquettes80020" Type="bit" />
+          <Property Name="NoticesInDoc" Type="bit" />
+          <Property Name="NoticesOutDoc" Type="bit" />
+          <Property Name="NoticesInMessages" Type="bit" />
+          <Property Name="NoticesOutMessages" Type="bit" />
+        </EntityType>
+        <Association Name="FK_Address_Countries">
+          <End Role="Countries" Type="Хранилище Is_EnergyModel.Countries" Multiplicity="0..1" />
+          <End Role="Address" Type="Хранилище Is_EnergyModel.Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Countries">
+              <PropertyRef Name="IdCountry" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="OtherCountry_IdCountry" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Address_Regions">
+          <End Role="Regions" Type="Хранилище Is_EnergyModel.Regions" Multiplicity="0..1" />
+          <End Role="Address" Type="Хранилище Is_EnergyModel.Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Regions">
+              <PropertyRef Name="IdRegion" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="RF_IdRegion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Administrators_Subscribers">
+          <End Role="Subscribers" Type="Хранилище Is_EnergyModel.Subscribers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Administrators" Type="Хранилище Is_EnergyModel.Administrators" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subscribers">
+              <PropertyRef Name="IdentifierSubscriber" />
+            </Principal>
+            <Dependent Role="Administrators">
+              <PropertyRef Name="IdentifierSubscriber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Administrators_Users">
+          <End Role="Users" Type="Хранилище Is_EnergyModel.Users" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Administrators" Type="Хранилище Is_EnergyModel.Administrators" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="IdUser" />
+            </Principal>
+            <Dependent Role="Administrators">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contractors_Subscribers">
+          <End Role="Subscribers" Type="Хранилище Is_EnergyModel.Subscribers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Contractors" Type="Хранилище Is_EnergyModel.Contractors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subscribers">
+              <PropertyRef Name="IdentifierSubscriber" />
+            </Principal>
+            <Dependent Role="Contractors">
+              <PropertyRef Name="IdentifierSubscriber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DocumentFlow_Documents">
+          <End Role="Documents" Type="Хранилище Is_EnergyModel.Documents" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DocumentFlow" Type="Хранилище Is_EnergyModel.DocumentFlow" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Documents">
+              <PropertyRef Name="IdDocument" />
+            </Principal>
+            <Dependent Role="DocumentFlow">
+              <PropertyRef Name="IdDocumentMain" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DocumentsTemp_Users">
+          <End Role="Users" Type="Хранилище Is_EnergyModel.Users" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DocumentsTemp" Type="Хранилище Is_EnergyModel.DocumentsTemp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="IdUser" />
+            </Principal>
+            <Dependent Role="DocumentsTemp">
+              <PropertyRef Name="IdUserCreate" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LegalEnitiesUserList_LegalEnitiesSubdivision">
+          <End Role="SubscribersSubdivision" Type="Хранилище Is_EnergyModel.SubscribersSubdivision" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SubscribersUserList" Type="Хранилище Is_EnergyModel.SubscribersUserList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubscribersSubdivision">
+              <PropertyRef Name="idSubdivision" />
+            </Principal>
+            <Dependent Role="SubscribersUserList">
+              <PropertyRef Name="IdSubdivision" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LegalEnitiesUserList_Users">
+          <End Role="Users" Type="Хранилище Is_EnergyModel.Users" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SubscribersUserList" Type="Хранилище Is_EnergyModel.SubscribersUserList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="IdUser" />
+            </Principal>
+            <Dependent Role="SubscribersUserList">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LegalEntities_Address">
+          <End Role="Address" Type="Хранилище Is_EnergyModel.Address" Multiplicity="0..1" />
+          <End Role="LegalEntities" Type="Хранилище Is_EnergyModel.LegalEntities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="IdAddress" />
+            </Principal>
+            <Dependent Role="LegalEntities">
+              <PropertyRef Name="IdAddress" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LegalEntities_Certificates">
+          <End Role="Certificates" Type="Хранилище Is_EnergyModel.Certificates" Multiplicity="0..1" />
+          <End Role="LegalEntities" Type="Хранилище Is_EnergyModel.LegalEntities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Certificates">
+              <PropertyRef Name="IdCertificate" />
+            </Principal>
+            <Dependent Role="LegalEntities">
+              <PropertyRef Name="IdCertificate" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LegalEntities_IFNS">
+          <End Role="IFNS" Type="Хранилище Is_EnergyModel.IFNS" Multiplicity="1" />
+          <End Role="LegalEntities" Type="Хранилище Is_EnergyModel.LegalEntities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IFNS">
+              <PropertyRef Name="IdIFNS" />
+            </Principal>
+            <Dependent Role="LegalEntities">
+              <PropertyRef Name="IdIFNS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LegalEntities_Subscribers">
+          <End Role="Subscribers" Type="Хранилище Is_EnergyModel.Subscribers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="LegalEntities" Type="Хранилище Is_EnergyModel.LegalEntities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subscribers">
+              <PropertyRef Name="IdentifierSubscriber" />
+            </Principal>
+            <Dependent Role="LegalEntities">
+              <PropertyRef Name="IdentifierSubscriber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Operators_Subscribers">
+          <End Role="Subscribers" Type="Хранилище Is_EnergyModel.Subscribers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Operators" Type="Хранилище Is_EnergyModel.Operators" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subscribers">
+              <PropertyRef Name="IdentifierSubscriber" />
+            </Principal>
+            <Dependent Role="Operators">
+              <PropertyRef Name="IdentifierSubscriber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Operators_Users">
+          <End Role="Users" Type="Хранилище Is_EnergyModel.Users" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Operators" Type="Хранилище Is_EnergyModel.Operators" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="IdUser" />
+            </Principal>
+            <Dependent Role="Operators">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PhysicalPersons_Address">
+          <End Role="Address" Type="Хранилище Is_EnergyModel.Address" Multiplicity="0..1" />
+          <End Role="PhysicalPersons" Type="Хранилище Is_EnergyModel.PhysicalPersons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="IdAddress" />
+            </Principal>
+            <Dependent Role="PhysicalPersons">
+              <PropertyRef Name="IdAddress" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PhysicalPersons_Subscribers">
+          <End Role="Subscribers" Type="Хранилище Is_EnergyModel.Subscribers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PhysicalPersons" Type="Хранилище Is_EnergyModel.PhysicalPersons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subscribers">
+              <PropertyRef Name="IdentifierSubscriber" />
+            </Principal>
+            <Dependent Role="PhysicalPersons">
+              <PropertyRef Name="IdentifierSubscriber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RelateDocuments_Documents">
+          <End Role="Documents" Type="Хранилище Is_EnergyModel.Documents" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="RelateDocuments" Type="Хранилище Is_EnergyModel.RelateDocuments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Documents">
+              <PropertyRef Name="IdDocument" />
+            </Principal>
+            <Dependent Role="RelateDocuments">
+              <PropertyRef Name="IdMainDocument" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SoleTraders_Address">
+          <End Role="Address" Type="Хранилище Is_EnergyModel.Address" Multiplicity="0..1" />
+          <End Role="SoleTraders" Type="Хранилище Is_EnergyModel.SoleTraders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="IdAddress" />
+            </Principal>
+            <Dependent Role="SoleTraders">
+              <PropertyRef Name="IdAddress" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SoleTraders_Certificates">
+          <End Role="Certificates" Type="Хранилище Is_EnergyModel.Certificates" Multiplicity="0..1" />
+          <End Role="SoleTraders" Type="Хранилище Is_EnergyModel.SoleTraders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Certificates">
+              <PropertyRef Name="IdCertificate" />
+            </Principal>
+            <Dependent Role="SoleTraders">
+              <PropertyRef Name="IdCertificate" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SoleTraders_IFNS">
+          <End Role="IFNS" Type="Хранилище Is_EnergyModel.IFNS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SoleTraders" Type="Хранилище Is_EnergyModel.SoleTraders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IFNS">
+              <PropertyRef Name="IdIFNS" />
+            </Principal>
+            <Dependent Role="SoleTraders">
+              <PropertyRef Name="IdIFNS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SoleTraders_Subscribers">
+          <End Role="Subscribers" Type="Хранилище Is_EnergyModel.Subscribers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SoleTraders" Type="Хранилище Is_EnergyModel.SoleTraders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subscribers">
+              <PropertyRef Name="IdentifierSubscriber" />
+            </Principal>
+            <Dependent Role="SoleTraders">
+              <PropertyRef Name="IdentifierSubscriber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubscribersCodesEnergySales_SubscribersSubdivision">
+          <End Role="SubscribersSubdivision" Type="Хранилище Is_EnergyModel.SubscribersSubdivision" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SubscribersCodesEnergySales" Type="Хранилище Is_EnergyModel.SubscribersCodesEnergySales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubscribersSubdivision">
+              <PropertyRef Name="idSubdivision" />
+            </Principal>
+            <Dependent Role="SubscribersCodesEnergySales">
+              <PropertyRef Name="idSubdivision" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubscribersCodesGridCompany_SubscribersSubdivision">
+          <End Role="SubscribersSubdivision" Type="Хранилище Is_EnergyModel.SubscribersSubdivision" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SubscribersCodesGridCompany" Type="Хранилище Is_EnergyModel.SubscribersCodesGridCompany" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubscribersSubdivision">
+              <PropertyRef Name="idSubdivision" />
+            </Principal>
+            <Dependent Role="SubscribersCodesGridCompany">
+              <PropertyRef Name="idSubdivision" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubscribersConnectEnergySales_Subscribers">
+          <End Role="Subscribers" Type="Хранилище Is_EnergyModel.Subscribers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SubscribersConnectEnergySales" Type="Хранилище Is_EnergyModel.SubscribersConnectEnergySales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subscribers">
+              <PropertyRef Name="IdentifierSubscriber" />
+            </Principal>
+            <Dependent Role="SubscribersConnectEnergySales">
+              <PropertyRef Name="IdentifierSubscriber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubscribersConnectGridCompany_Subscribers">
+          <End Role="Subscribers" Type="Хранилище Is_EnergyModel.Subscribers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SubscribersConnectGridCompany" Type="Хранилище Is_EnergyModel.SubscribersConnectGridCompany" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subscribers">
+              <PropertyRef Name="IdentifierSubscriber" />
+            </Principal>
+            <Dependent Role="SubscribersConnectGridCompany">
+              <PropertyRef Name="IdentifierSubscriber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubscribersContracts_Subscribers">
+          <End Role="Subscribers" Type="Хранилище Is_EnergyModel.Subscribers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SubscribersContracts" Type="Хранилище Is_EnergyModel.SubscribersContracts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subscribers">
+              <PropertyRef Name="IdentifierSubscriber" />
+            </Principal>
+            <Dependent Role="SubscribersContracts">
+              <PropertyRef Name="IdentifierSubscriber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubscribersEnumerator_SubscribersContracts">
+          <End Role="SubscribersContracts" Type="Хранилище Is_EnergyModel.SubscribersContracts" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SubscribersEnumerator" Type="Хранилище Is_EnergyModel.SubscribersEnumerator" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubscribersContracts">
+              <PropertyRef Name="IdContractSubscriber" />
+            </Principal>
+            <Dependent Role="SubscribersEnumerator">
+              <PropertyRef Name="IdContractSubscriber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubscribersSubdivision_Address">
+          <End Role="Address" Type="Хранилище Is_EnergyModel.Address" Multiplicity="0..1" />
+          <End Role="SubscribersSubdivision" Type="Хранилище Is_EnergyModel.SubscribersSubdivision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="IdAddress" />
+            </Principal>
+            <Dependent Role="SubscribersSubdivision">
+              <PropertyRef Name="IdAddress" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubscribersSubdivision_Subscribers">
+          <End Role="Subscribers" Type="Хранилище Is_EnergyModel.Subscribers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SubscribersSubdivision" Type="Хранилище Is_EnergyModel.SubscribersSubdivision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subscribers">
+              <PropertyRef Name="IdentifierSubscriber" />
+            </Principal>
+            <Dependent Role="SubscribersSubdivision">
+              <PropertyRef Name="IdentifierSubscriber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubscribesLog_Subscribers">
+          <End Role="Subscribers" Type="Хранилище Is_EnergyModel.Subscribers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SubscribesLog" Type="Хранилище Is_EnergyModel.SubscribesLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subscribers">
+              <PropertyRef Name="IdentifierSubscriber" />
+            </Principal>
+            <Dependent Role="SubscribesLog">
+              <PropertyRef Name="IdentifierSubscriber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Certificates">
+          <End Role="Certificates" Type="Хранилище Is_EnergyModel.Certificates" Multiplicity="0..1" />
+          <End Role="Users" Type="Хранилище Is_EnergyModel.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Certificates">
+              <PropertyRef Name="IdCertificate" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="IdCertificate" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Is_EnergyModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Is_EnergyEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Address" EntityType="Is_EnergyModel.Address" />
+          <EntitySet Name="Administrators" EntityType="Is_EnergyModel.Administrators" />
+          <EntitySet Name="Certificates" EntityType="Is_EnergyModel.Certificates" />
+          <EntitySet Name="Cities" EntityType="Is_EnergyModel.Cities" />
+          <EntitySet Name="Countries" EntityType="Is_EnergyModel.Countries" />
+          <EntitySet Name="IFNS" EntityType="Is_EnergyModel.IFNS" />
+          <EntitySet Name="LegalEntities" EntityType="Is_EnergyModel.LegalEntities" />
+          <EntitySet Name="Operators" EntityType="Is_EnergyModel.Operators" />
+          <EntitySet Name="PhysicalPersons" EntityType="Is_EnergyModel.PhysicalPersons" />
+          <EntitySet Name="Regions" EntityType="Is_EnergyModel.Regions" />
+          <EntitySet Name="RelateDocuments" EntityType="Is_EnergyModel.RelateDocuments" />
+          <EntitySet Name="SoleTraders" EntityType="Is_EnergyModel.SoleTraders" />
+          <EntitySet Name="Subscribers" EntityType="Is_EnergyModel.Subscribers" />
+          <EntitySet Name="SubscribersCodesEnergySales" EntityType="Is_EnergyModel.SubscribersCodesEnergySales" />
+          <EntitySet Name="SubscribersCodesGridCompany" EntityType="Is_EnergyModel.SubscribersCodesGridCompany" />
+          <EntitySet Name="SubscribersConnectEnergySales" EntityType="Is_EnergyModel.SubscribersConnectEnergySales" />
+          <EntitySet Name="SubscribersConnectGridCompany" EntityType="Is_EnergyModel.SubscribersConnectGridCompany" />
+          <EntitySet Name="SubscribersContracts" EntityType="Is_EnergyModel.SubscribersContracts" />
+          <EntitySet Name="SubscribersEnumerator" EntityType="Is_EnergyModel.SubscribersEnumerator" />
+          <EntitySet Name="SubscribersSubdivision" EntityType="Is_EnergyModel.SubscribersSubdivision" />
+          <EntitySet Name="SubscribersUserList" EntityType="Is_EnergyModel.SubscribersUserList" />
+          <EntitySet Name="Users" EntityType="Is_EnergyModel.Users" />
+          <AssociationSet Name="FK_Address_Countries" Association="Is_EnergyModel.FK_Address_Countries">
+            <End Role="Countries" EntitySet="Countries" />
+            <End Role="Address" EntitySet="Address" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Address_Regions" Association="Is_EnergyModel.FK_Address_Regions">
+            <End Role="Regions" EntitySet="Regions" />
+            <End Role="Address" EntitySet="Address" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LegalEntities_Address" Association="Is_EnergyModel.FK_LegalEntities_Address">
+            <End Role="Address" EntitySet="Address" />
+            <End Role="LegalEntities" EntitySet="LegalEntities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhysicalPersons_Address" Association="Is_EnergyModel.FK_PhysicalPersons_Address">
+            <End Role="Address" EntitySet="Address" />
+            <End Role="PhysicalPersons" EntitySet="PhysicalPersons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SoleTraders_Address" Association="Is_EnergyModel.FK_SoleTraders_Address">
+            <End Role="Address" EntitySet="Address" />
+            <End Role="SoleTraders" EntitySet="SoleTraders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubscribersSubdivision_Address" Association="Is_EnergyModel.FK_SubscribersSubdivision_Address">
+            <End Role="Address" EntitySet="Address" />
+            <End Role="SubscribersSubdivision" EntitySet="SubscribersSubdivision" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Administrators_Subscribers" Association="Is_EnergyModel.FK_Administrators_Subscribers">
+            <End Role="Subscribers" EntitySet="Subscribers" />
+            <End Role="Administrators" EntitySet="Administrators" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Administrators_Users" Association="Is_EnergyModel.FK_Administrators_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Administrators" EntitySet="Administrators" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LegalEntities_Certificates" Association="Is_EnergyModel.FK_LegalEntities_Certificates">
+            <End Role="Certificates" EntitySet="Certificates" />
+            <End Role="LegalEntities" EntitySet="LegalEntities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Certificates" Association="Is_EnergyModel.FK_Users_Certificates">
+            <End Role="Certificates" EntitySet="Certificates" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LegalEntities_IFNS" Association="Is_EnergyModel.FK_LegalEntities_IFNS">
+            <End Role="IFNS" EntitySet="IFNS" />
+            <End Role="LegalEntities" EntitySet="LegalEntities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SoleTraders_IFNS" Association="Is_EnergyModel.FK_SoleTraders_IFNS">
+            <End Role="IFNS" EntitySet="IFNS" />
+            <End Role="SoleTraders" EntitySet="SoleTraders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LegalEntities_Subscribers" Association="Is_EnergyModel.FK_LegalEntities_Subscribers">
+            <End Role="Subscribers" EntitySet="Subscribers" />
+            <End Role="LegalEntities" EntitySet="LegalEntities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Operators_Subscribers" Association="Is_EnergyModel.FK_Operators_Subscribers">
+            <End Role="Subscribers" EntitySet="Subscribers" />
+            <End Role="Operators" EntitySet="Operators" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Operators_Users" Association="Is_EnergyModel.FK_Operators_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Operators" EntitySet="Operators" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhysicalPersons_Subscribers" Association="Is_EnergyModel.FK_PhysicalPersons_Subscribers">
+            <End Role="Subscribers" EntitySet="Subscribers" />
+            <End Role="PhysicalPersons" EntitySet="PhysicalPersons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SoleTraders_Subscribers" Association="Is_EnergyModel.FK_SoleTraders_Subscribers">
+            <End Role="Subscribers" EntitySet="Subscribers" />
+            <End Role="SoleTraders" EntitySet="SoleTraders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubscribersConnectEnergySales_Subscribers" Association="Is_EnergyModel.FK_SubscribersConnectEnergySales_Subscribers">
+            <End Role="Subscribers" EntitySet="Subscribers" />
+            <End Role="SubscribersConnectEnergySales" EntitySet="SubscribersConnectEnergySales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubscribersConnectGridCompany_Subscribers" Association="Is_EnergyModel.FK_SubscribersConnectGridCompany_Subscribers">
+            <End Role="Subscribers" EntitySet="Subscribers" />
+            <End Role="SubscribersConnectGridCompany" EntitySet="SubscribersConnectGridCompany" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubscribersContracts_Subscribers" Association="Is_EnergyModel.FK_SubscribersContracts_Subscribers">
+            <End Role="Subscribers" EntitySet="Subscribers" />
+            <End Role="SubscribersContracts" EntitySet="SubscribersContracts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubscribersSubdivision_Subscribers" Association="Is_EnergyModel.FK_SubscribersSubdivision_Subscribers">
+            <End Role="Subscribers" EntitySet="Subscribers" />
+            <End Role="SubscribersSubdivision" EntitySet="SubscribersSubdivision" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubscribersCodesEnergySales_SubscribersSubdivision" Association="Is_EnergyModel.FK_SubscribersCodesEnergySales_SubscribersSubdivision">
+            <End Role="SubscribersSubdivision" EntitySet="SubscribersSubdivision" />
+            <End Role="SubscribersCodesEnergySales" EntitySet="SubscribersCodesEnergySales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubscribersCodesGridCompany_SubscribersSubdivision" Association="Is_EnergyModel.FK_SubscribersCodesGridCompany_SubscribersSubdivision">
+            <End Role="SubscribersSubdivision" EntitySet="SubscribersSubdivision" />
+            <End Role="SubscribersCodesGridCompany" EntitySet="SubscribersCodesGridCompany" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubscribersEnumerator_SubscribersContracts" Association="Is_EnergyModel.FK_SubscribersEnumerator_SubscribersContracts">
+            <End Role="SubscribersContracts" EntitySet="SubscribersContracts" />
+            <End Role="SubscribersEnumerator" EntitySet="SubscribersEnumerator" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LegalEnitiesUserList_LegalEnitiesSubdivision" Association="Is_EnergyModel.FK_LegalEnitiesUserList_LegalEnitiesSubdivision">
+            <End Role="SubscribersSubdivision" EntitySet="SubscribersSubdivision" />
+            <End Role="SubscribersUserList" EntitySet="SubscribersUserList" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LegalEnitiesUserList_Users" Association="Is_EnergyModel.FK_LegalEnitiesUserList_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="SubscribersUserList" EntitySet="SubscribersUserList" />
+          </AssociationSet>
+          <EntitySet Name="SubscribesLog" EntityType="Is_EnergyModel.SubscribesLog" />
+          <AssociationSet Name="FK_SubscribesLog_Subscribers" Association="Is_EnergyModel.FK_SubscribesLog_Subscribers">
+            <End Role="Subscribers" EntitySet="Subscribers" />
+            <End Role="SubscribesLog" EntitySet="SubscribesLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SoleTraders_Certificates" Association="Is_EnergyModel.FK_SoleTraders_Certificates">
+            <End Role="Certificates" EntitySet="Certificates" />
+            <End Role="SoleTraders" EntitySet="SoleTraders" />
+          </AssociationSet>
+          <EntitySet Name="Documents" EntityType="Is_EnergyModel.Documents" />
+          <EntitySet Name="DocumentsTemp" EntityType="Is_EnergyModel.DocumentsTemp" />
+          <AssociationSet Name="FK_RelateDocuments_Documents" Association="Is_EnergyModel.FK_RelateDocuments_Documents">
+            <End Role="Documents" EntitySet="Documents" />
+            <End Role="RelateDocuments" EntitySet="RelateDocuments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DocumentsTemp_Users" Association="Is_EnergyModel.FK_DocumentsTemp_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="DocumentsTemp" EntitySet="DocumentsTemp" />
+          </AssociationSet>
+          <EntitySet Name="DocumentFlow" EntityType="Is_EnergyModel.DocumentFlow" />
+          <AssociationSet Name="FK_DocumentFlow_Documents" Association="Is_EnergyModel.FK_DocumentFlow_Documents">
+            <End Role="Documents" EntitySet="Documents" />
+            <End Role="DocumentFlow" EntitySet="DocumentFlow" />
+          </AssociationSet>
+          <EntitySet Name="Contractors" EntityType="Is_EnergyModel.Contractors" />
+          <AssociationSet Name="FK_Contractors_Subscribers" Association="Is_EnergyModel.FK_Contractors_Subscribers">
+            <End Role="Subscribers" EntitySet="Subscribers" />
+            <End Role="Contractors" EntitySet="Contractors" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="IdAddress" />
+          </Key>
+          <Property Type="Int32" Name="IdAddress" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="TypeAddress" Nullable="false" />
+          <Property Type="String" Name="RF_Index" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="RF_IdRegion" />
+          <Property Type="String" Name="RF_Area" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RF_City" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RF_localityCity" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RF_Street" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RF_Home" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RF_Housing" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RF_OfficeOrApartment" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="OtherCountry_Address" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="OtherCountry_IdCountry" />
+          <Property Type="String" Name="AddressShort" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Countries" Relationship="Is_EnergyModel.FK_Address_Countries" FromRole="Address" ToRole="Countries" />
+          <NavigationProperty Name="Regions" Relationship="Is_EnergyModel.FK_Address_Regions" FromRole="Address" ToRole="Regions" />
+          <NavigationProperty Name="LegalEntities" Relationship="Is_EnergyModel.FK_LegalEntities_Address" FromRole="Address" ToRole="LegalEntities" />
+          <NavigationProperty Name="PhysicalPersons" Relationship="Is_EnergyModel.FK_PhysicalPersons_Address" FromRole="Address" ToRole="PhysicalPersons" />
+          <NavigationProperty Name="SoleTraders" Relationship="Is_EnergyModel.FK_SoleTraders_Address" FromRole="Address" ToRole="SoleTraders" />
+          <NavigationProperty Name="SubscribersSubdivision" Relationship="Is_EnergyModel.FK_SubscribersSubdivision_Address" FromRole="Address" ToRole="SubscribersSubdivision" />
+        </EntityType>
+        <EntityType Name="Administrators">
+          <Key>
+            <PropertyRef Name="IdAdministrator" />
+          </Key>
+          <Property Type="Int32" Name="IdAdministrator" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="IdUser" Nullable="false" />
+          <Property Type="Boolean" Name="MainAdministrators" Nullable="false" />
+          <Property Type="Boolean" Name="ModifyingAdministrators" Nullable="false" />
+          <Property Type="Boolean" Name="ModifyingOperators" Nullable="false" />
+          <Property Type="Boolean" Name="ModifyingNews" Nullable="false" />
+          <Property Type="Boolean" Name="ModifyingMailing" Nullable="false" />
+          <Property Type="String" Name="Comment" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdentifierSubscriber" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Subscribers" Relationship="Is_EnergyModel.FK_Administrators_Subscribers" FromRole="Administrators" ToRole="Subscribers" />
+          <NavigationProperty Name="Users" Relationship="Is_EnergyModel.FK_Administrators_Users" FromRole="Administrators" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Certificates">
+          <Key>
+            <PropertyRef Name="IdCertificate" />
+          </Key>
+          <Property Type="Int32" Name="IdCertificate" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="CertificateSerialNumber" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="CertificateValidFrom" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="CertificateValidUntil" Nullable="false" Precision="3" />
+          <Property Type="String" Name="CertificateSubjectFIO" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Binary" Name="CertificateFile" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Type="String" Name="PublisherCertificate" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="IdUser" />
+          <Property Type="String" Name="CertificateSubject" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="LegalEntities" Relationship="Is_EnergyModel.FK_LegalEntities_Certificates" FromRole="Certificates" ToRole="LegalEntities" />
+          <NavigationProperty Name="Users" Relationship="Is_EnergyModel.FK_Users_Certificates" FromRole="Certificates" ToRole="Users" />
+          <NavigationProperty Name="SoleTraders" Relationship="Is_EnergyModel.FK_SoleTraders_Certificates" FromRole="Certificates" ToRole="SoleTraders" />
+          <Property Type="String" Name="CertificateCN" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Cities">
+          <Key>
+            <PropertyRef Name="IdCity" />
+          </Key>
+          <Property Type="Int32" Name="IdCity" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="IdRegion" />
+          <Property Type="String" Name="Comment" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Countries">
+          <Key>
+            <PropertyRef Name="IdCountry" />
+          </Key>
+          <Property Type="Int32" Name="IdCountry" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Code" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Comment" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Address" Relationship="Is_EnergyModel.FK_Address_Countries" FromRole="Countries" ToRole="Address" />
+        </EntityType>
+        <EntityType Name="IFNS">
+          <Key>
+            <PropertyRef Name="IdIFNS" />
+          </Key>
+          <Property Type="Int32" Name="IdIFNS" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Code" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="IdRegion" />
+          <Property Type="String" Name="Comment" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ShortName" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="LegalEntities" Relationship="Is_EnergyModel.FK_LegalEntities_IFNS" FromRole="IFNS" ToRole="LegalEntities" />
+          <NavigationProperty Name="SoleTraders" Relationship="Is_EnergyModel.FK_SoleTraders_IFNS" FromRole="IFNS" ToRole="SoleTraders" />
+        </EntityType>
+        <EntityType Name="LegalEntities">
+          <Key>
+            <PropertyRef Name="IdOrganization" />
+          </Key>
+          <Property Type="Int32" Name="IdOrganization" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="IdCertificate" />
+          <Property Type="String" Name="NameOrganization" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="INN" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="KPP" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="OGRN" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ContactFaceFirstName" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ContactFaceMidleName" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ContactFaceLastName" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Phone" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="IdIFNS" Nullable="false" />
+          <Property Type="String" Name="IdentifierSubscriber" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="IdAddress" />
+          <NavigationProperty Name="Address" Relationship="Is_EnergyModel.FK_LegalEntities_Address" FromRole="LegalEntities" ToRole="Address" />
+          <NavigationProperty Name="Certificates" Relationship="Is_EnergyModel.FK_LegalEntities_Certificates" FromRole="LegalEntities" ToRole="Certificates" />
+          <NavigationProperty Name="IFNS" Relationship="Is_EnergyModel.FK_LegalEntities_IFNS" FromRole="LegalEntities" ToRole="IFNS" />
+          <NavigationProperty Name="Subscribers" Relationship="Is_EnergyModel.FK_LegalEntities_Subscribers" FromRole="LegalEntities" ToRole="Subscribers" />
+        </EntityType>
+        <EntityType Name="Operators">
+          <Key>
+            <PropertyRef Name="IdOperator" />
+          </Key>
+          <Property Type="Int32" Name="IdOperator" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="IdUser" Nullable="false" />
+          <Property Type="Boolean" Name="MainOperator" Nullable="false" />
+          <Property Type="Boolean" Name="ModifyingNews" Nullable="false" />
+          <Property Type="Boolean" Name="ModifyingMailing" Nullable="false" />
+          <Property Type="String" Name="Comment" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdentifierSubscriber" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Subscribers" Relationship="Is_EnergyModel.FK_Operators_Subscribers" FromRole="Operators" ToRole="Subscribers" />
+          <NavigationProperty Name="Users" Relationship="Is_EnergyModel.FK_Operators_Users" FromRole="Operators" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="PhysicalPersons">
+          <Key>
+            <PropertyRef Name="IdPhysicalPerson" />
+          </Key>
+          <Property Type="Int32" Name="IdPhysicalPerson" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="IdCertificate" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MidleName" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LastName" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="INN" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Phone" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="IdentifierSubscriber" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="IdAddress" />
+          <NavigationProperty Name="Address" Relationship="Is_EnergyModel.FK_PhysicalPersons_Address" FromRole="PhysicalPersons" ToRole="Address" />
+          <NavigationProperty Name="Subscribers" Relationship="Is_EnergyModel.FK_PhysicalPersons_Subscribers" FromRole="PhysicalPersons" ToRole="Subscribers" />
+        </EntityType>
+        <EntityType Name="Regions">
+          <Key>
+            <PropertyRef Name="IdRegion" />
+          </Key>
+          <Property Type="Int32" Name="IdRegion" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Code" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Comment" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Address" Relationship="Is_EnergyModel.FK_Address_Regions" FromRole="Regions" ToRole="Address" />
+        </EntityType>
+        <EntityType Name="RelateDocuments">
+          <Key>
+            <PropertyRef Name="IdRelateDocument" />
+          </Key>
+          <Property Type="Int32" Name="IdRelateDocument" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="IdMainDocument" Nullable="false" />
+          <Property Type="Int32" Name="Idchildren" Nullable="false" />
+          <Property Type="String" Name="Comment" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Documents" Relationship="Is_EnergyModel.FK_RelateDocuments_Documents" FromRole="RelateDocuments" ToRole="Documents" />
+        </EntityType>
+        <EntityType Name="SoleTraders">
+          <Key>
+            <PropertyRef Name="IdSoleTrader" />
+          </Key>
+          <Property Type="Int32" Name="IdSoleTrader" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="IdCertificate" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MidleName" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LastName" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="INN" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="OGRN" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="IdIFNS" Nullable="false" />
+          <Property Type="String" Name="ContactFaceFirstName" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ContactFaceMidleName" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ContactFaceLastName" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Phone" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="IdentifierSubscriber" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="IdAddress" />
+          <NavigationProperty Name="Address" Relationship="Is_EnergyModel.FK_SoleTraders_Address" FromRole="SoleTraders" ToRole="Address" />
+          <NavigationProperty Name="IFNS" Relationship="Is_EnergyModel.FK_SoleTraders_IFNS" FromRole="SoleTraders" ToRole="IFNS" />
+          <NavigationProperty Name="Subscribers" Relationship="Is_EnergyModel.FK_SoleTraders_Subscribers" FromRole="SoleTraders" ToRole="Subscribers" />
+          <NavigationProperty Name="Certificates" Relationship="Is_EnergyModel.FK_SoleTraders_Certificates" FromRole="SoleTraders" ToRole="Certificates" />
+        </EntityType>
+        <EntityType Name="Subscribers">
+          <Key>
+            <PropertyRef Name="IdentifierSubscriber" />
+          </Key>
+          <Property Type="String" Name="IdentifierSubscriber" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="TypeElementAbonent" Nullable="false" />
+          <Property Type="String" Name="Name" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Requisites" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Comment" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="AccessFormalizedDocuments" />
+          <Property Type="Boolean" Name="AccessUnformalizedDocuments" />
+          <Property Type="Int32" Name="TypeGroupElectricity" />
+          <Property Type="Boolean" Name="AccessElectricityPrimaryDocuments" />
+          <Property Type="Boolean" Name="AccessElectricityForm80020" />
+          <Property Type="Boolean" Name="AccessElectricityForm16" />
+          <Property Type="Int32" Name="AccessFormalizedDocumentsAmount" />
+          <Property Type="DateTime" Name="AccessFormalizedDocumentsDateStart" Precision="3" />
+          <Property Type="DateTime" Name="AccessFormalizedDocumentsDateEnd" Precision="3" />
+          <Property Type="Int32" Name="AccessUnformalizedDocumentsAmount" />
+          <Property Type="DateTime" Name="AccessUnformalizedDocumentsDateStart" Precision="3" />
+          <Property Type="DateTime" Name="AccessUnformalizedDocumentsDateEnd" Precision="3" />
+          <Property Type="DateTime" Name="AccessElectricityPrimaryDocumentsDateStart" Precision="3" />
+          <Property Type="DateTime" Name="AccessElectricityPrimaryDocumentsDateEnd" Precision="3" />
+          <Property Type="Int32" Name="AccessElectricityForm80020Amount" />
+          <Property Type="DateTime" Name="AccessElectricityForm80020DateStart" Precision="3" />
+          <Property Type="DateTime" Name="AccessElectricityForm80020DateEnd" Precision="3" />
+          <Property Type="Int32" Name="AccessElectricityForm16Amount" />
+          <Property Type="DateTime" Name="AccessElectricityForm16DateStart" Precision="3" />
+          <Property Type="DateTime" Name="AccessElectricityForm16DateEnd" Precision="3" />
+          <NavigationProperty Name="Administrators" Relationship="Is_EnergyModel.FK_Administrators_Subscribers" FromRole="Subscribers" ToRole="Administrators" />
+          <NavigationProperty Name="LegalEntities" Relationship="Is_EnergyModel.FK_LegalEntities_Subscribers" FromRole="Subscribers" ToRole="LegalEntities" />
+          <NavigationProperty Name="Operators" Relationship="Is_EnergyModel.FK_Operators_Subscribers" FromRole="Subscribers" ToRole="Operators" />
+          <NavigationProperty Name="PhysicalPersons" Relationship="Is_EnergyModel.FK_PhysicalPersons_Subscribers" FromRole="Subscribers" ToRole="PhysicalPersons" />
+          <NavigationProperty Name="SoleTraders" Relationship="Is_EnergyModel.FK_SoleTraders_Subscribers" FromRole="Subscribers" ToRole="SoleTraders" />
+          <NavigationProperty Name="SubscribersConnectEnergySales" Relationship="Is_EnergyModel.FK_SubscribersConnectEnergySales_Subscribers" FromRole="Subscribers" ToRole="SubscribersConnectEnergySales" />
+          <NavigationProperty Name="SubscribersConnectGridCompany" Relationship="Is_EnergyModel.FK_SubscribersConnectGridCompany_Subscribers" FromRole="Subscribers" ToRole="SubscribersConnectGridCompany" />
+          <NavigationProperty Name="SubscribersContracts" Relationship="Is_EnergyModel.FK_SubscribersContracts_Subscribers" FromRole="Subscribers" ToRole="SubscribersContracts" />
+          <NavigationProperty Name="SubscribersSubdivision" Relationship="Is_EnergyModel.FK_SubscribersSubdivision_Subscribers" FromRole="Subscribers" ToRole="SubscribersSubdivision" />
+          <NavigationProperty Name="SubscribesLog" Relationship="Is_EnergyModel.FK_SubscribesLog_Subscribers" FromRole="Subscribers" ToRole="SubscribesLog" />
+          <NavigationProperty Name="Contractors" Relationship="Is_EnergyModel.FK_Contractors_Subscribers" FromRole="Subscribers" ToRole="Contractors" />
+        </EntityType>
+        <EntityType Name="SubscribersCodesEnergySales">
+          <Key>
+            <PropertyRef Name="IdCodeEnergySales" />
+          </Key>
+          <Property Type="Int32" Name="IdCodeEnergySales" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="idSubdivision" Nullable="false" />
+          <Property Type="String" Name="Code" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Comment" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="SubscribersSubdivision" Relationship="Is_EnergyModel.FK_SubscribersCodesEnergySales_SubscribersSubdivision" FromRole="SubscribersCodesEnergySales" ToRole="SubscribersSubdivision" />
+        </EntityType>
+        <EntityType Name="SubscribersCodesGridCompany">
+          <Key>
+            <PropertyRef Name="IdCodeGridCompany" />
+          </Key>
+          <Property Type="Int32" Name="IdCodeGridCompany" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="idSubdivision" Nullable="false" />
+          <Property Type="String" Name="Code" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Comment" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="SubscribersSubdivision" Relationship="Is_EnergyModel.FK_SubscribersCodesGridCompany_SubscribersSubdivision" FromRole="SubscribersCodesGridCompany" ToRole="SubscribersSubdivision" />
+        </EntityType>
+        <EntityType Name="SubscribersConnectEnergySales">
+          <Key>
+            <PropertyRef Name="IdSubscribersConnectEnergySales" />
+          </Key>
+          <Property Type="Int32" Name="IdSubscribersConnectEnergySales" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="idSubdivisionEnergySales" Nullable="false" />
+          <Property Type="String" Name="Comment" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdentifierSubscriber" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Subscribers" Relationship="Is_EnergyModel.FK_SubscribersConnectEnergySales_Subscribers" FromRole="SubscribersConnectEnergySales" ToRole="Subscribers" />
+        </EntityType>
+        <EntityType Name="SubscribersConnectGridCompany">
+          <Key>
+            <PropertyRef Name="IdSubscribersConnectGridCompany" />
+          </Key>
+          <Property Type="Int32" Name="IdSubscribersConnectGridCompany" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="idSubdivisionGridCompany" Nullable="false" />
+          <Property Type="String" Name="Comment" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdentifierSubscriber" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Subscribers" Relationship="Is_EnergyModel.FK_SubscribersConnectGridCompany_Subscribers" FromRole="SubscribersConnectGridCompany" ToRole="Subscribers" />
+        </EntityType>
+        <EntityType Name="SubscribersContracts">
+          <Key>
+            <PropertyRef Name="IdContractSubscriber" />
+          </Key>
+          <Property Type="Int32" Name="IdContractSubscriber" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="NumberContract" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Comment" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdentifierSubscriber" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Subscribers" Relationship="Is_EnergyModel.FK_SubscribersContracts_Subscribers" FromRole="SubscribersContracts" ToRole="Subscribers" />
+          <NavigationProperty Name="SubscribersEnumerator" Relationship="Is_EnergyModel.FK_SubscribersEnumerator_SubscribersContracts" FromRole="SubscribersContracts" ToRole="SubscribersEnumerator" />
+        </EntityType>
+        <EntityType Name="SubscribersEnumerator">
+          <Key>
+            <PropertyRef Name="IdEnumerator" />
+          </Key>
+          <Property Type="Int32" Name="IdEnumerator" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="IdContractSubscriber" Nullable="false" />
+          <Property Type="String" Name="Code" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Comment" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="SubscribersContracts" Relationship="Is_EnergyModel.FK_SubscribersEnumerator_SubscribersContracts" FromRole="SubscribersEnumerator" ToRole="SubscribersContracts" />
+        </EntityType>
+        <EntityType Name="SubscribersSubdivision">
+          <Key>
+            <PropertyRef Name="idSubdivision" />
+          </Key>
+          <Property Type="Int32" Name="idSubdivision" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="SubdivisionName" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="IdParent" />
+          <Property Type="String" Name="Comment" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="SubdivisionCode" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="IdentifierSubscriber" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="IdAddress" />
+          <NavigationProperty Name="Address" Relationship="Is_EnergyModel.FK_SubscribersSubdivision_Address" FromRole="SubscribersSubdivision" ToRole="Address" />
+          <NavigationProperty Name="Subscribers" Relationship="Is_EnergyModel.FK_SubscribersSubdivision_Subscribers" FromRole="SubscribersSubdivision" ToRole="Subscribers" />
+          <NavigationProperty Name="SubscribersCodesEnergySales" Relationship="Is_EnergyModel.FK_SubscribersCodesEnergySales_SubscribersSubdivision" FromRole="SubscribersSubdivision" ToRole="SubscribersCodesEnergySales" />
+          <NavigationProperty Name="SubscribersCodesGridCompany" Relationship="Is_EnergyModel.FK_SubscribersCodesGridCompany_SubscribersSubdivision" FromRole="SubscribersSubdivision" ToRole="SubscribersCodesGridCompany" />
+          <NavigationProperty Name="SubscribersUserList" Relationship="Is_EnergyModel.FK_LegalEnitiesUserList_LegalEnitiesSubdivision" FromRole="SubscribersSubdivision" ToRole="SubscribersUserList" />
+        </EntityType>
+        <EntityType Name="SubscribersUserList">
+          <Key>
+            <PropertyRef Name="IdUsersList" />
+          </Key>
+          <Property Type="Int32" Name="IdUsersList" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="IdUser" Nullable="false" />
+          <Property Type="Boolean" Name="Active" Nullable="false" />
+          <Property Type="String" Name="Comment" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdSubdivision" Nullable="false" />
+          <NavigationProperty Name="SubscribersSubdivision" Relationship="Is_EnergyModel.FK_LegalEnitiesUserList_LegalEnitiesSubdivision" FromRole="SubscribersUserList" ToRole="SubscribersSubdivision" />
+          <NavigationProperty Name="Users" Relationship="Is_EnergyModel.FK_LegalEnitiesUserList_Users" FromRole="SubscribersUserList" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="IdUser" />
+          </Key>
+          <Property Type="Int32" Name="IdUser" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="FirstName" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MidleName" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LastName" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Login" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Phone" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Comment" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdCertificate" />
+          <Property Type="String" Name="IdentifierSubscriberDefault" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="NoticesIncomingContractors" />
+          <Property Type="Boolean" Name="NoticesOutContractors" />
+          <Property Type="Boolean" Name="NoticesNews" />
+          <Property Type="Boolean" Name="NoticesEnergyConsumptionPrimaryDocuments" />
+          <Property Type="Boolean" Name="NoticesEnergyConsumptionMaquettes16" />
+          <Property Type="Boolean" Name="NoticesEnergyConsumptionMaquettes80020" />
+          <Property Type="Boolean" Name="NoticesInDoc" />
+          <Property Type="Boolean" Name="NoticesOutDoc" />
+          <Property Type="Boolean" Name="NoticesInMessages" />
+          <Property Type="Boolean" Name="NoticesOutMessages" />
+          <NavigationProperty Name="Administrators" Relationship="Is_EnergyModel.FK_Administrators_Users" FromRole="Users" ToRole="Administrators" />
+          <NavigationProperty Name="Certificates" Relationship="Is_EnergyModel.FK_Users_Certificates" FromRole="Users" ToRole="Certificates" />
+          <NavigationProperty Name="Operators" Relationship="Is_EnergyModel.FK_Operators_Users" FromRole="Users" ToRole="Operators" />
+          <NavigationProperty Name="SubscribersUserList" Relationship="Is_EnergyModel.FK_LegalEnitiesUserList_Users" FromRole="Users" ToRole="SubscribersUserList" />
+          <NavigationProperty Name="DocumentsTemp" Relationship="Is_EnergyModel.FK_DocumentsTemp_Users" FromRole="Users" ToRole="DocumentsTemp" />
+        </EntityType>
+        <Association Name="FK_Address_Countries">
+          <End Type="Is_EnergyModel.Countries" Role="Countries" Multiplicity="0..1" />
+          <End Type="Is_EnergyModel.Address" Role="Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Countries">
+              <PropertyRef Name="IdCountry" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="OtherCountry_IdCountry" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Address_Regions">
+          <End Type="Is_EnergyModel.Regions" Role="Regions" Multiplicity="0..1" />
+          <End Type="Is_EnergyModel.Address" Role="Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Regions">
+              <PropertyRef Name="IdRegion" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="RF_IdRegion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LegalEntities_Address">
+          <End Type="Is_EnergyModel.Address" Role="Address" Multiplicity="0..1" />
+          <End Type="Is_EnergyModel.LegalEntities" Role="LegalEntities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="IdAddress" />
+            </Principal>
+            <Dependent Role="LegalEntities">
+              <PropertyRef Name="IdAddress" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PhysicalPersons_Address">
+          <End Type="Is_EnergyModel.Address" Role="Address" Multiplicity="0..1" />
+          <End Type="Is_EnergyModel.PhysicalPersons" Role="PhysicalPersons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="IdAddress" />
+            </Principal>
+            <Dependent Role="PhysicalPersons">
+              <PropertyRef Name="IdAddress" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SoleTraders_Address">
+          <End Type="Is_EnergyModel.Address" Role="Address" Multiplicity="0..1" />
+          <End Type="Is_EnergyModel.SoleTraders" Role="SoleTraders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="IdAddress" />
+            </Principal>
+            <Dependent Role="SoleTraders">
+              <PropertyRef Name="IdAddress" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubscribersSubdivision_Address">
+          <End Type="Is_EnergyModel.Address" Role="Address" Multiplicity="0..1" />
+          <End Type="Is_EnergyModel.SubscribersSubdivision" Role="SubscribersSubdivision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="IdAddress" />
+            </Principal>
+            <Dependent Role="SubscribersSubdivision">
+              <PropertyRef Name="IdAddress" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Administrators_Subscribers">
+          <End Type="Is_EnergyModel.Subscribers" Role="Subscribers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Is_EnergyModel.Administrators" Role="Administrators" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subscribers">
+              <PropertyRef Name="IdentifierSubscriber" />
+            </Principal>
+            <Dependent Role="Administrators">
+              <PropertyRef Name="IdentifierSubscriber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Administrators_Users">
+          <End Type="Is_EnergyModel.Users" Role="Users" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Is_EnergyModel.Administrators" Role="Administrators" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="IdUser" />
+            </Principal>
+            <Dependent Role="Administrators">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LegalEntities_Certificates">
+          <End Type="Is_EnergyModel.Certificates" Role="Certificates" Multiplicity="0..1" />
+          <End Type="Is_EnergyModel.LegalEntities" Role="LegalEntities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Certificates">
+              <PropertyRef Name="IdCertificate" />
+            </Principal>
+            <Dependent Role="LegalEntities">
+              <PropertyRef Name="IdCertificate" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Certificates">
+          <End Type="Is_EnergyModel.Certificates" Role="Certificates" Multiplicity="0..1" />
+          <End Type="Is_EnergyModel.Users" Role="Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Certificates">
+              <PropertyRef Name="IdCertificate" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="IdCertificate" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LegalEntities_IFNS">
+          <End Type="Is_EnergyModel.IFNS" Role="IFNS" Multiplicity="1" />
+          <End Type="Is_EnergyModel.LegalEntities" Role="LegalEntities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IFNS">
+              <PropertyRef Name="IdIFNS" />
+            </Principal>
+            <Dependent Role="LegalEntities">
+              <PropertyRef Name="IdIFNS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SoleTraders_IFNS">
+          <End Type="Is_EnergyModel.IFNS" Role="IFNS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Is_EnergyModel.SoleTraders" Role="SoleTraders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IFNS">
+              <PropertyRef Name="IdIFNS" />
+            </Principal>
+            <Dependent Role="SoleTraders">
+              <PropertyRef Name="IdIFNS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LegalEntities_Subscribers">
+          <End Type="Is_EnergyModel.Subscribers" Role="Subscribers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Is_EnergyModel.LegalEntities" Role="LegalEntities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subscribers">
+              <PropertyRef Name="IdentifierSubscriber" />
+            </Principal>
+            <Dependent Role="LegalEntities">
+              <PropertyRef Name="IdentifierSubscriber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Operators_Subscribers">
+          <End Type="Is_EnergyModel.Subscribers" Role="Subscribers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Is_EnergyModel.Operators" Role="Operators" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subscribers">
+              <PropertyRef Name="IdentifierSubscriber" />
+            </Principal>
+            <Dependent Role="Operators">
+              <PropertyRef Name="IdentifierSubscriber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Operators_Users">
+          <End Type="Is_EnergyModel.Users" Role="Users" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Is_EnergyModel.Operators" Role="Operators" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="IdUser" />
+            </Principal>
+            <Dependent Role="Operators">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PhysicalPersons_Subscribers">
+          <End Type="Is_EnergyModel.Subscribers" Role="Subscribers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Is_EnergyModel.PhysicalPersons" Role="PhysicalPersons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subscribers">
+              <PropertyRef Name="IdentifierSubscriber" />
+            </Principal>
+            <Dependent Role="PhysicalPersons">
+              <PropertyRef Name="IdentifierSubscriber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SoleTraders_Subscribers">
+          <End Type="Is_EnergyModel.Subscribers" Role="Subscribers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Is_EnergyModel.SoleTraders" Role="SoleTraders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subscribers">
+              <PropertyRef Name="IdentifierSubscriber" />
+            </Principal>
+            <Dependent Role="SoleTraders">
+              <PropertyRef Name="IdentifierSubscriber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubscribersConnectEnergySales_Subscribers">
+          <End Type="Is_EnergyModel.Subscribers" Role="Subscribers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Is_EnergyModel.SubscribersConnectEnergySales" Role="SubscribersConnectEnergySales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subscribers">
+              <PropertyRef Name="IdentifierSubscriber" />
+            </Principal>
+            <Dependent Role="SubscribersConnectEnergySales">
+              <PropertyRef Name="IdentifierSubscriber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubscribersConnectGridCompany_Subscribers">
+          <End Type="Is_EnergyModel.Subscribers" Role="Subscribers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Is_EnergyModel.SubscribersConnectGridCompany" Role="SubscribersConnectGridCompany" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subscribers">
+              <PropertyRef Name="IdentifierSubscriber" />
+            </Principal>
+            <Dependent Role="SubscribersConnectGridCompany">
+              <PropertyRef Name="IdentifierSubscriber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubscribersContracts_Subscribers">
+          <End Type="Is_EnergyModel.Subscribers" Role="Subscribers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Is_EnergyModel.SubscribersContracts" Role="SubscribersContracts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subscribers">
+              <PropertyRef Name="IdentifierSubscriber" />
+            </Principal>
+            <Dependent Role="SubscribersContracts">
+              <PropertyRef Name="IdentifierSubscriber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubscribersSubdivision_Subscribers">
+          <End Type="Is_EnergyModel.Subscribers" Role="Subscribers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Is_EnergyModel.SubscribersSubdivision" Role="SubscribersSubdivision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subscribers">
+              <PropertyRef Name="IdentifierSubscriber" />
+            </Principal>
+            <Dependent Role="SubscribersSubdivision">
+              <PropertyRef Name="IdentifierSubscriber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubscribersCodesEnergySales_SubscribersSubdivision">
+          <End Type="Is_EnergyModel.SubscribersSubdivision" Role="SubscribersSubdivision" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Is_EnergyModel.SubscribersCodesEnergySales" Role="SubscribersCodesEnergySales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubscribersSubdivision">
+              <PropertyRef Name="idSubdivision" />
+            </Principal>
+            <Dependent Role="SubscribersCodesEnergySales">
+              <PropertyRef Name="idSubdivision" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubscribersCodesGridCompany_SubscribersSubdivision">
+          <End Type="Is_EnergyModel.SubscribersSubdivision" Role="SubscribersSubdivision" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Is_EnergyModel.SubscribersCodesGridCompany" Role="SubscribersCodesGridCompany" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubscribersSubdivision">
+              <PropertyRef Name="idSubdivision" />
+            </Principal>
+            <Dependent Role="SubscribersCodesGridCompany">
+              <PropertyRef Name="idSubdivision" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubscribersEnumerator_SubscribersContracts">
+          <End Type="Is_EnergyModel.SubscribersContracts" Role="SubscribersContracts" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Is_EnergyModel.SubscribersEnumerator" Role="SubscribersEnumerator" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubscribersContracts">
+              <PropertyRef Name="IdContractSubscriber" />
+            </Principal>
+            <Dependent Role="SubscribersEnumerator">
+              <PropertyRef Name="IdContractSubscriber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LegalEnitiesUserList_LegalEnitiesSubdivision">
+          <End Type="Is_EnergyModel.SubscribersSubdivision" Role="SubscribersSubdivision" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Is_EnergyModel.SubscribersUserList" Role="SubscribersUserList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubscribersSubdivision">
+              <PropertyRef Name="idSubdivision" />
+            </Principal>
+            <Dependent Role="SubscribersUserList">
+              <PropertyRef Name="IdSubdivision" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LegalEnitiesUserList_Users">
+          <End Type="Is_EnergyModel.Users" Role="Users" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Is_EnergyModel.SubscribersUserList" Role="SubscribersUserList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="IdUser" />
+            </Principal>
+            <Dependent Role="SubscribersUserList">
+              <PropertyRef Name="IdUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="SubscribesLog">
+          <Key>
+            <PropertyRef Name="IdSubscriberLog" />
+          </Key>
+          <Property Type="Int32" Name="IdSubscriberLog" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="IdentifierSubscriber" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="IdUserEditor" Nullable="false" />
+          <Property Type="DateTime" Name="DateEdit" Precision="3" />
+          <Property Type="String" Name="TextEdit" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdentifierSubscriberEditor" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Subscribers" Relationship="Is_EnergyModel.FK_SubscribesLog_Subscribers" FromRole="SubscribesLog" ToRole="Subscribers" />
+          <Property Type="String" Name="NameSubscriberEditor" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NameUserEditor" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_SubscribesLog_Subscribers">
+          <End Type="Is_EnergyModel.Subscribers" Role="Subscribers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Is_EnergyModel.SubscribesLog" Role="SubscribesLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subscribers">
+              <PropertyRef Name="IdentifierSubscriber" />
+            </Principal>
+            <Dependent Role="SubscribesLog">
+              <PropertyRef Name="IdentifierSubscriber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SoleTraders_Certificates">
+          <End Type="Is_EnergyModel.Certificates" Role="Certificates" Multiplicity="0..1" />
+          <End Type="Is_EnergyModel.SoleTraders" Role="SoleTraders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Certificates">
+              <PropertyRef Name="IdCertificate" />
+            </Principal>
+            <Dependent Role="SoleTraders">
+              <PropertyRef Name="IdCertificate" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Documents">
+          <Key>
+            <PropertyRef Name="IdDocument" />
+          </Key>
+          <Property Type="Int32" Name="IdDocument" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="NameDocument" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="TypeDocument" Nullable="false" />
+          <Property Type="DateTime" Name="DateSend" Nullable="false" Precision="3" />
+          <Property Type="Int32" Name="State" Nullable="false" />
+          <Property Type="String" Name="Comment" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdentifierSubscriberSender" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="IdentifierSubscriberReceiver" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="idSubdivisionSender" />
+          <Property Type="Int32" Name="idSubdivisionReceiver" />
+          <Property Type="Boolean" Name="SignatureContractor" />
+          <Property Type="DateTime" Name="DateReceive" Precision="3" />
+          <NavigationProperty Name="RelateDocuments" Relationship="Is_EnergyModel.FK_RelateDocuments_Documents" FromRole="Documents" ToRole="RelateDocuments" />
+          <NavigationProperty Name="DocumentFlow" Relationship="Is_EnergyModel.FK_DocumentFlow_Documents" FromRole="Documents" ToRole="DocumentFlow" />
+          <Property Type="Binary" Name="DataFile" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Type="String" Name="NameFile" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DocumentsTemp">
+          <Key>
+            <PropertyRef Name="IdDocumentTemp" />
+          </Key>
+          <Property Type="Int32" Name="IdDocumentTemp" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="NameDocument" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="TypeDocument" Nullable="false" />
+          <Property Type="String" Name="Comment" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdentifierSubscriberSender" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="IdentifierSubscriberReceiver" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="idSubdivisionSender" />
+          <Property Type="Int32" Name="idSubdivisionReceiver" />
+          <Property Type="Int32" Name="IdUserCreate" Nullable="false" />
+          <Property Type="Boolean" Name="SignatureContractor" />
+          <NavigationProperty Name="Users" Relationship="Is_EnergyModel.FK_DocumentsTemp_Users" FromRole="DocumentsTemp" ToRole="Users" />
+          <Property Type="Binary" Name="DataFile" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Type="String" Name="NameFile" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_RelateDocuments_Documents">
+          <End Type="Is_EnergyModel.Documents" Role="Documents" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Is_EnergyModel.RelateDocuments" Role="RelateDocuments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Documents">
+              <PropertyRef Name="IdDocument" />
+            </Principal>
+            <Dependent Role="RelateDocuments">
+              <PropertyRef Name="IdMainDocument" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DocumentsTemp_Users">
+          <End Type="Is_EnergyModel.Users" Role="Users" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Is_EnergyModel.DocumentsTemp" Role="DocumentsTemp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="IdUser" />
+            </Principal>
+            <Dependent Role="DocumentsTemp">
+              <PropertyRef Name="IdUserCreate" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="DocumentFlow">
+          <Key>
+            <PropertyRef Name="IdDocumentFlow" />
+          </Key>
+          <Property Type="Int32" Name="IdDocumentFlow" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="IdDocumentMain" Nullable="false" />
+          <Property Type="String" Name="NameDocument" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NameSign" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Binary" Name="DataSign" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Type="DateTime" Name="DateCreate" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Comment" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="IndexDocumentFlow" />
+          <NavigationProperty Name="Documents" Relationship="Is_EnergyModel.FK_DocumentFlow_Documents" FromRole="DocumentFlow" ToRole="Documents" />
+          <Property Type="Binary" Name="DataFile" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Type="String" Name="NameFile" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="State" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_DocumentFlow_Documents">
+          <End Type="Is_EnergyModel.Documents" Role="Documents" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Is_EnergyModel.DocumentFlow" Role="DocumentFlow" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Documents">
+              <PropertyRef Name="IdDocument" />
+            </Principal>
+            <Dependent Role="DocumentFlow">
+              <PropertyRef Name="IdDocumentMain" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Contractors">
+          <Key>
+            <PropertyRef Name="IdContractor" />
+          </Key>
+          <Property Type="Int32" Name="IdContractor" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="IdentifierSubscriber" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Comment" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IdentifierSubscriberContractor" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="InvitationText" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="DenialText" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="State" Nullable="false" />
+          <NavigationProperty Name="Subscribers" Relationship="Is_EnergyModel.FK_Contractors_Subscribers" FromRole="Contractors" ToRole="Subscribers" />
+        </EntityType>
+        <Association Name="FK_Contractors_Subscribers">
+          <End Type="Is_EnergyModel.Subscribers" Role="Subscribers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Is_EnergyModel.Contractors" Role="Contractors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subscribers">
+              <PropertyRef Name="IdentifierSubscriber" />
+            </Principal>
+            <Dependent Role="Contractors">
+              <PropertyRef Name="IdentifierSubscriber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище Is_EnergyModelContainer" CdmEntityContainer="Is_EnergyEntities">
+          <EntitySetMapping Name="Address">
+            <EntityTypeMapping TypeName="Is_EnergyModel.Address">
+              <MappingFragment StoreEntitySet="Address">
+                <ScalarProperty Name="AddressShort" ColumnName="AddressShort" />
+                <ScalarProperty Name="OtherCountry_IdCountry" ColumnName="OtherCountry_IdCountry" />
+                <ScalarProperty Name="OtherCountry_Address" ColumnName="OtherCountry_Address" />
+                <ScalarProperty Name="RF_OfficeOrApartment" ColumnName="RF_OfficeOrApartment" />
+                <ScalarProperty Name="RF_Housing" ColumnName="RF_Housing" />
+                <ScalarProperty Name="RF_Home" ColumnName="RF_Home" />
+                <ScalarProperty Name="RF_Street" ColumnName="RF_Street" />
+                <ScalarProperty Name="RF_localityCity" ColumnName="RF_localityCity" />
+                <ScalarProperty Name="RF_City" ColumnName="RF_City" />
+                <ScalarProperty Name="RF_Area" ColumnName="RF_Area" />
+                <ScalarProperty Name="RF_IdRegion" ColumnName="RF_IdRegion" />
+                <ScalarProperty Name="RF_Index" ColumnName="RF_Index" />
+                <ScalarProperty Name="TypeAddress" ColumnName="TypeAddress" />
+                <ScalarProperty Name="IdAddress" ColumnName="IdAddress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Administrators">
+            <EntityTypeMapping TypeName="Is_EnergyModel.Administrators">
+              <MappingFragment StoreEntitySet="Administrators">
+                <ScalarProperty Name="IdentifierSubscriber" ColumnName="IdentifierSubscriber" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="ModifyingMailing" ColumnName="ModifyingMailing" />
+                <ScalarProperty Name="ModifyingNews" ColumnName="ModifyingNews" />
+                <ScalarProperty Name="ModifyingOperators" ColumnName="ModifyingOperators" />
+                <ScalarProperty Name="ModifyingAdministrators" ColumnName="ModifyingAdministrators" />
+                <ScalarProperty Name="MainAdministrators" ColumnName="MainAdministrators" />
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="IdAdministrator" ColumnName="IdAdministrator" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Certificates">
+            <EntityTypeMapping TypeName="Is_EnergyModel.Certificates">
+              <MappingFragment StoreEntitySet="Certificates">
+                <ScalarProperty Name="CertificateCN" ColumnName="CertificateCN" />
+                <ScalarProperty Name="CertificateSubject" ColumnName="CertificateSubject" />
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="PublisherCertificate" ColumnName="PublisherCertificate" />
+                <ScalarProperty Name="CertificateFile" ColumnName="CertificateFile" />
+                <ScalarProperty Name="CertificateSubjectFIO" ColumnName="CertificateSubjectFIO" />
+                <ScalarProperty Name="CertificateValidUntil" ColumnName="CertificateValidUntil" />
+                <ScalarProperty Name="CertificateValidFrom" ColumnName="CertificateValidFrom" />
+                <ScalarProperty Name="CertificateSerialNumber" ColumnName="CertificateSerialNumber" />
+                <ScalarProperty Name="IdCertificate" ColumnName="IdCertificate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="Is_EnergyModel.Cities">
+              <MappingFragment StoreEntitySet="Cities">
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="IdRegion" ColumnName="IdRegion" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IdCity" ColumnName="IdCity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Countries">
+            <EntityTypeMapping TypeName="Is_EnergyModel.Countries">
+              <MappingFragment StoreEntitySet="Countries">
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IdCountry" ColumnName="IdCountry" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IFNS">
+            <EntityTypeMapping TypeName="Is_EnergyModel.IFNS">
+              <MappingFragment StoreEntitySet="IFNS">
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="IdRegion" ColumnName="IdRegion" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IdIFNS" ColumnName="IdIFNS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LegalEntities">
+            <EntityTypeMapping TypeName="Is_EnergyModel.LegalEntities">
+              <MappingFragment StoreEntitySet="LegalEntities">
+                <ScalarProperty Name="IdAddress" ColumnName="IdAddress" />
+                <ScalarProperty Name="IdentifierSubscriber" ColumnName="IdentifierSubscriber" />
+                <ScalarProperty Name="IdIFNS" ColumnName="IdIFNS" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="ContactFaceLastName" ColumnName="ContactFaceLastName" />
+                <ScalarProperty Name="ContactFaceMidleName" ColumnName="ContactFaceMidleName" />
+                <ScalarProperty Name="ContactFaceFirstName" ColumnName="ContactFaceFirstName" />
+                <ScalarProperty Name="OGRN" ColumnName="OGRN" />
+                <ScalarProperty Name="KPP" ColumnName="KPP" />
+                <ScalarProperty Name="INN" ColumnName="INN" />
+                <ScalarProperty Name="NameOrganization" ColumnName="NameOrganization" />
+                <ScalarProperty Name="IdCertificate" ColumnName="IdCertificate" />
+                <ScalarProperty Name="IdOrganization" ColumnName="IdOrganization" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Operators">
+            <EntityTypeMapping TypeName="Is_EnergyModel.Operators">
+              <MappingFragment StoreEntitySet="Operators">
+                <ScalarProperty Name="IdentifierSubscriber" ColumnName="IdentifierSubscriber" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="ModifyingMailing" ColumnName="ModifyingMailing" />
+                <ScalarProperty Name="ModifyingNews" ColumnName="ModifyingNews" />
+                <ScalarProperty Name="MainOperator" ColumnName="MainOperator" />
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="IdOperator" ColumnName="IdOperator" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PhysicalPersons">
+            <EntityTypeMapping TypeName="Is_EnergyModel.PhysicalPersons">
+              <MappingFragment StoreEntitySet="PhysicalPersons">
+                <ScalarProperty Name="IdAddress" ColumnName="IdAddress" />
+                <ScalarProperty Name="IdentifierSubscriber" ColumnName="IdentifierSubscriber" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="INN" ColumnName="INN" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="MidleName" ColumnName="MidleName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="IdCertificate" ColumnName="IdCertificate" />
+                <ScalarProperty Name="IdPhysicalPerson" ColumnName="IdPhysicalPerson" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Regions">
+            <EntityTypeMapping TypeName="Is_EnergyModel.Regions">
+              <MappingFragment StoreEntitySet="Regions">
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IdRegion" ColumnName="IdRegion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RelateDocuments">
+            <EntityTypeMapping TypeName="Is_EnergyModel.RelateDocuments">
+              <MappingFragment StoreEntitySet="RelateDocuments">
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Idchildren" ColumnName="Idchildren" />
+                <ScalarProperty Name="IdMainDocument" ColumnName="IdMainDocument" />
+                <ScalarProperty Name="IdRelateDocument" ColumnName="IdRelateDocument" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SoleTraders">
+            <EntityTypeMapping TypeName="Is_EnergyModel.SoleTraders">
+              <MappingFragment StoreEntitySet="SoleTraders">
+                <ScalarProperty Name="IdAddress" ColumnName="IdAddress" />
+                <ScalarProperty Name="IdentifierSubscriber" ColumnName="IdentifierSubscriber" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="ContactFaceLastName" ColumnName="ContactFaceLastName" />
+                <ScalarProperty Name="ContactFaceMidleName" ColumnName="ContactFaceMidleName" />
+                <ScalarProperty Name="ContactFaceFirstName" ColumnName="ContactFaceFirstName" />
+                <ScalarProperty Name="IdIFNS" ColumnName="IdIFNS" />
+                <ScalarProperty Name="OGRN" ColumnName="OGRN" />
+                <ScalarProperty Name="INN" ColumnName="INN" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="MidleName" ColumnName="MidleName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="IdCertificate" ColumnName="IdCertificate" />
+                <ScalarProperty Name="IdSoleTrader" ColumnName="IdSoleTrader" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Subscribers">
+            <EntityTypeMapping TypeName="Is_EnergyModel.Subscribers">
+              <MappingFragment StoreEntitySet="Subscribers">
+                <ScalarProperty Name="AccessElectricityForm16DateEnd" ColumnName="AccessElectricityForm16DateEnd" />
+                <ScalarProperty Name="AccessElectricityForm16DateStart" ColumnName="AccessElectricityForm16DateStart" />
+                <ScalarProperty Name="AccessElectricityForm16Amount" ColumnName="AccessElectricityForm16Amount" />
+                <ScalarProperty Name="AccessElectricityForm80020DateEnd" ColumnName="AccessElectricityForm80020DateEnd" />
+                <ScalarProperty Name="AccessElectricityForm80020DateStart" ColumnName="AccessElectricityForm80020DateStart" />
+                <ScalarProperty Name="AccessElectricityForm80020Amount" ColumnName="AccessElectricityForm80020Amount" />
+                <ScalarProperty Name="AccessElectricityPrimaryDocumentsDateEnd" ColumnName="AccessElectricityPrimaryDocumentsDateEnd" />
+                <ScalarProperty Name="AccessElectricityPrimaryDocumentsDateStart" ColumnName="AccessElectricityPrimaryDocumentsDateStart" />
+                <ScalarProperty Name="AccessUnformalizedDocumentsDateEnd" ColumnName="AccessUnformalizedDocumentsDateEnd" />
+                <ScalarProperty Name="AccessUnformalizedDocumentsDateStart" ColumnName="AccessUnformalizedDocumentsDateStart" />
+                <ScalarProperty Name="AccessUnformalizedDocumentsAmount" ColumnName="AccessUnformalizedDocumentsAmount" />
+                <ScalarProperty Name="AccessFormalizedDocumentsDateEnd" ColumnName="AccessFormalizedDocumentsDateEnd" />
+                <ScalarProperty Name="AccessFormalizedDocumentsDateStart" ColumnName="AccessFormalizedDocumentsDateStart" />
+                <ScalarProperty Name="AccessFormalizedDocumentsAmount" ColumnName="AccessFormalizedDocumentsAmount" />
+                <ScalarProperty Name="AccessElectricityForm16" ColumnName="AccessElectricityForm16" />
+                <ScalarProperty Name="AccessElectricityForm80020" ColumnName="AccessElectricityForm80020" />
+                <ScalarProperty Name="AccessElectricityPrimaryDocuments" ColumnName="AccessElectricityPrimaryDocuments" />
+                <ScalarProperty Name="TypeGroupElectricity" ColumnName="TypeGroupElectricity" />
+                <ScalarProperty Name="AccessUnformalizedDocuments" ColumnName="AccessUnformalizedDocuments" />
+                <ScalarProperty Name="AccessFormalizedDocuments" ColumnName="AccessFormalizedDocuments" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Requisites" ColumnName="Requisites" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="TypeElementAbonent" ColumnName="TypeElementAbonent" />
+                <ScalarProperty Name="IdentifierSubscriber" ColumnName="IdentifierSubscriber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubscribersCodesEnergySales">
+            <EntityTypeMapping TypeName="Is_EnergyModel.SubscribersCodesEnergySales">
+              <MappingFragment StoreEntitySet="SubscribersCodesEnergySales">
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="idSubdivision" ColumnName="idSubdivision" />
+                <ScalarProperty Name="IdCodeEnergySales" ColumnName="IdCodeEnergySales" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubscribersCodesGridCompany">
+            <EntityTypeMapping TypeName="Is_EnergyModel.SubscribersCodesGridCompany">
+              <MappingFragment StoreEntitySet="SubscribersCodesGridCompany">
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="idSubdivision" ColumnName="idSubdivision" />
+                <ScalarProperty Name="IdCodeGridCompany" ColumnName="IdCodeGridCompany" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubscribersConnectEnergySales">
+            <EntityTypeMapping TypeName="Is_EnergyModel.SubscribersConnectEnergySales">
+              <MappingFragment StoreEntitySet="SubscribersConnectEnergySales">
+                <ScalarProperty Name="IdentifierSubscriber" ColumnName="IdentifierSubscriber" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="idSubdivisionEnergySales" ColumnName="idSubdivisionEnergySales" />
+                <ScalarProperty Name="IdSubscribersConnectEnergySales" ColumnName="IdSubscribersConnectEnergySales" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubscribersConnectGridCompany">
+            <EntityTypeMapping TypeName="Is_EnergyModel.SubscribersConnectGridCompany">
+              <MappingFragment StoreEntitySet="SubscribersConnectGridCompany">
+                <ScalarProperty Name="IdentifierSubscriber" ColumnName="IdentifierSubscriber" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="idSubdivisionGridCompany" ColumnName="idSubdivisionGridCompany" />
+                <ScalarProperty Name="IdSubscribersConnectGridCompany" ColumnName="IdSubscribersConnectGridCompany" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubscribersContracts">
+            <EntityTypeMapping TypeName="Is_EnergyModel.SubscribersContracts">
+              <MappingFragment StoreEntitySet="SubscribersContracts">
+                <ScalarProperty Name="IdentifierSubscriber" ColumnName="IdentifierSubscriber" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="NumberContract" ColumnName="NumberContract" />
+                <ScalarProperty Name="IdContractSubscriber" ColumnName="IdContractSubscriber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubscribersEnumerator">
+            <EntityTypeMapping TypeName="Is_EnergyModel.SubscribersEnumerator">
+              <MappingFragment StoreEntitySet="SubscribersEnumerator">
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="IdContractSubscriber" ColumnName="IdContractSubscriber" />
+                <ScalarProperty Name="IdEnumerator" ColumnName="IdEnumerator" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubscribersSubdivision">
+            <EntityTypeMapping TypeName="Is_EnergyModel.SubscribersSubdivision">
+              <MappingFragment StoreEntitySet="SubscribersSubdivision">
+                <ScalarProperty Name="IdAddress" ColumnName="IdAddress" />
+                <ScalarProperty Name="IdentifierSubscriber" ColumnName="IdentifierSubscriber" />
+                <ScalarProperty Name="SubdivisionCode" ColumnName="SubdivisionCode" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="IdParent" ColumnName="IdParent" />
+                <ScalarProperty Name="SubdivisionName" ColumnName="SubdivisionName" />
+                <ScalarProperty Name="idSubdivision" ColumnName="idSubdivision" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubscribersUserList">
+            <EntityTypeMapping TypeName="Is_EnergyModel.SubscribersUserList">
+              <MappingFragment StoreEntitySet="SubscribersUserList">
+                <ScalarProperty Name="IdSubdivision" ColumnName="IdSubdivision" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="IdUsersList" ColumnName="IdUsersList" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="Is_EnergyModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="NoticesOutMessages" ColumnName="NoticesOutMessages" />
+                <ScalarProperty Name="NoticesInMessages" ColumnName="NoticesInMessages" />
+                <ScalarProperty Name="NoticesOutDoc" ColumnName="NoticesOutDoc" />
+                <ScalarProperty Name="NoticesInDoc" ColumnName="NoticesInDoc" />
+                <ScalarProperty Name="NoticesEnergyConsumptionMaquettes80020" ColumnName="NoticesEnergyConsumptionMaquettes80020" />
+                <ScalarProperty Name="NoticesEnergyConsumptionMaquettes16" ColumnName="NoticesEnergyConsumptionMaquettes16" />
+                <ScalarProperty Name="NoticesEnergyConsumptionPrimaryDocuments" ColumnName="NoticesEnergyConsumptionPrimaryDocuments" />
+                <ScalarProperty Name="NoticesNews" ColumnName="NoticesNews" />
+                <ScalarProperty Name="NoticesOutContractors" ColumnName="NoticesOutContractors" />
+                <ScalarProperty Name="NoticesIncomingContractors" ColumnName="NoticesIncomingContractors" />
+                <ScalarProperty Name="IdentifierSubscriberDefault" ColumnName="IdentifierSubscriberDefault" />
+                <ScalarProperty Name="IdCertificate" ColumnName="IdCertificate" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="MidleName" ColumnName="MidleName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubscribesLog">
+            <EntityTypeMapping TypeName="Is_EnergyModel.SubscribesLog">
+              <MappingFragment StoreEntitySet="SubscribesLog">
+                <ScalarProperty Name="NameUserEditor" ColumnName="NameUserEditor" />
+                <ScalarProperty Name="NameSubscriberEditor" ColumnName="NameSubscriberEditor" />
+                <ScalarProperty Name="IdentifierSubscriberEditor" ColumnName="IdentifierSubscriberEditor" />
+                <ScalarProperty Name="TextEdit" ColumnName="TextEdit" />
+                <ScalarProperty Name="DateEdit" ColumnName="DateEdit" />
+                <ScalarProperty Name="IdUserEditor" ColumnName="IdUserEditor" />
+                <ScalarProperty Name="IdentifierSubscriber" ColumnName="IdentifierSubscriber" />
+                <ScalarProperty Name="IdSubscriberLog" ColumnName="IdSubscriberLog" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Documents">
+            <EntityTypeMapping TypeName="Is_EnergyModel.Documents">
+              <MappingFragment StoreEntitySet="Documents">
+                <ScalarProperty Name="NameFile" ColumnName="NameFile" />
+                <ScalarProperty Name="DataFile" ColumnName="DataFile" />
+                <ScalarProperty Name="DateReceive" ColumnName="DateReceive" />
+                <ScalarProperty Name="SignatureContractor" ColumnName="SignatureContractor" />
+                <ScalarProperty Name="idSubdivisionReceiver" ColumnName="idSubdivisionReceiver" />
+                <ScalarProperty Name="idSubdivisionSender" ColumnName="idSubdivisionSender" />
+                <ScalarProperty Name="IdentifierSubscriberReceiver" ColumnName="IdentifierSubscriberReceiver" />
+                <ScalarProperty Name="IdentifierSubscriberSender" ColumnName="IdentifierSubscriberSender" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="DateSend" ColumnName="DateSend" />
+                <ScalarProperty Name="TypeDocument" ColumnName="TypeDocument" />
+                <ScalarProperty Name="NameDocument" ColumnName="NameDocument" />
+                <ScalarProperty Name="IdDocument" ColumnName="IdDocument" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DocumentsTemp">
+            <EntityTypeMapping TypeName="Is_EnergyModel.DocumentsTemp">
+              <MappingFragment StoreEntitySet="DocumentsTemp">
+                <ScalarProperty Name="NameFile" ColumnName="NameFile" />
+                <ScalarProperty Name="DataFile" ColumnName="DataFile" />
+                <ScalarProperty Name="SignatureContractor" ColumnName="SignatureContractor" />
+                <ScalarProperty Name="IdUserCreate" ColumnName="IdUserCreate" />
+                <ScalarProperty Name="idSubdivisionReceiver" ColumnName="idSubdivisionReceiver" />
+                <ScalarProperty Name="idSubdivisionSender" ColumnName="idSubdivisionSender" />
+                <ScalarProperty Name="IdentifierSubscriberReceiver" ColumnName="IdentifierSubscriberReceiver" />
+                <ScalarProperty Name="IdentifierSubscriberSender" ColumnName="IdentifierSubscriberSender" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="TypeDocument" ColumnName="TypeDocument" />
+                <ScalarProperty Name="NameDocument" ColumnName="NameDocument" />
+                <ScalarProperty Name="IdDocumentTemp" ColumnName="IdDocumentTemp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DocumentFlow">
+            <EntityTypeMapping TypeName="Is_EnergyModel.DocumentFlow">
+              <MappingFragment StoreEntitySet="DocumentFlow">
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="NameFile" ColumnName="NameFile" />
+                <ScalarProperty Name="DataFile" ColumnName="DataFile" />
+                <ScalarProperty Name="IndexDocumentFlow" ColumnName="IndexDocumentFlow" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="DateCreate" ColumnName="DateCreate" />
+                <ScalarProperty Name="DataSign" ColumnName="DataSign" />
+                <ScalarProperty Name="NameSign" ColumnName="NameSign" />
+                <ScalarProperty Name="NameDocument" ColumnName="NameDocument" />
+                <ScalarProperty Name="IdDocumentMain" ColumnName="IdDocumentMain" />
+                <ScalarProperty Name="IdDocumentFlow" ColumnName="IdDocumentFlow" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contractors">
+            <EntityTypeMapping TypeName="Is_EnergyModel.Contractors">
+              <MappingFragment StoreEntitySet="Contractors">
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="DenialText" ColumnName="DenialText" />
+                <ScalarProperty Name="InvitationText" ColumnName="InvitationText" />
+                <ScalarProperty Name="IdentifierSubscriberContractor" ColumnName="IdentifierSubscriberContractor" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="IdentifierSubscriber" ColumnName="IdentifierSubscriber" />
+                <ScalarProperty Name="IdContractor" ColumnName="IdContractor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

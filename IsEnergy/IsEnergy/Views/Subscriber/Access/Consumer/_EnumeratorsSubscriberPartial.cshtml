@@ -1,0 +1,47 @@
+﻿@model IsEnergyModel.Subscribers 
+ @{  
+
+     
+     <script type="text/javascript">
+         function EnumeratorAddView() {
+             $.post('/Subscriber/CreateEnumeratorStart', { identifierSubscriber: $('#IdentifierSubscriber').val() }, function (data) { $('#CreateNewEnumerator').html(data); });
+             pcModalModeCreateEnumerator.Show();
+         }   
+    </script>
+     
+     
+     <fieldset class ="EnumeratorsOfSubscriber">
+        <legend><b>Счетчики потребителя</b></legend>
+
+<button id="ForCreateEnumerator"  type="button" onclick="javascript:EnumeratorAddView();"><span class="label">Добавить</span></button>
+<div class="GridViewEnumeratorSubscriber">
+@Html.Action("GridViewPartialpcModalModeCreateEnumerator")
+</div>
+       </fieldset>  
+
+@Html.DevExpress().PopupControl(
+    settings =>
+    {
+        settings.Name = "pcModalModeCreateEnumerator";
+       // settings.Height= 400;
+       settings.Width = 500;
+        settings.AllowDragging = true;
+        settings.CloseAction = CloseAction.CloseButton;
+        settings.PopupAnimationType = AnimationType.None;
+        settings.HeaderText = "Добавление номер счетчика";
+        settings.ShowLoadingPanel = true;
+        settings.Modal = true;
+        settings.PopupHorizontalAlign = PopupHorizontalAlign.WindowCenter;
+        settings.PopupVerticalAlign = PopupVerticalAlign.WindowCenter;
+        settings.ClientSideEvents.CloseUp = "function(s, e){ ASPxClientEdit.ClearEditorsInContainer(pcModalModeCreateEnumerator, '', true);}";
+        settings.SetContent(() =>
+        {
+           
+                Html.RenderPartial("~/Views/Subscriber/Access/Consumer/CreateEnumeratorSubscriberPartial.cshtml");
+                 //Html.RenderAction("CreateEnumeratorStart");
+           
+        });
+    }).GetHtml()
+
+
+   }

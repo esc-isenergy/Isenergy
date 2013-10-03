@@ -1,0 +1,14 @@
+E:\IsEnergy\IsEnergy\bin\IsEnergy.dll
+E:\IsEnergy\IsEnergy\bin\IsEnergy.pdb
+E:\IsEnergy\IsEnergy\bin\EntityFramework.dll
+E:\IsEnergy\IsEnergy\bin\IsEnergyModel.dll
+E:\IsEnergy\IsEnergy\bin\WebMatrix.Data.dll
+E:\IsEnergy\IsEnergy\bin\WebMatrix.WebData.dll
+E:\IsEnergy\IsEnergy\bin\EntityFramework.xml
+E:\IsEnergy\IsEnergy\bin\WebMatrix.Data.xml
+E:\IsEnergy\IsEnergy\bin\WebMatrix.WebData.xml
+E:\IsEnergy\IsEnergy\bin\ru\EntityFramework.resources.dll
+E:\IsEnergy\IsEnergy\obj\Release\IsEnergy.dll
+E:\IsEnergy\IsEnergy\obj\Release\IsEnergy.pdb
+E:\IsEnergy\IsEnergy\obj\Release\IsEnergy.csprojResolveAssemblyReference.cache
+E:\IsEnergy\IsEnergy\bin\IsEnergyModel.pdb

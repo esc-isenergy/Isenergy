@@ -1,0 +1,39 @@
+﻿@model IsEnergyModel.PhysicalPersons
+
+@{
+    ViewBag.Title = "Index";
+}
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<h3>Физические  лица</h3>
+
+<p>
+    <button class="action bluebtn" onclick="javascript:pcModalModeCreatePhysicalPerson.Show();"><span class="label">Добавить</span></button>
+</p>
+
+    @Html.Action("GridViewPartial")
+
+@Html.DevExpress().PopupControl(
+    settings =>
+    {
+        settings.Name = "pcModalModeCreatePhysicalPerson";
+        settings.Width =400;
+        settings.Height= 300;
+        settings.AllowDragging = true;
+        settings.CloseAction = CloseAction.CloseButton;
+        settings.PopupAnimationType = AnimationType.None;
+        settings.HeaderText = "Добавление физ. лица";
+        settings.ShowLoadingPanel = true;
+        settings.Modal = true;
+        settings.PopupHorizontalAlign = PopupHorizontalAlign.WindowCenter;
+        settings.PopupVerticalAlign = PopupVerticalAlign.WindowCenter;
+        settings.ClientSideEvents.CloseUp = "function(s, e){ ASPxClientEdit.ClearEditorsInContainer(null, '', true); }";
+        settings.SetContent(() =>
+        {
+            using(Html.BeginForm("CreateAdd", "PhysicalPersons", FormMethod.Post, new { id = "PhysicalPersonloginForm", enctype = "Multipart/form-data" }))
+{
+              Html.RenderAction("Create");    
+}          
+        });
+                
+        
+    }).GetHtml()

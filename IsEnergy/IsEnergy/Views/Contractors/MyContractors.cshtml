@@ -1,0 +1,44 @@
+﻿@model IsEnergyModel.Contractors
+@{
+    ViewBag.Title = "MyContractors";
+}
+<script type="text/javascript">
+    function Create_Contractor() {
+                if (confirm("Удалить администратора?")) {
+                    $('#EditAdminForm').attr('action', '/Administrators/Delete');
+                    $("#EditAdminForm").submit();
+                }            
+        }
+
+</script>
+<div id="MyContragentsButton">
+
+<button class="action bluebtn" type="button" onclick="javascript:pcModalModeCreateContractor.Show();"><span class="label">Пригласить</span></button>
+
+</div>
+
+ <div id ="MyContragentsGridView">
+     @Html.Action("GridViewPartial")
+ </div>
+
+@Html.DevExpress().PopupControl(
+    settings =>
+    {
+        settings.Name = "pcModalModeCreateContractor";
+        settings.Height= 250;
+        settings.Width = 550;
+        settings.AllowDragging = true;
+        settings.CloseAction = CloseAction.CloseButton;
+        settings.PopupAnimationType = AnimationType.None;
+        settings.HeaderText = "Добавление контрагента";
+        settings.ShowLoadingPanel = true;
+        settings.Modal = true;
+        settings.PopupHorizontalAlign = PopupHorizontalAlign.WindowCenter;
+        settings.PopupVerticalAlign = PopupVerticalAlign.WindowCenter;
+        settings.ClientSideEvents.CloseUp = "function(s, e){ ASPxClientEdit.ClearEditorsInContainer(pcModalModeCreateContractor, '', true); }";
+        settings.SetContent(() =>
+        {
+            Html.RenderAction("AddContractor");
+        });       
+    }).GetHtml()
+   

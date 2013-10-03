@@ -1,0 +1,86 @@
+﻿@model IsEnergyModel.Users
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Certificate</title>
+</head>
+<body>
+    <div>
+        <style>
+   table {
+   
+    border-spacing: 1px; /* Расстояние между ячейками */
+   }
+   td, th {
+  
+    padding: 3px; /* Поля вокруг текста */
+   }
+
+     
+  </style>
+  <table >
+    <tr>
+        <td>@Html.DevExpress().Label(settings => { settings.Width = 140; settings.Text = "Номер сертификата"; }).GetHtml()</td>
+        <td> @Html.DevExpress().TextBoxFor(model => model.Certificates.CertificateSerialNumber, settings => {
+            settings.Name = "CertificateSerialNumber";
+            settings.Width = 200;
+                 settings.ReadOnly = true;
+                 settings.ShowModelErrors = true;
+                 settings.Properties.ValidationSettings.Display = Display.None;
+                }).GetHtml()   </td> 
+          <td>    @Html.ValidationMessageFor(model => model.Certificates.CertificateSubject) <td>
+   </tr> 
+   <tr>
+        <td>@Html.DevExpress().Label(settings => { settings.Width = 140; settings.Text = "Кем выдан"; }).GetHtml()</td>
+        <td>@Html.DevExpress().TextBoxFor(model => model.Certificates.PublisherCertificate, settings => {
+           settings.Name = "PublisherCertificate";
+           settings.Width = 200;
+                 settings.ReadOnly = true;
+                 settings.ShowModelErrors = true;
+                 settings.Properties.ValidationSettings.Display = Display.None;
+                }).GetHtml()</td>
+   </tr> 
+   <tr>
+        <td>@Html.DevExpress().Label(settings => { settings.Width = 140; settings.Text = "Владелец"; }).GetHtml()</td>
+        <td>@Html.DevExpress().TextBoxFor(m =>m.Certificates.CertificateSubjectFIO, settings => {
+           settings.Name = "CertificateSubjectFIO";
+           settings.Width = 200;
+                 settings.ReadOnly = true;
+                 settings.ShowModelErrors = true;
+                 settings.Properties.ValidationSettings.Display = Display.None;
+                }).GetHtml()</td>
+   </tr> 
+  
+   <tr>
+        <td>@Html.DevExpress().Label(settings => { settings.Width = 140; settings.Text = "Действителен с:"; }).GetHtml()</td>
+        <td>@Html.DevExpress().TextBoxFor(m => m.Certificates.CertificateValidFrom, settings => {
+           settings.Name = "CertificateValidFrom";
+           settings.Width = 200;
+                 settings.ReadOnly = true;
+                 settings.ShowModelErrors = true;
+                 settings.Properties.ValidationSettings.Display = Display.None;
+                }).GetHtml()</td>
+   </tr> 
+         <tr>
+                <td>@Html.DevExpress().Label(settings => { settings.Width = 140; settings.Text = "Действителен до:"; }).GetHtml()</td>
+                <td>@Html.DevExpress().TextBoxFor(m => m.Certificates.CertificateValidUntil, settings => {
+                    settings.Name = "CertificateValidUntil";
+                    settings.Width = 200;
+                    settings.ReadOnly = true;
+                    settings.ShowModelErrors = true;
+                    settings.Properties.ValidationSettings.Display = Display.None;
+                }).GetHtml()</td>
+       </tr> 
+ 
+    </table> 
+  
+    </div>
+</body>
+</html>

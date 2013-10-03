@@ -1,0 +1,19 @@
+﻿@model IsEnergyModel.Subscribers 
+@{ 
+}
+<div class="BelongingGroups">
+<div class="EsOfSubscr">
+<fieldset>
+    <legend>Энергосбыты</legend>
+
+@Html.Action("TreeListEnergosbytOfSubscriberPartial")
+</fieldset>
+</div>
+<div class="GcOfSubscr">
+<fieldset>
+    <legend>Сетевые Компании</legend>
+
+@Html.Action("TreeListGridCompanyOfSubscriberPartial")
+    </fieldset>
+</div>
+</div>

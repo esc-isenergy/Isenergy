@@ -1,0 +1,90 @@
+﻿@model IsEnergyModel.Users
+
+@{
+    ViewBag.Title = "Детали";
+}
+
+
+     <div class="align_center_to_left">
+        <div class="align_center_to_right">
+                    <div class="align_centerInCss">
+
+
+<h3>Детали</h3>
+
+    @Html.DevExpress().PageControl(PageControlsettings =>
+    {
+        PageControlsettings.Name = "PageControlDetails";
+        PageControlsettings.TabPages.Add("Информация").SetContent(() =>
+        {
+            using (Html.BeginForm(null, null, FormMethod.Post, new { id = "UserEdit" }))
+            {
+                Html.RenderPartial("_MainDetaisUser", Model);
+            }
+        });
+        PageControlsettings.TabPages.Add("Сертификаты").SetContent(() =>
+        {
+            @Html.RenderPartial("_CertificateDetailsUser", Model);
+        });
+        PageControlsettings.TabPages.Add("Настройки уведомлений").SetContent(() =>
+        {
+            using (Html.BeginForm("EditUserNotificationSettings", "Users", FormMethod.Post, new { id = "UserNotificationSettings" }))
+            {
+                @Html.RenderPartial("PrivateOffice/NotificationSettings", Model);
+            }
+        });
+    }).GetHtml() 
+  
+
+
+<div class ="Back">@Html.ActionLink("Назад", "Index")</div>
+</div></div></div>
+@Html.DevExpress().PopupControl(
+    settings =>
+    {
+        settings.Name = "pcModalModeCertificate";
+        settings.Width =480;
+        settings.Height= 100;
+        settings.AllowDragging = true;
+        settings.CloseAction = CloseAction.CloseButton;
+        settings.PopupAnimationType = AnimationType.None;
+        settings.HeaderText = "Загрузка нового сертификата";
+        settings.ShowLoadingPanel = true;
+       
+        settings.Modal = true;
+        settings.PopupHorizontalAlign = PopupHorizontalAlign.WindowCenter;
+        settings.PopupVerticalAlign = PopupVerticalAlign.WindowCenter;
+        settings.SetContent(() =>
+        {
+
+            using (Html.BeginForm("NewCertificateAdd", "Users",new{id= Model.IdUser}, FormMethod.Post, new { id = "popupFormCertificate" }))
+            {
+
+                Html.RenderAction("NewCertificateAddStart");
+              
+            }
+        });
+
+        settings.ClientSideEvents.CloseUp = "function(s, e){ fileUploadEdit.ClearText();  }";
+    }).GetHtml()
+    @Html.DevExpress().PopupControl(
+    settings =>
+    {
+        settings.Name = "pcModalModeEditPassword";
+        settings.Width =300;
+        settings.Height= 100;
+        settings.AllowDragging = true;
+        settings.CloseAction = CloseAction.CloseButton;
+        settings.PopupAnimationType = AnimationType.None;
+        settings.HeaderText = "Смена пароля";
+        settings.ShowLoadingPanel = true;
+       
+        settings.Modal = true;
+        settings.PopupHorizontalAlign = PopupHorizontalAlign.WindowCenter;
+        settings.PopupVerticalAlign = PopupVerticalAlign.WindowCenter;
+        settings.SetContent(() =>
+        {
+                Html.RenderPartial("_EditPasswordPartial");
+        });
+        
+    }).GetHtml()

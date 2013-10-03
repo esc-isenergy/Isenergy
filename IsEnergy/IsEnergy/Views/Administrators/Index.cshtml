@@ -1,0 +1,40 @@
+﻿@model IEnumerable<IsEnergyModel.Administrators>
+@{
+    ViewBag.Title = "Index";
+}
+<script type="text/javascript">
+
+    function CheckAll() {
+        ASPxClientEdit.ClearEditorsInContainer(null);
+        MainAdministrators.SetChecked(false);
+        ModifyingAdministrators.SetChecked(false);
+        ModifyingOperators.SetChecked(false);
+        ModifyingNews.SetChecked(false);
+        ModifyingMailing.SetChecked(false);
+    }
+</script>
+<h3>Администраторы</h3>
+<button class="action bluebtn" type="button" onclick="javascript:pcModalMode.Show();"><span class="label">Добавить</span></button>
+@Html.DevExpress().PopupControl(
+    settings =>
+    {
+        settings.Name = "pcModalMode";
+        settings.Height= 400;
+        settings.Width = 600;
+        settings.AllowDragging = true;
+        settings.CloseAction = CloseAction.CloseButton;
+        settings.PopupAnimationType = AnimationType.None;
+        settings.HeaderText = "Добавление администратора";
+        settings.ShowLoadingPanel = true;
+        settings.Modal = true;
+        settings.PopupHorizontalAlign = PopupHorizontalAlign.WindowCenter;
+        settings.PopupVerticalAlign = PopupVerticalAlign.WindowCenter;
+        settings.ClientSideEvents.CloseUp = "function(s, e){  CheckAll(); }";
+        settings.SetContent(() =>
+        {
+                Html.RenderAction("Create");
+        });       
+    }).GetHtml()
+<div id="GridViewAdmin">
+    @Html.Action("GridViewPartial")
+</div>

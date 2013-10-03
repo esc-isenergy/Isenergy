@@ -1,0 +1,30 @@
+@{
+	var grid = Html.DevExpress().GridView(settings => {
+        settings.Name = "GridViewSubscriberContacts";
+        settings.CallbackRouteValues = new { Controller = "Subscriber", Action = "GridViewPartialpcModalModeCreateContract",  IdentifierSubscriber = ViewData["IdentifierSubscriber"]};
+		
+		//		settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "Subscriber", Action = "GridViewPartialpcModalModeCreateContractAddNew" };
+        //settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "Subscriber", Action = "GridViewPartialpcModalModeCreateContractUpdate" };
+        settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "Subscriber", Action = "ContractDelete"};
+        //settings.SettingsEditing.Mode = GridViewEditingMode.EditFormAndDisplayRow;
+        settings.SettingsBehavior.ConfirmDelete = true;
+        settings.CommandColumn.Width = 20;
+		settings.CommandColumn.Visible = true;
+        settings.CommandColumn.DeleteButton.Visible = true;
+		settings.KeyFieldName = "IdContractSubscriber";
+		settings.SettingsPager.Visible = true;
+        
+		settings.Settings.ShowFilterRow = true;
+		settings.SettingsBehavior.AllowSelectByRowClick = true;
+                settings.Columns.Add(column =>
+                {
+                    column.FieldName = "NumberContract";
+                    column.Caption = "Номер договора";
+                    column.Width = 40;
+                });
+			});
+		if (ViewData["EditError"] != null){
+        grid.SetEditErrorText((string)ViewData["EditError"]);
+    }
+	}
+@grid.Bind(Model).GetHtml()

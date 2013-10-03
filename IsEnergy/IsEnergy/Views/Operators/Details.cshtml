@@ -1,0 +1,53 @@
+﻿@model IsEnergyModel.Operators
+
+@{
+    ViewBag.Title = "Детали";
+}
+
+
+<script type="text/javascript">
+    function Delete_Operator() {
+        if (confirm("Удалить оператора?")) {
+            $('#EditOperatorForm').attr('action', '/Operators/Delete');
+            $("#EditOperatorForm").submit();
+        }
+    }
+
+    function Edit_Operator() {
+        if (ASPxClientEdit.ValidateGroup('EditOperatorVG')) {
+            if (confirm("Сохранить изменения ?") == true) {
+                $('#EditOperatorForm').attr('action', '/Operators/Edit');
+                $("#EditOperatorForm").submit();
+            }
+        }
+    }
+</script>
+
+<div class="align_center_to_left">
+    <div class="align_center_to_right">
+
+        <h3>Детали оператора</h3>
+
+        @Html.AntiForgeryToken()
+
+
+        @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "EditOperatorForm", enctype = "Multipart/form-data" }))
+        {
+            @Html.Action("DetailsPartial",Model)
+        }
+           
+        <table>
+                <tr>
+                    <td>
+        <button class="action bluebtn" type="button" onclick="javascript:Edit_Operator();"><span class="label">Редактировать</span></button>
+                   </td>
+                    <td>                        
+        <button class="action redbtn" type="button" onclick="javascript:Delete_Operator();"><span class="label">Удалить</span></button>
+                    </td>
+                </tr>
+            </table>
+        
+        <div>@Html.ActionLink("Назад", "Index")</div>
+
+    </div>
+</div>

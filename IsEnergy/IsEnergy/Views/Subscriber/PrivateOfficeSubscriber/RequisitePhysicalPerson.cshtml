@@ -1,0 +1,122 @@
+﻿@model IsEnergyModel.PhysicalPersons
+@using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "Multipart/form-data" }))
+{
+  @Html.HiddenFor(model => model.IdentifierSubscriber) 
+  @Html.HiddenFor(model => model.IdPhysicalPerson) 
+
+    <fieldset>
+        <legend><b>Реквизиты</b></legend>
+
+
+        <style>
+            table {
+                border-spacing: 1px; /* Расстояние между ячейками */
+            }
+
+            td, th {
+                padding: 1px; /* Поля вокруг текста */
+            }
+        </style>
+
+        <table>
+              
+
+            <tr>
+                <td>@Html.DevExpress().Label(settings => { settings.Text = "Фамилия"; settings.Width = 90; }).GetHtml()</td>
+                <td>@Html.DevExpress().TextBoxFor(model => model.FirstName, settings =>
+        {
+            settings.Enabled = false;
+            settings.Name = "FirstName";
+            settings.Width = 200;
+            settings.ShowModelErrors = true;
+            settings.Properties.ValidationSettings.RequiredField.IsRequired = true;
+            settings.Properties.ValidationSettings.ValidationGroup = "PhysPersonVG";
+            settings.Properties.ValidationSettings.RequiredField.ErrorText = "Обязательное поле";
+            settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+        }).GetHtml()   </td>
+
+            </tr>
+            <tr>
+                <td>@Html.DevExpress().Label(settings => { settings.Text = "Имя"; settings.Width = 90; }).GetHtml()</td>
+                <td>@Html.DevExpress().TextBoxFor(model => model.MidleName, settings =>
+        {
+            settings.Name = "MidleName";
+            settings.Width = 200;
+            settings.ShowModelErrors = true;
+
+            settings.Enabled = false;
+            settings.Properties.ValidationSettings.RequiredField.IsRequired = true;
+            settings.Properties.ValidationSettings.ValidationGroup = "PhysPersonVG";
+            settings.Properties.ValidationSettings.RequiredField.ErrorText = "Обязательное поле";
+            settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+        }).GetHtml()   </td>
+
+            </tr>
+            <tr>
+                <td>@Html.DevExpress().Label(settings => { settings.Text = "Отчество"; settings.Width = 90; }).GetHtml()</td>
+                <td>@Html.DevExpress().TextBoxFor(model => model.LastName, settings =>
+        {
+            settings.Name = "LastName";
+            settings.Width = 200;
+            settings.ShowModelErrors = true;
+            settings.Enabled = false;
+            settings.Properties.ValidationSettings.RequiredField.IsRequired = true;
+            settings.Properties.ValidationSettings.ValidationGroup = "PhysPersonVG";
+            settings.Properties.ValidationSettings.RequiredField.ErrorText = "Обязательное поле";
+            settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+        }).GetHtml()   </td>
+
+            </tr>
+            <tr>
+                <td>@Html.DevExpress().Label(settings => { settings.Text = "ИНН"; settings.Width = 90; }).GetHtml()</td>
+                <td>@Html.DevExpress().TextBoxFor(model => model.INN, settings =>
+        {
+            settings.Name = "INN";
+            settings.Width = 200;
+            settings.Enabled = false;
+            settings.ShowModelErrors = true;
+            settings.Properties.ValidationSettings.RequiredField.IsRequired = true;
+            settings.Properties.ValidationSettings.ValidationGroup = "PhysPersonVG";
+            settings.Properties.ValidationSettings.RequiredField.ErrorText = "Обязательное поле";
+            settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+        }).GetHtml()   </td>
+
+            </tr>
+
+            <tr>
+                <td>@Html.DevExpress().Label(settings => { settings.Text = "Телефон"; settings.Width = 90; }).GetHtml()</td>
+                <td>@Html.DevExpress().TextBoxFor(model => model.Phone, settings =>
+        {
+            settings.Name = "Phone";
+            settings.Enabled = false;
+            settings.Width = 200;
+            settings.ShowModelErrors = true;
+            settings.Properties.MaskSettings.Mask = "8-(000) 000-00-00";
+            settings.Properties.ValidationSettings.RequiredField.IsRequired = true;
+            settings.Properties.ValidationSettings.ValidationGroup = "PhysPersonVG";
+            settings.Properties.ValidationSettings.RequiredField.ErrorText = "Обязательное поле";
+            settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+        }).GetHtml()   </td>
+
+            </tr>
+            <tr>
+                <td>@Html.DevExpress().Label(settings => { settings.Text = "Электронная почта"; settings.Width = 90; }).GetHtml()</td>
+                <td>@Html.DevExpress().TextBoxFor(model => model.Email, settings =>
+        {
+            settings.Name = "Email";
+            settings.Width = 200;
+            settings.ShowModelErrors = true;
+            settings.Enabled = false;
+            settings.Properties.ValidationSettings.RegularExpression.ValidationExpression = @"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}";
+            settings.Properties.ValidationSettings.RegularExpression.ErrorText = "Некорректный адрес";
+            settings.Properties.ValidationSettings.ValidationGroup = "PhysPersonVG";
+            settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+        }).GetHtml()   </td>
+                </tr>
+        </table>
+
+    </fieldset>
+   
+    @Html.Action("EditAddress", "PhysicalPersons", new  { id = Model.IdPhysicalPerson , readonlytype=true})
+    
+}

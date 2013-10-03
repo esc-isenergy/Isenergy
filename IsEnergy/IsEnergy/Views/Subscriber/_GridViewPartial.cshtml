@@ -1,0 +1,64 @@
+@{
+	var grid = Html.DevExpress().GridView(settings => {
+        settings.Name = "GridView";
+        settings.CallbackRouteValues = new { Controller = "Subscriber", Action = "GridViewPartial" };
+		
+				//settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "Subscriber", Action = "GridViewPartialAddNew" };
+        //settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "Subscriber", Action = "GridViewPartialUpdate" };
+       // settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "Subscriber", Action = "GridViewPartialDelete" };
+    //    settings.SettingsEditing.Mode = GridViewEditingMode.EditFormAndDisplayRow;
+       // settings.SettingsBehavior.ConfirmDelete = true;
+		
+	//	settings.CommandColumn.Visible = true;
+      //  settings.CommandColumn.NewButton.Visible = true;
+      //  settings.CommandColumn.DeleteButton.Visible = true;
+     //   settings.CommandColumn.EditButton.Visible = true;
+				
+		settings.KeyFieldName = "IdentifierSubscriber";
+		
+		settings.SettingsPager.Visible = true;
+		settings.Settings.ShowGroupPanel = true;
+		settings.Settings.ShowFilterRow = true;
+		settings.SettingsBehavior.AllowSelectByRowClick = true;
+		
+				//settings.Columns.Add("IdentifierSubscriber");
+        settings.Columns.Add("TypeElementAbonent", "Тип абонента");
+				settings.Columns.Add("Name", "Имя");
+				settings.Columns.Add("Requisites","Реквизиты");
+				//settings.Columns.Add("Comment");
+                settings.Columns.Add("AccessFormalizedDocuments", "Формализованный документооборот");
+                settings.Columns.Add("AccessUnformalizedDocuments", "Неформализованный документооборот");
+				settings.Columns.Add("TypeGroupElectricity","Тип группы");
+                settings.Columns.Add("AccessElectricityPrimaryDocuments", "Первичная документация");
+                settings.Columns.Add("AccessElectricityForm80020", "Макеты 80020");
+                settings.Columns.Add("AccessElectricityForm16", "Макеты Форма №16");
+				//settings.Columns.Add("AccessFormalizedDocumentsAmount");
+				//settings.Columns.Add("AccessFormalizedDocumentsDateStart");
+				//settings.Columns.Add("AccessFormalizedDocumentsDateEnd");
+				//settings.Columns.Add("AccessUnformalizedDocumentsAmount");
+				//settings.Columns.Add("AccessUnformalizedDocumentsDateStart");
+				//settings.Columns.Add("AccessUnformalizedDocumentsDateEnd");
+				//settings.Columns.Add("AccessElectricityPrimaryDocumentsDateStart");
+				//settings.Columns.Add("AccessElectricityPrimaryDocumentsDateEnd");
+				//settings.Columns.Add("AccessElectricityForm80020Amount");
+				//settings.Columns.Add("AccessElectricityForm80020DateStart");
+				//settings.Columns.Add("AccessElectricityForm80020DateEnd");
+				//settings.Columns.Add("AccessElectricityForm16Amount");
+				//settings.Columns.Add("AccessElectricityForm16DateStart");
+				//settings.Columns.Add("AccessElectricityForm16DateEnd");
+				//settings.Columns.Add("Administrators");
+				//settings.Columns.Add("LegalEntities");
+				//settings.Columns.Add("Operators");
+				//settings.Columns.Add("PhysicalPersons");
+				//settings.Columns.Add("SoleTraders");
+				//settings.Columns.Add("SubscribersConnectEnergySales");
+				//settings.Columns.Add("SubscribersConnectGridCompany");
+				//settings.Columns.Add("SubscribersContracts");
+				//settings.Columns.Add("SubscribersSubdivision");
+				//settings.Columns.Add("SubscribesLog");
+			});
+		if (ViewData["EditError"] != null){
+        grid.SetEditErrorText((string)ViewData["EditError"]);
+    }
+	}
+@grid.Bind(Model).GetHtml()

@@ -1,0 +1,295 @@
+﻿@using IsEnergyModel;
+
+@{
+    Layout = null;
+}
+
+@{
+    LegalEntities legalEntities = new LegalEntities();
+ }
+  
+<script type="text/javascript">
+   
+
+    function Create_LegalEntities() {
+        if (ASPxClientEdit.ValidateGroup('ew1')) {
+            $("#loginForm").submit();
+           
+        }
+    };
+       
+</script>
+
+@using (Html.BeginForm("Create", "LegalEntities", FormMethod.Post, new { id = "loginForm", enctype = "Multipart/form-data" }))
+{
+<div id="LegalEntities">
+  <div id="RequisitesLegalEntities">
+      <div id="DataOrganization">
+       <fieldset>
+        <legend>Реквизиты</legend>
+            <table>  
+       
+                <tr>
+                    <td>@Html.DevExpress().LabelFor(model => legalEntities.NameOrganization, settings =>{
+                       settings.Text = "Наименование*"; 
+                       }).GetHtml()</td>
+
+                    <td> @Html.DevExpress().TextBoxFor(model => legalEntities.NameOrganization, settings => {
+
+                             settings.Width = 250;
+                 
+                             settings.ShowModelErrors = true;
+                             settings.Properties.ValidationSettings.RequiredField.IsRequired = true;
+                             settings.Properties.ValidationSettings.RequiredField.ErrorText = "Обязательное поле";
+                             settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+                             settings.Properties.ValidationSettings.ValidationGroup = "ew1";
+                            }).GetHtml()   </td> 
+          
+               </tr> 
+                <tr>
+                    <td>@Html.DevExpress().LabelFor(model => legalEntities.INN, settings =>{
+                       settings.Text = "ИНН*"; 
+                       }).GetHtml()</td>
+
+                    <td> @Html.DevExpress().TextBoxFor(model => legalEntities.INN, settings => {
+                 
+                             settings.Width = 250;
+                
+                             settings.ShowModelErrors = true;
+                             settings.Properties.ValidationSettings.RequiredField.IsRequired = true;
+                             settings.Properties.ValidationSettings.RequiredField.ErrorText = "Обязательное поле";
+                             settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+                             settings.Properties.ValidationSettings.ValidationGroup = "ew1";
+                            }).GetHtml()   </td> 
+         
+               </tr> 
+                <tr>
+                    <td>@Html.DevExpress().LabelFor(model => legalEntities.KPP, settings =>{
+                        settings.Text = "КПП*"; 
+                       }).GetHtml()</td>
+                    <td> @Html.DevExpress().TextBoxFor(model => legalEntities.KPP, settings => {
+            
+                             settings.Width = 250;
+                
+                             settings.ShowModelErrors = true;
+                             settings.Properties.ValidationSettings.RequiredField.IsRequired = true;
+                             settings.Properties.ValidationSettings.RequiredField.ErrorText = "Обязательное поле";
+                             settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+                             settings.Properties.ValidationSettings.ValidationGroup = "ew1";
+                            }).GetHtml()   </td> 
+          
+               </tr> 
+                <tr>
+                    <td>@Html.DevExpress().LabelFor(model => legalEntities.OGRN, settings =>{
+                        settings.Text = "ОГРН*"; 
+                       }).GetHtml()</td>
+                    <td> @Html.DevExpress().TextBoxFor(model => legalEntities.OGRN, settings => {
+                
+                             settings.Width = 250;
+                
+                             settings.ShowModelErrors = true;
+                             settings.Properties.ValidationSettings.RequiredField.IsRequired = true;
+                             settings.Properties.ValidationSettings.RequiredField.ErrorText = "Обязательное поле";
+                             settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+                             settings.Properties.ValidationSettings.ValidationGroup = "ew1";
+                            }).GetHtml()   </td> 
+         
+                 </tr>
+
+                 <tr>
+                     <td>@Html.DevExpress().LabelFor(model => legalEntities.IdIFNS, settings =>{
+                         settings.Text = "ИФНС*"; 
+                       }).GetHtml()</td>
+                     <td> @Html.DevExpress().ComboBoxFor(model => legalEntities.IdIFNS,
+                             settings =>
+                            {
+                                settings.Width = 350;
+                                settings.SelectedIndex = 0;
+                                settings.Properties.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+                                settings.Properties.DropDownStyle = DropDownStyle.DropDownList;
+                                settings.Properties.TextFormatString = "({0}) {1}";
+                                settings.Properties.ValueField = "IdIFNS";
+                                settings.Properties.AnimationType = AnimationType.Auto;
+                                settings.Properties.ValueType = typeof(int);
+                                settings.Properties.Columns.Add("Code", "Код", 50);
+                                settings.Properties.Columns.Add("ShortName", "Название", 300);
+                                settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+                                }).BindList(ViewData["IFNS"]).GetHtml()</td>  
+                    </tr>
+
+               </table>
+          </fieldset>
+    </div>
+
+    @Html.Partial("~/Views/Address/Address.cshtml")
+   
+   
+ </div> 
+
+  <fieldset id="RequisitesContactFaceLegalEntitiesfildset">
+        <legend>Ответственное лицо/пользователь</legend>  
+   <table>
+     <tr>
+        <td>@Html.DevExpress().LabelFor(model => legalEntities.ContactFaceFirstName, settings =>{
+             settings.Text = "Фамилия*"; 
+           }).GetHtml()</td>
+        <td> @Html.DevExpress().TextBoxFor(model => legalEntities.ContactFaceFirstName, settings => {
+           
+                 settings.Width = 200;
+               
+                 settings.ShowModelErrors = true;
+                 settings.Properties.ValidationSettings.RequiredField.IsRequired = true;
+                 settings.Properties.ValidationSettings.RequiredField.ErrorText = "Обязательное поле";
+                 settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+                 settings.Properties.ValidationSettings.ValidationGroup = "ew1";
+                }).GetHtml()   </td> 
+       
+     </tr>
+      <tr>
+        <td>@Html.DevExpress().LabelFor(model => legalEntities.ContactFaceMidleName, settings =>{
+             settings.Text = "Имя*"; 
+           }).GetHtml()</td>
+        <td> @Html.DevExpress().TextBoxFor(model => legalEntities.ContactFaceMidleName, settings => {
+            
+                 settings.Width = 200;
+                
+                 settings.ShowModelErrors = true;
+                 settings.Properties.ValidationSettings.RequiredField.IsRequired = true;
+                 settings.Properties.ValidationSettings.RequiredField.ErrorText = "Обязательное поле";
+                 settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+                 settings.Properties.ValidationSettings.ValidationGroup = "ew1";
+                }).GetHtml()   </td> 
+         
+     </tr>
+    <tr>
+        <td>@Html.DevExpress().LabelFor(model =>  legalEntities.ContactFaceLastName, settings =>{
+             settings.Text = "Очество*"; 
+           }).GetHtml()</td>
+        <td> @Html.DevExpress().TextBoxFor(model => legalEntities.ContactFaceLastName, settings => {
+                 settings.Width = 200;
+                
+                 settings.ShowModelErrors = true;
+                 settings.Properties.ValidationSettings.RequiredField.IsRequired = true;
+                 settings.Properties.ValidationSettings.RequiredField.ErrorText = "Обязательное поле";
+                 settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+                 settings.Properties.ValidationSettings.ValidationGroup = "ew1";
+                }).GetHtml()   </td> 
+         
+     </tr>
+        <tr>
+                       <td>@Html.DevExpress().Label(
+                       settings=>{
+                           settings.Text = "Логин*:";
+                       }).GetHtml()</td>
+                        <td> @Html.DevExpress().TextBox( 
+                        settings =>{
+                            settings.Name = "legalEntitiesLogin";                           
+                            settings.Width = 200;
+                            settings.ShowModelErrors = true;
+                            settings.Properties.ValidationSettings.RequiredField.IsRequired = true;
+                            settings.Properties.ValidationSettings.RequiredField.ErrorText = "Обязательное поле";
+                            settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+                            settings.Properties.ValidationSettings.ValidationGroup = "ew1";
+                        }).GetHtml()</td></tr>
+     <tr>
+           <td>@Html.DevExpress().Label(
+               settings=>{
+               settings.Text = "Пароль*:";
+                }).GetHtml()</td>
+             <td> @Html.DevExpress().TextBox( settings=>{
+
+                 settings.Name = "legalEntitiesPassword";
+                 settings.Width = 200;
+                 
+                 settings.ShowModelErrors = true;
+                 settings.Properties.Password = true;
+                 settings.Properties.ValidationSettings.RequiredField.IsRequired = true;
+                 settings.Properties.ValidationSettings.RequiredField.ErrorText = "Обязательное поле";
+                 settings.Properties.ValidationSettings.RegularExpression.ValidationExpression = @"(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$";
+                 settings.Properties.ValidationSettings.RegularExpression.ErrorText = "Не корректный пароль";
+                 settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+                 settings.Properties.ValidationSettings.ValidationGroup = "ew1";
+               }).GetHtml() </td></tr>
+    <tr>
+         <td>@Html.DevExpress().LabelFor(model => legalEntities.Phone, settings =>{
+              settings.Text = "Телефон*"; 
+           }).GetHtml()</td>
+        <td> @Html.DevExpress().TextBoxFor(model => legalEntities.Phone, settings => {
+                  
+                  settings.Width = 200;
+                 
+                  settings.Properties.MaskSettings.Mask = "8-(000) 000-00-00";
+                  settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+                  settings.Properties.ValidationSettings.ValidationGroup = "ew1";
+                }).GetHtml()   </td> 
+        
+     </tr>
+    <tr>
+        <td>@Html.DevExpress().LabelFor(model => legalEntities.Phone, settings =>{
+              settings.Text = "E-mail"; 
+           }).GetHtml()</td>
+        <td> @Html.DevExpress().TextBoxFor(model => legalEntities.Email, settings => {
+           
+                 settings.Width = 200;
+               
+                 settings.ShowModelErrors = true;
+                 settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+                 settings.Properties.ValidationSettings.ErrorText = "Не верно указан E-mail";
+                 settings.Properties.ValidationSettings.ValidationGroup = "ew1";
+                   
+                }).GetHtml()   </td> 
+      
+     </tr>
+      
+       <tr>
+           <td>
+               @Html.DevExpress().Label(
+                   settings =>
+                   {
+                       settings.Name = "Certificates";
+                       settings.Text = "Сертификат";
+                   }).GetHtml()    </td>
+           <td>
+               @Html.DevExpress().UploadControl( settings =>
+        {
+            settings.Name = "fileUploadCreat";
+            settings.FileInputCount = 1;
+            settings.Width = 320;
+            string[] AllowedFileExtensions = { ".cer", ".p7b" };
+            settings.ValidationSettings.AllowedFileExtensions = AllowedFileExtensions;
+          
+        }).GetHtml()</td>
+
+       </tr>
+       </table> 
+    </fieldset>
+
+</div>  
+    <table>
+    <tr>
+        <td>
+            <button class="action bluebtn" type="button"  onclick="javascript:Create_LegalEntities();"><span class="label">Добавить</span></button>
+            
+       </td>
+        <td>
+            <button class="action" type="button" onclick="javascript:pcModalModeLegalEntities.Hide();"><span class="label">Отмена</span></button>
+       </td>
+    </tr>
+</table>
+   
+}
+
+
+      
+
+
+ 
+
+   
+  
+       
+       
+    
+ 
+
+

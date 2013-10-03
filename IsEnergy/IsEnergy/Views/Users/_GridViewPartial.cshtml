@@ -1,0 +1,67 @@
+@{   
+	var grid = Html.DevExpress().GridView(settings => {
+        settings.Name = "GridView";
+        settings.SettingsBehavior.ConfirmDelete = true;
+        settings.CommandColumn.Visible = true;
+        settings.CommandColumn.Caption = " ";
+        settings.Width =  System.Web.UI.WebControls.Unit.Percentage(100);
+        settings.Height = System.Web.UI.WebControls.Unit.Percentage(100);
+
+        settings.KeyFieldName = "IdUser";
+        settings.CallbackRouteValues = new { Controller = "Users", Action = "GridViewPartial" };
+		
+       
+
+        GridViewCommandColumnCustomButton Details = new GridViewCommandColumnCustomButton();
+        Details.Text = "Детали";
+        Details.ID = "Details";
+        settings.CommandColumn.CustomButtons.Add(Details);
+        settings.ClientSideEvents.CustomButtonClick = //"function(s, e){javascript:pcModalModeDetails.Show(); }";
+            String.Format("function(s, e) {{ if(e.buttonID == 'Details') window.location.href='{0}/' + s.GetRowKey(e.visibleIndex); }}", DevExpressHelper.GetUrl(new { Controller = "Users", Action = "Details" }));      
+		
+settings.SettingsPager.Visible = true;
+		settings.Settings.ShowGroupPanel = true;
+		settings.Settings.ShowFilterRow = true;
+		settings.SettingsBehavior.AllowSelectByRowClick = true;
+
+        settings.Columns.Add("ShortName", "ФИО");
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Login";
+            column.Caption = "Имя пользователя";
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Phone";
+            column.Caption = "Телефон";
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Email";
+            column.Caption = "E-mail";
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Comment";
+            column.Caption = "Примечание";
+        });
+       
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Certificates.CertificateSerialNumber";
+            column.Caption = "Серийный номер сертификата";
+        });
+        
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Certificates.PublisherCertificate";
+            column.Caption = "Издатель сертификата";
+        });			
+				
+			});
+		if (ViewData["EditError"] != null){
+        grid.SetEditErrorText((string)ViewData["EditError"]);
+    }
+	}
+@grid.Bind(Model).GetHtml()
+   

@@ -1,0 +1,71 @@
+﻿
+
+@{
+    var grid = Html.DevExpress().GridView(settings =>
+    {
+        settings.Name = "GridView";
+        settings.CallbackRouteValues = new { Controller = "DocumentFlow", Action = "GridViewPartial" };
+        settings.SettingsBehavior.ConfirmDelete = true;
+        settings.CommandColumn.Visible = true;
+        settings.CommandColumn.Caption = " ";
+       settings.Width = System.Web.UI.WebControls.Unit.Percentage(99);
+       settings.Height = System.Web.UI.WebControls.Unit.Percentage(100);
+     
+        settings.KeyFieldName = "IdDocument";
+        GridViewCommandColumnCustomButton Details = new GridViewCommandColumnCustomButton();
+        Details.Text = "Детали";
+        Details.ID = "Details";
+        settings.CommandColumn.CustomButtons.Add(Details);
+        settings.ClientSideEvents.CustomButtonClick = String.Format("function(s, e) {{ if(e.buttonID == 'Details') window.location.href='{0}/' + s.GetRowKey(e.visibleIndex); }}", DevExpressHelper.GetUrl(new { Controller = "DocumentFlow", Action = "DetailsDocuments" }));
+        settings.SettingsPager.Visible = true;
+        settings.Settings.ShowGroupPanel = true;
+        settings.Settings.ShowFilterRow = true;
+        settings.SettingsBehavior.AllowSelectByRowClick = true;
+
+        settings.SettingsPager.Position = System.Web.UI.WebControls.PagerPosition.Bottom;
+        settings.SettingsPager.FirstPageButton.Visible = true;
+        settings.SettingsPager.LastPageButton.Visible = true;
+        settings.SettingsPager.PageSizeItemSettings.Visible = true;
+        settings.SettingsPager.PageSizeItemSettings.Items = new string[] { "10", "20", "50" };
+
+          settings.Columns.Add(column =>
+        {
+            column.FieldName = "TypeDocument";
+            column.Caption = "Тип документа";
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "NameDocument";
+            column.Caption = "Наименование";
+        });
+      
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "DateSend";
+            column.Caption = "Дата отправки ";
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "DateReceive";
+            column.Caption = "Дата получения";
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "idSubdivisionSender";
+            column.Caption = "Подразделение отправителя";
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "idSubdivisionReceiver";
+            column.Caption = "Подразделение получателя";
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "State";
+            column.Caption = "Статус";
+        });
+      
+
+    });
+}
+@grid.Bind(Model).GetHtml()

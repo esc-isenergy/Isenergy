@@ -1,0 +1,83 @@
+﻿@model IsEnergyModel.Users
+ <style>
+   table {
+   
+    border-spacing: 3px; /* Расстояние между ячейками */
+   }
+   td, th {
+    padding: 2px; /* Поля вокруг текста */
+   }
+ </style>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $("#PersonalKainet").hide();
+
+        $("#Ico").click(function () {
+            if ($("#PersonalKainet").is(':visible')) $("#PersonalKainet").hide();
+            else $("#PersonalKainet").show();
+
+        });
+    });
+    $(document).click(function (event) {
+        if ($(event.target).closest("#Ico").length)
+            return;
+        $("#PersonalKainet").hide();
+
+        event.stopPropagation();
+    });
+
+    function ChangeOrganization() {
+        if (confirm('Сменить организацию?')) {
+            var form = document.getElementById("LogPanelUser");
+            form.submit();
+
+        }
+    }
+
+</script>
+
+@using (Html.BeginForm("ChangeOrganization", "Account", new { idUser = Model.IdUser }, FormMethod.Post, new { id = "LogPanelUser" }))
+{
+<div id="LogPanel">
+    <div id="Ico">
+        <img  style="cursor: pointer;" id="IMG" src="~/Content/Images/User.png">   @*иконка*@
+        <div id="PersonalKainet" >
+       <p><a style="text-decoration: none; " href="~/Users/PrivateOfficeDetails"><img  style="cursor: pointer; vertical-align: middle;" src="~/Content/ImagesAccount/business_people.png">  Личные данные</a></p>
+       <p><a style="text-decoration: none; " href="~/Subscriber/PrivateOfficeSubscriber"><img  style="cursor: pointer; vertical-align: middle;" src="~/Content/ImagesAccount/usercard.png">  Данные абонента</a></p>
+       <p><a style="text-decoration: none; " href="~/Contractors"><img  style="cursor: pointer; vertical-align: middle;" src="~/Content/ImagesAccount/users_group.png">  Контрагенты</a></p>
+       
+        </div>
+    </div>
+        @*Html.HiddenFor(model => model.IdUser)*@
+         <div id="FIOCombobox">
+         @Model.FirstName  @Model.MidleName  @Model.LastName 
+       
+            @Html.DevExpress().ComboBoxFor(model => model.IdentifierSubscriberDefault, settings =>
+       {
+           settings.Width = 300;
+           //settings.SelectedIndex = 0;
+           settings.Properties.IncrementalFilteringMode = IncrementalFilteringMode.StartsWith;
+           settings.Properties.DropDownStyle = DropDownStyle.DropDownList;
+           settings.Properties.TextField = "Name";
+           settings.Properties.ValueField = "IdentifierSubscriber";
+           settings.Properties.ValueType = typeof(string);
+           settings.Properties.ClientSideEvents.TextChanged = "function(s, e){ChangeOrganization();}";
+        }).BindList(ViewData["UserListAbonent"]).GetHtml()
+
+       </div>
+       
+        <div id="ExitButton">
+        <a href="~/Account/LogOff" style="text-align: center"> Выход <img src="~/Content/Images/headericon/icon-exit.png" /></a>
+        </div>
+ </div>     
+}
+   
+ 
+    
+             
+   
+
+     
+
+

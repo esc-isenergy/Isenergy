@@ -1,0 +1,281 @@
+﻿@model IsEnergyModel.Subscribers
+
+
+    <script type="text/javascript">
+    // Скрипт мены панелей 
+        function RoundPanelVisibleAccessPrivate() {
+            var selectedIndex = TypeGroupElectricity.GetSelectedIndex();
+
+            if (selectedIndex == 0) {
+                ElectricConsumerPartialDiv.style.display = "none";
+            }
+            else if (selectedIndex == 1) {
+                ElectricConsumerPartialDiv.style.display = "block";
+            }
+            else if (selectedIndex == 2) {
+                ElectricConsumerPartialDiv.style.display = "none";
+            }
+
+            else if (selectedIndex == 3) {
+                ElectricConsumerPartialDiv.style.display = "none";
+            }
+        }
+
+   </script>
+  
+    <style>
+        table {
+            border-spacing: 1px; /* Расстояние между ячейками */
+        }
+
+        td, th {
+            padding: 2px; /* Поля вокруг текста */
+        }
+    </style>
+@using (Html.BeginForm(null,null, FormMethod.Post))
+{
+        @Html.HiddenFor(model => model.IdentifierSubscriber) 
+    @Html.HiddenFor(model => model.TypeElementAbonent) 
+    <fieldset>
+        <legend><b>Основной документооборот</b></legend>
+        <div id="fieldsetInFormalizedDocuments" class ="fieldsetInCss">
+            <table>
+                <tr>
+                    <td>
+                        @Html.DevExpress().CheckBoxFor(model => model.AccessFormalizedDocuments, settings =>
+                   {
+                       settings.Name = "AccessFormalizedDocuments";
+                       settings.Checked = false;
+                       settings.Width = 160;
+                       settings.Text = "Формализованный";
+                       settings.ReadOnly = true;
+                       //settings.Enabled = false;
+                   }).GetHtml()
+                    </td>
+                    <td>@Html.DevExpress().Label(settings =>
+                   {
+                       settings.Name = "NumberOfFormalizedDocuments";
+                       settings.Text = "Количество документов";
+                       settings.Width = 100;
+                   }).GetHtml()
+
+                    </td>
+                    <td>
+                        @Html.DevExpress().SpinEditFor(model=>model.AccessFormalizedDocumentsAmount,settings =>
+                   {
+                       settings.Name = "AccessFormalizedDocumentsAmount";
+                       settings.ReadOnly = true;
+                       //settings.Enabled = false;
+                       settings.Width = 100;
+                   }).GetHtml()
+                    </td>
+                    <td>
+                        <table>
+                            <tr>
+                                <td>
+                                    @Html.DevExpress().Label(settings =>
+                               {
+                                   settings.Name = "LabelDateFromFormalizedDocuments";
+                                   settings.Text = "Начало обслуживания";
+                                   settings.Width = 150;
+
+                               }).GetHtml()
+                                </td>
+                                <td>
+                                    @Html.DevExpress().DateEditFor(model => model.AccessFormalizedDocumentsDateStart, settings =>
+                               {
+                                   settings.ReadOnly = true;
+                                   //settings.Enabled = false;
+                                   settings.Name = "AccessFormalizedDocumentsDateStart";
+                                   settings.Date = DateTime.Now;
+                                   settings.Width = 90;
+
+                               }).GetHtml()
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    @Html.DevExpress().Label(settings =>
+                               {
+                                   settings.Name = "LabelDateBeforeFormalizedDocuments";
+                                   settings.Text = "Конец обслуживания";
+
+                                   settings.Width = 150;
+
+                               }).GetHtml()
+                                </td>
+                                <td>
+                                    @Html.DevExpress().DateEditFor(model => model.AccessFormalizedDocumentsDateEnd, settings =>
+                               {
+                                   settings.Name = "AccessFormalizedDocumentsDateEnd";
+                                   settings.Date = DateTime.Now.AddYears(1);
+                                   settings.Width = 90;
+                                   settings.ReadOnly = true;
+                                   //settings.Enabled = false;
+                               }).GetHtml()
+                                </td>
+                            </tr>
+
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div id="fieldsetInUnformalizedDocuments" class ="fieldsetInCss">
+            <table>
+
+                <tr>
+                    <td>
+                        @Html.DevExpress().CheckBoxFor(model => model.AccessUnformalizedDocuments, settings =>
+                   {
+                       settings.Name = "AccessUnformalizedDocuments";
+                       //settings.Checked = false;
+                       settings.Text = "Не формализованный";
+                       settings.Width = 160;
+                       settings.ReadOnly = true;
+                       //settings.Enabled = false;
+
+                   }).GetHtml()
+                    </td>
+                    <td>@Html.DevExpress().Label(settings =>
+                   {
+                       settings.Name = "NumberOfUnformalizedDocuments";
+                       settings.Text = "Количество документов";
+                       settings.Width = 100;
+                   }).GetHtml()
+
+                    </td>
+                    <td>
+                        @Html.DevExpress().SpinEditFor(model=>model.AccessUnformalizedDocumentsAmount,settings =>
+                   {
+                       settings.Name = "AccessUnformalizedDocumentsAmount";
+                       settings.Width = 100;
+                       settings.ReadOnly = true;
+                       //settings.Enabled = false;
+                   }).GetHtml()
+                    </td>
+                     <td>
+                        <table>
+                            <tr>
+                                <td>
+                                    @Html.DevExpress().Label(settings =>
+                               {
+                                   settings.Name = "LabelDateFromUnformalizedDocuments";
+                                   settings.Text = "Начало обслуживания";
+                                   settings.Width = 150;
+
+                               }).GetHtml()
+                                </td>
+                                <td>
+                                    @Html.DevExpress().DateEditFor(model => model.AccessUnformalizedDocumentsDateStart, settings =>
+                               {
+                                   settings.Name = "AccessUnformalizedDocumentsDateStart";
+                                   settings.Date = DateTime.Now;
+                                   settings.Width = 90;
+                                   settings.ReadOnly = true;
+                                   //settings.Enabled = false;
+                               }).GetHtml()
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    @Html.DevExpress().Label(settings =>
+                               {
+                                   settings.Name = "LabelDateBeforeUnformalizedDocuments";
+                                   settings.Text = "Конец обслуживания";
+                                   settings.Width = 150;
+
+                               }).GetHtml()
+                                </td>
+                                <td>
+                                    @Html.DevExpress().DateEditFor(model => model.AccessUnformalizedDocumentsDateEnd, settings =>
+                               {
+                                   settings.Name = "AccessUnformalizedDocumentsDateEnd";
+                                   settings.Date = DateTime.Now.AddYears(1);
+                                   settings.Width = 90;
+                                   settings.ReadOnly = true;
+                                   //settings.Enabled = false;
+                               }).GetHtml()
+                                </td>
+                            </tr>
+
+                        </table>
+                    </td>
+
+                </tr>
+            </table>
+        </div>
+
+    </fieldset>
+    
+    <fieldset>
+        <legend>
+            <table>
+                <tr>
+                    <td><b>Группа электропотребление </b></td>
+                    <td>@Html.DevExpress().ComboBoxFor(model=>model.TypeGroupElectricity,
+                settings =>
+                {
+                    settings.Name = "TypeGroupElectricity";
+                    settings.Width = 200;
+                    settings.SelectedIndex = 0;
+                    settings.Properties.ValueType = typeof(int);
+                    settings.Properties.Items.Add("Без группы", 0).Index = 0;
+                    settings.Properties.Items.Add("Группа потребителей", 1).Index = 1;
+                    settings.Properties.Items.Add("Группа энергосбыта", 2).Index = 2;
+                    settings.Properties.Items.Add("Группа сетевой компании", 3).Index = 3;
+                    //settings.Properties.ClientSideEvents.CloseUp = "function(s, e) { RoundPanelVisibleAccessPrivate() }";
+                    settings.Properties.ClientSideEvents.Init = "function(s, e) { RoundPanelVisibleAccessPrivate() }";
+                    settings.ReadOnly= true;
+                }
+            ).GetHtml()</td>
+                </tr>
+            </table>
+        </legend>
+        <div id ="ElectricConsumerPartialDiv" style ="display:none">
+      @Html.Partial("~/Views/Subscriber/PrivateOfficeSubscriber/ElectricConsumer.cshtml")
+            <div class ="ContractsAndEnumerators">
+                    <div class="ContractsOfSubscriber">
+                    @Html.DevExpress().GridView(settings=>{
+                   settings.Name = "GridViewSubscriberContacts1";
+                   //settings.CallbackRouteValues = new { Controller = "Subscriber", Action = "GridViewPartialpcModalModeCreateContract", IdentifierSubscriber = ViewData["IdentifierSubscriber"] };
+		            settings.KeyFieldName = "IdContractSubscriber";
+		            settings.SettingsPager.Visible = true;
+                    settings.SettingsPager.ShowNumericButtons = false; 
+		            settings.Settings.ShowFilterRow = true;
+		            settings.SettingsBehavior.AllowSelectByRowClick = true;
+                    settings.Columns.Add(column =>
+                    {   column.FieldName = "NumberContract";
+                        column.Caption = "Номер договора";});
+                   }).Bind(Model.SubscribersContracts).GetHtml()
+                    </div>
+
+                    <div class="EnumeratorsOfSubscriber">
+                    @Html.DevExpress().GridView(settings => {
+                    settings.Name = "GridViewpcModalModeCreateEnumerator1";
+                    //settings.CallbackRouteValues = new { Controller = "Subscriber", Action = "GridViewpcModalModeCreateEnumerator", IdentifierSubscriber = ViewData["IdentifierSubscriber"] };
+		            settings.KeyFieldName = "IdEnumerator";		
+		            settings.SettingsPager.Visible = true;
+		            settings.Settings.ShowFilterRow = true;
+		            settings.SettingsBehavior.AllowSelectByRowClick = true;		
+				    settings.Columns.Add("Code", "Номер счетчика");                   
+                    settings.Columns.Add("SubscribersContracts.NumberContract", "Номер договора");
+                    }).Bind(ViewBag.subscribersEnumerator).GetHtml()
+                       </div>
+                    </div> 
+                     
+                    <div class="BelongingGroups">
+                        <div class="EsOfSubscr">
+                            @Html.Action("TreeListEnergosbytOfSubscriberPartial") 
+
+                        </div>
+                        <div class="GcOfSubscr"> 
+                            @Html.Action("TreeListGridCompanyOfSubscriberPartial")
+                        </div>
+                  
+               
+         </div>
+</div>    
+    </fieldset>
+} 

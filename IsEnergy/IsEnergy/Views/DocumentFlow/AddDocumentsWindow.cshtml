@@ -1,0 +1,199 @@
+﻿<script src="@Url.Content("~/Scripts/Signature.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/CertificateBrowserPlugin.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/NativeBridge.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.alerts.min.js")" type="text/javascript"></script>  
+
+<script type="text/javascript">
+    function ClearDocumentsTemp() {
+     
+     $.post('/DocumentFlow/ClearDocumentsTemp', function (data) { $('#DocumentPanel').html(data); });  
+    }
+    $(document).ready(function () {
+
+        $("#GetSubName").hide();
+        $("#GetSubCode").hide();
+        $("#SelectSub").hide();
+        $("#Sub").click(function () {
+            
+            if ($("#SelectSub").is(':visible')) $("#SelectSub").hide();
+            else {
+                var identifierSubscriber = IdentifierSubscriberComboBox.GetValue();
+                if (identifierSubscriber != null && SelecTypeKontragent.GetSelectedIndex() == 0) {
+
+                    $.post('/DocumentFlow/TreeListSubdivision', { identifierSubscriber: identifierSubscriber }, function (data) { $('#SelectSub').html(data); });
+                    $("#SelectSub").show();
+                }
+                if (SelecTypeKontragent.GetSelectedIndex() == 1) {
+                    $.post('/DocumentFlow/TreeListSubdivision', function (data) { $('#SelectSub').html(data); });
+                    $("#SelectSub").show();
+                }
+            }
+        });
+    });
+  
+  function SelecTypeKontragents() {
+     
+      var selectedIndex = SelecTypeKontragent.GetSelectedIndex();
+     
+      $("#SelectSub").hide();
+      if (selectedIndex == 0) {
+      
+          IdentifierSubscriberComboBox.SetText('');
+          IdentifierSubscriberComboBox.SetVisible(true);
+          $('#Kontragent').show();
+          $("#GetSubName").hide();
+          $("#GetSubCode").hide();
+      }
+      if (selectedIndex == 1) {
+          IdentifierSubscriberComboBox.SetVisible(false);
+          $('#Kontragent').hide();
+          $("#GetSubName").hide();
+          $("#GetSubCode").hide();
+      }
+      if (selectedIndex == 2) {
+
+      }
+
+  } 
+  function GetSubdivision(sub) {
+   
+          $('#GetIdSubdivision').val(sub);
+          TreeListSubdivision.GetNodeValues(sub, 'SubdivisionName', function GetNameSub(name) { $('#GetSubName').html(name); });
+          TreeListSubdivision.GetNodeValues(sub, 'SubdivisionCode', function GetCodeSub(code) { $('#GetSubCode').html('('+code+')'); });
+          $("#SelectSub").hide();
+          $("#GetSubName").show();
+          $("#GetSubCode").show();
+
+  }
+  function Hide() {
+      var identifierSubscriber = IdentifierSubscriberComboBox.GetValue();
+     
+      if (identifierSubscriber != '') {
+        
+      }
+      
+          $('#GetIdentifierSubscriber').val(identifierSubscriber);
+          $("#SelectSub").hide();
+          $("#GetSubCode").empty();
+          $("#GetSubName").empty();
+  }
+
+</script>
+
+<style type="text/css">
+    object.hiddenObject
+    {
+        visibility: hidden;
+        width: 0px;
+        height: 0px;
+        margin: 0px;
+        padding: 0px;
+        border-style: none;
+        border-width: 0px;
+        max-width: 0px;
+        max-height: 0px;
+    }
+</style>
+<object id="cadesplugin" type="application/x-cades" class="hiddenObject"></object>
+
+<div id="DocumentData">
+    <fieldset style="padding-top:0;padding-bottom:0;"> 
+      <legend>Контрагент</legend>
+   <table>
+       <tr>
+           <td>
+                @Html.DevExpress().Label(settings=>{
+                settings.Text="Тип контрагента:";
+                settings.Width = 110;
+                }).GetHtml()
+           </td>
+           <td> @Html.DevExpress().ComboBox(
+                settings =>{
+                    settings.Name = "SelecTypeKontragent";
+                    settings.Width = 100;
+                    settings.Properties.ValueType = typeof(int);
+                    settings.Properties.Items.Add("Исходящий",0).Index=0;
+                    settings.Properties.Items.Add("Внутренний",1).Index=1;
+                    settings.Properties.Items.Add("Роуминг", 2).Index = 2;
+                    settings.SelectedIndex = 0;
+                    settings.Properties.ClientSideEvents.CloseUp = "function(s, e){SelecTypeKontragents();}";
+                 
+                }).GetHtml()
+           </td>
+          
+            <td>
+              @Html.DevExpress().Label(settings=>{
+               settings.Text="Контрагент:";
+               settings.Name = "Kontragent";
+               }).GetHtml()
+            </td>
+             <td>  @Html.DevExpress().ComboBox( settings =>
+           {
+               settings.Name = "IdentifierSubscriberComboBox";
+               settings.Width = 550;
+               settings.Properties.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+               settings.Properties.DropDownStyle = DropDownStyle.DropDownList;
+               settings.Properties.ValueField = "IdentifierSubscriber";
+               
+               settings.Properties.AnimationType = AnimationType.Auto;
+               settings.Properties.ValueType = typeof(string);
+               settings.Properties.TextFormatString = "{0} {1}";
+               
+               settings.Properties.Columns.Add("Name", "Наименование", 100);
+               settings.Properties.Columns.Add("Requisites", "Реквизиты", 250);
+               settings.ShowModelErrors = true;
+               settings.Properties.ValidationSettings.ValidationGroup = "EditAdminVG";
+               settings.Properties.ValidationSettings.RequiredField.IsRequired = true;
+               settings.Properties.ValidationSettings.RequiredField.ErrorText = "Обязательное поле";
+               settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithTooltip;
+               settings.Properties.ClientSideEvents.CloseUp = "function(s, e){Hide();}";
+           }).BindList(ViewData["Subscribers"]).GetHtml()</td>
+        </tr>           
+      </table> 
+
+       <p id="Sub" style="margin-top:0;"><a href="#">Подразделение</a> <span id="GetSubName" style="font-size:14px"></span><span id="GetSubCode"></span></p> 
+       <div id="SelectSub"> 
+             
+       </div>
+     
+ </fieldset>
+      <fieldset> 
+             <legend>Загрузить документы</legend>
+   @using (Ajax.BeginForm("UploadDocument", new AjaxOptions { UpdateTargetId = "DocumentPanel" }))
+    {
+            @Html.DevExpress().UploadControl(settings =>
+           {
+               
+              settings.Name = "UploadDocuments";
+              //settings.CallbackRouteValues = new { Controller = "DocumentFlow", Action = "UploadDocument" };
+              //settings.Enabled = false;
+
+              settings.ClientSideEvents.FilesUploadComplete = "function(s, e)   {  $.post('/DocumentFlow/GridViewDocuments', function (data) { $('#DocumentPanel').html(data); }); }";
+              settings.ClientSideEvents.TextChanged = "function(s, e)   {UploadDocuments.Upload()}";
+              settings.ShowProgressPanel = true;
+              settings.AdvancedModeSettings.EnableMultiSelect = true;
+              settings.NullText = "Выберите файлы на подпись";
+              settings.Width = 450;         
+           }).GetHtml()
+            @Html.Hidden("GetIdentifierSubscriber")
+            @Html.Hidden("GetIdSubdivision")
+   }    
+    <hr />
+        
+       <div id="DocumentPanel"></div>   
+   </fieldset>  
+ </div>
+       
+ <table style="margin-top:20px;" >
+     <tr>
+      <td>
+          <button class="action bluebtn" type="button" onclick=""><span class="label">Подписать и отправить</span></button>
+     </td>
+         
+      <td> 
+          <button class="action" type="button" onclick=""><span class="label">Сохранить в черновиках</span></button>
+     </td>
+     <td>
+          <button class="action" type="button" onclick="ClearDocumentsTemp();javascript:pcModalAddDocuments.Hide()"><span class="label">Отмена</span></button>
+     </td>
+</table> 

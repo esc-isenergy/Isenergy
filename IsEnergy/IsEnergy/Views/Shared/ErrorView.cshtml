@@ -1,0 +1,25 @@
+﻿@model IsEnergyModel.ResultMode
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ErrorView</title>
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div id="CrazyWoman">
+      <img src="~/Content/Images/Error.jpg"> 
+    </div>
+    <div id="StrResult">
+       <p>@Model.StrResult</p>
+    </div>
+     <div id="StrError">
+      <p>@Model.StrError</p>
+    </div>
+</body>
+</html>

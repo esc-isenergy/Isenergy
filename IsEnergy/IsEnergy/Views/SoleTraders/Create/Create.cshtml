@@ -1,0 +1,303 @@
+﻿@using IsEnergyModel;
+
+@{
+    Layout = null;
+}
+
+@{
+    SoleTraders SoleTraders = new SoleTraders();
+ }
+  
+<script type="text/javascript">
+   
+
+    function Create_SoleTraders() {
+        if (ASPxClientEdit.ValidateGroup('err')) {
+            $("#loginForm").submit();
+           
+        }
+    };
+       
+</script>
+
+@using (Html.BeginForm("Create", "SoleTraders", FormMethod.Post, new { id = "loginForm", enctype = "Multipart/form-data" }))
+{
+<div id="SoleTraderss">
+  <div id="RequisitesSoleTraderss">
+      <div id="DataSoleTraders">
+       <fieldset>
+        <legend>Реквизиты</legend>
+            <table>  
+       
+                <tr>
+                    <td>@Html.DevExpress().LabelFor(model => SoleTraders.FirstName, settings =>{
+                       settings.Text = "Имя*"; 
+                       }).GetHtml()</td>
+
+                    <td> @Html.DevExpress().TextBoxFor(model => SoleTraders.FirstName, settings => {
+
+                             settings.Width = 250;
+                 
+                             settings.ShowModelErrors = true;
+                             settings.Properties.ValidationSettings.RequiredField.IsRequired = true;
+                             settings.Properties.ValidationSettings.RequiredField.ErrorText = "Обязательное поле";
+                             settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+                             settings.Properties.ValidationSettings.ValidationGroup = "err";
+                            }).GetHtml()   </td> 
+          
+               </tr> 
+                <tr>
+                    <td>@Html.DevExpress().LabelFor(model => SoleTraders.MidleName, settings =>{
+                       settings.Text = "Фамилия*"; 
+                       }).GetHtml()</td>
+
+                    <td> @Html.DevExpress().TextBoxFor(model => SoleTraders.MidleName, settings => {
+                             settings.Width = 250;
+                             settings.ShowModelErrors = true;
+                             settings.Properties.ValidationSettings.RequiredField.IsRequired = true;
+                             settings.Properties.ValidationSettings.RequiredField.ErrorText = "Обязательное поле";
+                             settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+                             settings.Properties.ValidationSettings.ValidationGroup = "err";
+                            }).GetHtml()   </td> 
+         
+               </tr> 
+                <tr>
+                    <td>@Html.DevExpress().LabelFor(model => SoleTraders.LastName, settings =>{
+                        settings.Text = "Очество*"; 
+                       }).GetHtml()</td>
+                    <td> @Html.DevExpress().TextBoxFor(model => SoleTraders.LastName, settings => {
+                             settings.Width = 250;
+                             settings.ShowModelErrors = true;
+                             settings.Properties.ValidationSettings.RequiredField.IsRequired = true;
+                             settings.Properties.ValidationSettings.RequiredField.ErrorText = "Обязательное поле";
+                             settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+                             settings.Properties.ValidationSettings.ValidationGroup = "err";
+                            }).GetHtml()   </td> 
+          
+               </tr> 
+                
+                 <tr>
+                    <td>@Html.DevExpress().LabelFor(model => SoleTraders.INN, settings =>{
+                        settings.Text = "ИНН*"; 
+                       }).GetHtml()</td>
+                    <td> @Html.DevExpress().TextBoxFor(model => SoleTraders.INN, settings => {
+                             settings.Width = 250;
+                             settings.ShowModelErrors = true;
+                             settings.Properties.ValidationSettings.RequiredField.IsRequired = true;
+                             settings.Properties.ValidationSettings.RequiredField.ErrorText = "Обязательное поле";
+                             settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+                             settings.Properties.ValidationSettings.ValidationGroup = "err";
+                            }).GetHtml()   </td> 
+                        
+                 </tr>
+                <tr>
+                    <td>@Html.DevExpress().LabelFor(model => SoleTraders.OGRN, settings =>{
+                        settings.Text = "ОГРНИП*"; 
+                       }).GetHtml()</td>
+                    <td> @Html.DevExpress().TextBoxFor(model => SoleTraders.OGRN, settings => {
+                             settings.Width = 250;
+                             settings.ShowModelErrors = true;
+                             settings.Properties.ValidationSettings.RequiredField.IsRequired = true;
+                             settings.Properties.ValidationSettings.RequiredField.ErrorText = "Обязательное поле";
+                             settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+                             settings.Properties.ValidationSettings.ValidationGroup = "err";
+                            }).GetHtml()   </td> 
+                        
+                 </tr>
+                 <tr>
+                     <td>@Html.DevExpress().LabelFor(model => SoleTraders.IdIFNS, settings =>{
+                         settings.Text = "ИФНС*"; 
+                       }).GetHtml()</td>
+                     <td> @Html.DevExpress().ComboBoxFor(model => SoleTraders.IdIFNS,
+                             settings =>
+                            {
+                                settings.Width = 350;
+                                settings.SelectedIndex = 0;
+                                settings.Properties.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+                                settings.Properties.DropDownStyle = DropDownStyle.DropDownList;
+                                settings.Properties.TextFormatString = "({0}) {1}";
+                                settings.Properties.ValueField = "IdIFNS";
+                                settings.Properties.AnimationType = AnimationType.Auto;
+                                settings.Properties.ValueType = typeof(int);
+                                settings.Properties.Columns.Add("Code", "Код", 50);
+                                settings.Properties.Columns.Add("ShortName", "Название", 300);
+                                settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+                                }).BindList(ViewData["IFNS"]).GetHtml()</td>  
+                    </tr>
+
+               </table>
+          </fieldset>
+    </div>
+
+    @Html.Partial("~/Views/Address/Address.cshtml")
+   
+   
+ </div> 
+
+  <fieldset id="RequisitesContactSoleTradersfildset">
+        <legend>Ответственное лицо/пользователь</legend>  
+   <table>
+     <tr>
+        <td>@Html.DevExpress().LabelFor(model => SoleTraders.ContactFaceFirstName, settings =>{
+             settings.Text = "Фамилия*"; 
+           }).GetHtml()</td>
+        <td> @Html.DevExpress().TextBoxFor(model => SoleTraders.ContactFaceFirstName, settings => {
+           
+                 settings.Width = 200;
+               
+                 settings.ShowModelErrors = true;
+                 settings.Properties.ValidationSettings.RequiredField.IsRequired = true;
+                 settings.Properties.ValidationSettings.RequiredField.ErrorText = "Обязательное поле";
+                 settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+                 settings.Properties.ValidationSettings.ValidationGroup = "err";
+                }).GetHtml()   </td> 
+       
+     </tr>
+      <tr>
+        <td>@Html.DevExpress().LabelFor(model => SoleTraders.ContactFaceMidleName, settings =>{
+             settings.Text = "Имя*"; 
+           }).GetHtml()</td>
+        <td> @Html.DevExpress().TextBoxFor(model => SoleTraders.ContactFaceMidleName, settings => {
+            
+                 settings.Width = 200;
+                
+                 settings.ShowModelErrors = true;
+                 settings.Properties.ValidationSettings.RequiredField.IsRequired = true;
+                 settings.Properties.ValidationSettings.RequiredField.ErrorText = "Обязательное поле";
+                 settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+                 settings.Properties.ValidationSettings.ValidationGroup = "err";
+                }).GetHtml()   </td> 
+         
+     </tr>
+    <tr>
+        <td>@Html.DevExpress().LabelFor(model =>  SoleTraders.ContactFaceLastName, settings =>{
+             settings.Text = "Очество*"; 
+           }).GetHtml()</td>
+        <td> @Html.DevExpress().TextBoxFor(model => SoleTraders.ContactFaceLastName, settings => {
+                 settings.Width = 200;
+                
+                 settings.ShowModelErrors = true;
+                 settings.Properties.ValidationSettings.RequiredField.IsRequired = true;
+                 settings.Properties.ValidationSettings.RequiredField.ErrorText = "Обязательное поле";
+                 settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+                 settings.Properties.ValidationSettings.ValidationGroup = "err";
+                }).GetHtml()   </td> 
+         
+     </tr>
+        <tr>
+                       <td>@Html.DevExpress().Label(
+                       settings=>{
+                           settings.Text = "Логин*:";
+                       }).GetHtml()</td>
+                        <td> @Html.DevExpress().TextBox( 
+                        settings =>{
+                            settings.Name = "SoleTradersLogin";                           
+                            settings.Width = 200;
+                            settings.ShowModelErrors = true;
+                            settings.Properties.ValidationSettings.RequiredField.IsRequired = true;
+                            settings.Properties.ValidationSettings.RequiredField.ErrorText = "Обязательное поле";
+                            settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+                            settings.Properties.ValidationSettings.ValidationGroup = "err";
+                        }).GetHtml()</td></tr>
+     <tr>
+           <td>@Html.DevExpress().Label(
+               settings=>{
+               settings.Text = "Пароль*:";
+                }).GetHtml()</td>
+             <td> @Html.DevExpress().TextBox( settings=>{
+
+                 settings.Name = "SoleTradersPassword";
+                 settings.Width = 200;
+                 
+                 settings.ShowModelErrors = true;
+                 settings.Properties.Password = true;
+                 settings.Properties.ValidationSettings.RequiredField.IsRequired = true;
+                 settings.Properties.ValidationSettings.RequiredField.ErrorText = "Обязательное поле";
+                 settings.Properties.ValidationSettings.RegularExpression.ValidationExpression = @"(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$";
+                 settings.Properties.ValidationSettings.RegularExpression.ErrorText = "Не корректный пароль";
+                 settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+                 settings.Properties.ValidationSettings.ValidationGroup = "err";
+               }).GetHtml() </td></tr>
+    <tr>
+         <td>@Html.DevExpress().LabelFor(model => SoleTraders.Phone, settings =>{
+              settings.Text = "Телефон*"; 
+           }).GetHtml()</td>
+        <td> @Html.DevExpress().TextBoxFor(model => SoleTraders.Phone, settings => {
+                  
+                  settings.Width = 200;
+                 
+                  settings.Properties.MaskSettings.Mask = "8-(000) 000-00-00";
+                  settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+                  settings.Properties.ValidationSettings.ValidationGroup = "err";
+                }).GetHtml()   </td> 
+        
+     </tr>
+    <tr>
+        <td>@Html.DevExpress().LabelFor(model => SoleTraders.Email, settings =>{
+              settings.Text = "E-mail"; 
+           }).GetHtml()</td>
+        <td> @Html.DevExpress().TextBoxFor(model => SoleTraders.Email, settings => {
+           
+                 settings.Width = 200;
+               
+                 settings.ShowModelErrors = true;
+                 settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+                 settings.Properties.ValidationSettings.ErrorText = "Не верно указан E-mail";
+                 settings.Properties.ValidationSettings.ValidationGroup = "err";
+                   
+                }).GetHtml()   </td> 
+      
+     </tr>
+      
+       <tr>
+           <td>
+               @Html.DevExpress().Label(
+                   settings =>
+                   {
+                       settings.Name = "Certificates";
+                       settings.Text = "Сертификат";
+                   }).GetHtml()    </td>
+           <td>
+               @Html.DevExpress().UploadControl( settings =>
+        {
+            settings.Name = "fileUploadCreat";
+            settings.FileInputCount = 1;
+            settings.Width = 320;
+            string[] AllowedFileExtensions = { ".cer", ".p7b" };
+            settings.ValidationSettings.AllowedFileExtensions = AllowedFileExtensions;
+          
+        }).GetHtml()</td>
+
+       </tr>
+       </table> 
+    </fieldset>
+
+</div>  
+    <table>
+    <tr>
+        <td>
+            <button class="action bluebtn" type="button"  onclick="javascript:Create_SoleTraders();"><span class="label">Добавить</span></button>
+            
+       </td>
+        <td>
+            <button class="action" type="button" onclick="javascript:pcModalModeSoleTraders.Hide();"><span class="label">Отмена</span></button>
+       </td>
+    </tr>
+</table>
+   
+}
+
+
+      
+
+
+ 
+
+   
+  
+       
+       
+    
+ 
+
+

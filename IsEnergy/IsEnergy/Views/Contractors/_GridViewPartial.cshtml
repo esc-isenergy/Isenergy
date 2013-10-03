@@ -1,0 +1,36 @@
+@{
+	var grid = Html.DevExpress().GridView(settings => {
+        settings.Name = "GridView";
+        settings.CallbackRouteValues = new { Controller = "Contractors", Action = "GridViewPartial"};
+
+        settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "Contractors", Action = "DeleteContractor" };
+        settings.SettingsEditing.Mode = GridViewEditingMode.EditFormAndDisplayRow;
+        settings.SettingsBehavior.ConfirmDelete = true;
+        settings.Width = System.Web.UI.WebControls.Unit.Percentage(99);
+        settings.Height = System.Web.UI.WebControls.Unit.Percentage(100);
+		settings.CommandColumn.Visible = true;
+        settings.CommandColumn.DeleteButton.Visible = true;
+				
+		settings.KeyFieldName = "IdContractor";
+		
+		settings.SettingsPager.Visible = true;
+		//settings.Settings.ShowGroupPanel = true;
+		settings.Settings.ShowFilterRow = true;
+		settings.SettingsBehavior.AllowSelectByRowClick = true;
+
+        //settings.Columns.Add("IdContractor");
+        //settings.Columns.Add("IdentifierSubscriberContractor");
+				//settings.Columns.Add("IdentifierSubscriber");
+				//settings.Columns.Add("State");
+
+        //settings.Columns.Add("IdentifierSubscriberContractor");
+        //settings.Columns.Add("SubscriberContractor.TypeElementAbonent", "Тип абонента");
+        settings.Columns.Add("SubscriberContractorName","Название организации/ФИО");
+        settings.Columns.Add("SubscriberContractorRequisites","Реквизиты");
+                settings.Columns.Add("InvitationText", "Текст приглашения");
+			});
+		if (ViewData["EditError"] != null){
+        grid.SetEditErrorText((string)ViewData["EditError"]);
+    }
+	}
+@grid.Bind(Model).GetHtml()

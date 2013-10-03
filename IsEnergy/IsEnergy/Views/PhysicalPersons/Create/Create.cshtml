@@ -1,0 +1,195 @@
+﻿@model IsEnergyModel.PhysicalPersons
+@{
+    Layout = null;
+}
+
+<script type="text/javascript">
+    // Скрипт мены панелей адресов
+    function RoundPanelVisibleRequisite() {        
+        var selectedIndex = SelectFactualAddress.GetSelectedIndex();
+        if (selectedIndex == 0) {
+            FactualAddress_OtherCountry.SetVisible(false);
+            FactualAddress_RF.SetVisible(true);
+        }
+        else {
+            FactualAddress_OtherCountry.SetVisible(true);
+            FactualAddress_RF.SetVisible(false);
+        }
+    }
+    function Create_PhysicalPersons() {
+        if (ASPxClientEdit.ValidateGroup('PhysicalVG')) {
+            $("#PhysicalPersonloginForm").submit();
+        }
+    };
+</script>
+<style>
+    table {
+        border-spacing: 1px; /* Расстояние между ячейками */
+        }
+    td, th {
+        padding: 3px; /* Поля вокруг текста */
+        }
+    </style>
+<div id="CreatePhysicalPersons">
+  <div id="RequisitesPhysicalPersons">
+      
+    <fieldset id="xxx">
+        <legend><b>Реквизиты</b></legend>
+        <table>
+            <tr>
+                <td>@Html.DevExpress().Label(settings => { settings.Text = "Фамилия*"; settings.Width = 70; }).GetHtml()</td>
+                <td>@Html.DevExpress().TextBoxFor(model => model.FirstName, settings =>
+               {
+                   settings.Name = "FirstName";
+                   settings.Width = 200;
+                   settings.ShowModelErrors = true;
+                   settings.Properties.ValidationSettings.ValidationGroup = "PhysicalVG";
+                   settings.Properties.ValidationSettings.RequiredField.IsRequired = true;
+                  // settings.Properties.ValidationSettings.RequiredField.ErrorText = "Обязательное поле";
+                   settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithTooltip;
+               }).GetHtml()   </td>
+
+            </tr>
+            <tr>
+                <td>@Html.DevExpress().Label(settings => { settings.Text = "Имя*"; settings.Width = 70; }).GetHtml()</td>
+                <td>@Html.DevExpress().TextBoxFor(model => model.MidleName, settings =>
+               {
+                   settings.Name = "MidleName";
+                   settings.Width = 200;
+                   settings.ShowModelErrors = true;
+                   settings.Properties.ValidationSettings.ValidationGroup = "PhysicalVG";
+                   settings.Properties.ValidationSettings.RequiredField.IsRequired = true;
+                   //settings.Properties.ValidationSettings.RequiredField.ErrorText = "Обязательное поле";
+                   settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithTooltip;
+               }).GetHtml()   </td>
+
+            </tr>
+            <tr>
+                <td>@Html.DevExpress().Label(settings => { settings.Text = "Отчество*"; settings.Width = 70; }).GetHtml()</td>
+                <td>@Html.DevExpress().TextBoxFor(model => model.LastName, settings =>
+               {
+                   settings.Name = "LastName";
+                   settings.Width = 200;
+                   settings.ShowModelErrors = true;
+                   settings.Properties.ValidationSettings.RequiredField.IsRequired = true;
+                   settings.Properties.ValidationSettings.ValidationGroup = "PhysicalVG";
+                   //settings.Properties.ValidationSettings.RequiredField.ErrorText = "Обязательное поле";
+                   settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithTooltip;
+               }).GetHtml()   </td>
+
+            </tr>
+            <tr>
+                <td>@Html.DevExpress().Label(settings => { settings.Text = "ИНН*"; settings.Width = 70; }).GetHtml()</td>
+                <td>@Html.DevExpress().TextBoxFor(model => model.INN, settings =>
+               {
+                   settings.Name = "INN";
+                   settings.Width = 200;
+                   settings.ShowModelErrors = true;
+                   settings.Properties.ValidationSettings.RequiredField.IsRequired = true;
+                   settings.Properties.ValidationSettings.ValidationGroup = "PhysicalVG";
+                   //settings.Properties.ValidationSettings.RequiredField.ErrorText = "Обязательное поле";
+                   settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithTooltip;
+               }).GetHtml()   </td>
+
+            </tr>
+            </table>
+    </fieldset>
+        </div>
+      <div id="ContactUserPhysicalPersons">
+          <fieldset>
+        <legend><b>Реквизиты контактного лица</b></legend>
+        <table>
+            <tr>
+                <td>@Html.DevExpress().Label(settings => { settings.Text = "Телефон*"; settings.Width = 100; }).GetHtml()</td>
+                <td>@Html.DevExpress().TextBoxFor(model => model.Phone, settings =>
+               {
+                   settings.Name = "Phone";
+                   settings.Width = 200;
+                   settings.ShowModelErrors = true;
+                   settings.Properties.MaskSettings.Mask = "8-(000) 000-00-00";
+                   settings.Properties.ValidationSettings.RequiredField.IsRequired = true;
+                   //settings.Properties.ValidationSettings.RequiredField.ErrorText = "Обязательное поле";
+                   settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithTooltip;
+                   settings.Properties.ValidationSettings.ValidationGroup = "PhysicalVG";
+               }).GetHtml()   </td>
+
+            </tr>
+            <tr>
+                <td>@Html.DevExpress().Label(settings => { settings.Text = "Электронная почта"; settings.Width = 100; }).GetHtml()</td>
+                <td>@Html.DevExpress().TextBoxFor(model => model.Email, settings =>
+               {
+                   settings.Name = "Email";
+                   settings.Width = 200;
+                   settings.ShowModelErrors = true;
+                   settings.Properties.ValidationSettings.RegularExpression.ValidationExpression = @"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}";
+                   //settings.Properties.ValidationSettings.RegularExpression.ErrorText = "Некорректный адрес";
+                   settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+                   settings.Properties.ValidationSettings.ValidationGroup = "PhysicalVG";
+               }).GetHtml()   </td>
+                </tr>
+           <tr>
+                       <td>@Html.DevExpress().Label(
+                       settings =>
+                       {
+                           settings.Text = "Логин*:";
+                       }).GetHtml()</td>
+                        <td> @Html.DevExpress().TextBox(
+                        settings =>
+                        {
+                            settings.Name = "PhysicalPersonsLogin";
+                            settings.Width = 200;
+                            settings.ShowModelErrors = true;
+                            settings.Properties.ValidationSettings.RequiredField.IsRequired = true;
+                            //settings.Properties.ValidationSettings.RequiredField.ErrorText = "Обязательное поле";
+                            settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithTooltip;
+                            settings.Properties.ValidationSettings.ValidationGroup = "PhysicalVG";
+                        }).GetHtml()</td></tr>
+     <tr>
+           <td>@Html.DevExpress().Label(
+               settings =>
+               {
+                   settings.Text = "Пароль*:";
+               }).GetHtml()</td>
+             <td> @Html.DevExpress().TextBox(settings =>
+             {
+
+                 settings.Name = "PhysicalPersonsPassword";
+                 settings.Width = 200;
+
+                 settings.ShowModelErrors = true;
+                 settings.Properties.Password = true;
+                 settings.Properties.ValidationSettings.RequiredField.IsRequired = true;
+                 //settings.Properties.ValidationSettings.RequiredField.ErrorText = "Обязательное поле";
+                 settings.Properties.ValidationSettings.RegularExpression.ValidationExpression = @"(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$";
+                 //settings.Properties.ValidationSettings.RegularExpression.ErrorText = "Не корректный пароль";
+                 settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithTooltip;
+                 settings.Properties.ValidationSettings.ValidationGroup = "PhysicalVG";
+             }).GetHtml() </td></tr>
+    <tr>
+            <tr>   <td>@Html.DevExpress().Label(settings => { settings.Text = "Сертификат:"; settings.Width = 100; }).GetHtml()</td>        
+<td>
+   @Html.DevExpress().UploadControl(settings =>
+{
+    settings.Name = "fileUploadCreatSert";
+    settings.FileInputCount = 1;
+    settings.Width = 270;
+    string[] AllowedFileExtensions = { ".cer", ".p7b" };
+    settings.ValidationSettings.AllowedFileExtensions = AllowedFileExtensions;
+}).GetHtml()
+</td>
+  </tr>
+       </table>         
+
+    </fieldset>
+ </div></div>
+   @Html.Partial("~/Views/Address/Address.cshtml")
+  
+<table>
+    <tr>
+        <td><button class="action bluebtn" type="button"  onclick="javascript:Create_PhysicalPersons();"><span class="label">Добавить</span></button></td>
+        <td><button class="action" type="button" onclick="javascript:pcModalModeCreatePhysicalPerson.Hide();"><span class="label">Отмена</span></button></td>
+   </tr>
+</table>
+
+
+

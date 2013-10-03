@@ -1,0 +1,18 @@
+@model System.Collections.IEnumerable
+@Html.DevExpress().LoadingPanel(
+        settings => {
+            settings.Name = "LoadingPanel";
+            settings.Modal = true;
+           
+          
+        }
+    ).GetHtml()
+ @Html.DevExpress().Button(
+            settings => {
+                settings.Name = "Button";
+                settings.Text = "Show Loading Panel";
+                settings.RouteValues = new { Action = "GetError", Controller = "Home" };
+                settings.Width =300;
+                
+            }
+        ).GetHtml()

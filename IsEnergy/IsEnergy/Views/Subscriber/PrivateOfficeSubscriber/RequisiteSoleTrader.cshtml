@@ -1,0 +1,159 @@
+﻿@model IsEnergyModel.SoleTraders
+ 
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "EditPrivateSoleTraderSubscriberForm", enctype = "Multipart/form-data" }))
+{
+ @Html.HiddenFor(model => model.IdSoleTrader)
+ @Html.HiddenFor(model => model.IdentifierSubscriber)
+<div id="SoleTradersRequisites">
+  <div id="RequisitesSoleTraderss">
+      <div id="DataSoleTraders">
+       <fieldset>
+        <legend>Реквизиты</legend>
+          <table>  
+       
+                <tr>
+                    <td>@Html.DevExpress().LabelFor(model => model.FirstName, settings =>{
+                       settings.Text = "Имя*"; 
+                       }).GetHtml()</td>
+
+                    <td> @Html.DevExpress().TextBoxFor(model => model.FirstName, settings => {
+
+                             settings.Width = 250;
+                             settings.Enabled = false;
+                            }).GetHtml()   </td> 
+          
+               </tr> 
+                <tr>
+                    <td>@Html.DevExpress().LabelFor(model => model.MidleName, settings =>{
+                       settings.Text = "Фамилия*"; 
+                       }).GetHtml()</td>
+
+                    <td> @Html.DevExpress().TextBoxFor(model => model.MidleName, settings => {
+                             settings.Width = 250;
+                             settings.Enabled = false;
+                            }).GetHtml()   </td> 
+         
+               </tr> 
+                <tr>
+                    <td>@Html.DevExpress().LabelFor(model => model.LastName, settings =>{
+                        settings.Text = "Очество*"; 
+                       }).GetHtml()</td>
+                    <td> @Html.DevExpress().TextBoxFor(model => model.LastName, settings => {
+                             settings.Width = 250;
+                             settings.Enabled = false;
+                            }).GetHtml()   </td> 
+          
+               </tr> 
+                
+                 <tr>
+                    <td>@Html.DevExpress().LabelFor(model => model.INN, settings =>{
+                        settings.Text = "ИНН*"; 
+                       }).GetHtml()</td>
+                    <td> @Html.DevExpress().TextBoxFor(model => model.INN, settings => {
+                             settings.Width = 250;
+                             settings.Enabled = false;
+                            }).GetHtml()   </td> 
+                        
+                 </tr>
+                <tr>
+                    <td>@Html.DevExpress().LabelFor(model => model.OGRN, settings =>{
+                       settings.Text = "ОГРНИП*"; 
+                       }).GetHtml()</td>
+                    <td> @Html.DevExpress().TextBoxFor(model => model.OGRN, settings => {
+                             settings.Width = 250;
+                             settings.Enabled = false;
+                            }).GetHtml()   </td> 
+                        
+                 </tr>
+
+                 <tr>
+                     <td>@Html.DevExpress().LabelFor(model => model.IdIFNS, settings =>{
+                         settings.Text = "ИФНС*"; 
+                       }).GetHtml()</td>
+                     <td> @Html.DevExpress().ComboBoxFor(model => model.IdIFNS,
+                             settings =>
+                            {
+                                settings.Width = 350;
+                                settings.Enabled = false;
+                                settings.Properties.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+                                settings.Properties.DropDownStyle = DropDownStyle.DropDownList;
+                                settings.Properties.TextFormatString = "({0}) {1}";
+                                settings.Properties.ValueField = "IdIFNS";
+                                settings.Properties.AnimationType = AnimationType.Auto;
+                                settings.Properties.ValueType = typeof(int);
+                                settings.Properties.Columns.Add("Code", "Код", 50);
+                                settings.Properties.Columns.Add("ShortName", "Название", 300);
+                                settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+                                }).BindList(ViewData["IFNS"]).GetHtml()</td>  
+                    </tr>
+
+               </table>
+          </fieldset>
+    </div>
+     @Html.Action("AddressView", "SoleTraders", new  { id = Model.IdSoleTrader , readonlytype=true})
+
+    </div> 
+
+  <fieldset id="RequisitesContactSoleTradersfildset">
+        <legend>Ответственное лицо/пользователь</legend>  
+ <table>
+     <tr>
+        <td>@Html.DevExpress().LabelFor(model => model.ContactFaceFirstName, settings =>{
+             settings.Text = "Фамилия*"; 
+           }).GetHtml()</td>
+        <td> @Html.DevExpress().TextBoxFor(model => model.ContactFaceFirstName, settings => {
+           
+                 settings.Width = 200;
+                 settings.Enabled = false;
+                }).GetHtml()   </td> 
+       
+     </tr>
+      <tr>
+        <td>@Html.DevExpress().LabelFor(model => model.ContactFaceMidleName, settings =>{
+             settings.Text = "Имя*"; 
+           }).GetHtml()</td>
+        <td> @Html.DevExpress().TextBoxFor(model => model.ContactFaceMidleName, settings => {
+            
+                 settings.Width = 200;
+                 settings.Enabled = false;
+                }).GetHtml()   </td> 
+         
+     </tr>
+    <tr>
+        <td>@Html.DevExpress().LabelFor(model =>  model.ContactFaceLastName, settings =>{
+             settings.Text = "Очество*"; 
+           }).GetHtml()</td>
+        <td> @Html.DevExpress().TextBoxFor(model => model.ContactFaceLastName, settings => {
+                 settings.Width = 200;
+                 settings.Enabled = false;
+                }).GetHtml()   </td> 
+         
+        <tr>
+         <td>@Html.DevExpress().LabelFor(model => model.Phone, settings =>{
+              settings.Text = "Телефон*"; 
+           }).GetHtml()</td>
+        <td> @Html.DevExpress().TextBoxFor(model => model.Phone, settings => {
+                  
+                  settings.Width = 200;
+                  settings.Enabled = false;
+                }).GetHtml()   </td> 
+        
+     </tr>
+    <tr>
+        <td>@Html.DevExpress().LabelFor(model => model.Email, settings =>{
+              settings.Text = "E-mail"; 
+           }).GetHtml()</td>
+        <td> @Html.DevExpress().TextBoxFor(model => model.Email, settings => {
+           
+                 settings.Width = 200;               
+                 settings.Enabled = false;                   
+                }).GetHtml()   </td> 
+      
+     </tr>
+      
+      
+       </table> 
+    </fieldset>
+ 
+</div>  
+}

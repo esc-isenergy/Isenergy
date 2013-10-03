@@ -1,0 +1,154 @@
+﻿@model IsEnergyModel.Users
+@{
+    ViewBag.Title = "Создание пользователя";
+}
+<script type="text/javascript">
+
+    function Create_User() {
+        if (ASPxClientEdit.ValidateGroup('UserVG'))
+        {
+            var form = document.getElementById("UserCreateForm");
+            form.submit();
+        }
+    };
+</script>
+
+ @using (Html.BeginForm("Create", "Users", FormMethod.Post, new { id = "UserCreateForm" }))
+ {   
+
+<fieldset>
+    <legend>Пользователь</legend>
+    <table>
+        <tr>
+            <td>@Html.DevExpress().Label(settings => { settings.Width = 140; settings.Text="Фамилия*";}).GetHtml()</td>
+            <td>@Html.DevExpress().TextBoxFor(model => model.FirstName, settings =>{
+               settings.Name = "FirstName";
+               settings.Width = 200;
+               settings.ShowModelErrors = true;
+               settings.Properties.ValidationSettings.ValidationGroup = "UserVG";
+               settings.Properties.ValidationSettings.RequiredField.IsRequired = true;
+               settings.Properties.ValidationSettings.RequiredField.ErrorText = "Поле должно быть заполнено";
+               settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+           }).GetHtml()</td>
+        </tr>
+        <tr>
+            <td>@Html.DevExpress().Label(settings => { settings.Width = 140; settings.Text = "Имя*";}).GetHtml()</td>
+            <td>@Html.DevExpress().TextBoxFor(model => model.MidleName, settings =>{
+               settings.Name = "MidleName";
+               settings.Width = 200;
+               settings.ShowModelErrors = true;
+               settings.Properties.ValidationSettings.ValidationGroup = "UserVG";
+               settings.Properties.ValidationSettings.RequiredField.IsRequired = true;
+               settings.Properties.ValidationSettings.RequiredField.ErrorText = "Поле должно быть заполнено";
+               settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+           }).GetHtml()</td>
+        </tr>
+        <tr>
+            <td>@Html.DevExpress().Label(settings => { settings.Width = 140; settings.Text = "Отчество*"; }).GetHtml()</td>
+            <td>@Html.DevExpress().TextBoxFor(model => model.LastName, settings =>{
+               settings.Name = "LastName";
+               settings.Width = 200;
+               settings.ShowModelErrors = true;
+               settings.Properties.ValidationSettings.ValidationGroup = "UserVG";
+               settings.Properties.ValidationSettings.RequiredField.IsRequired = true;
+               settings.Properties.ValidationSettings.RequiredField.ErrorText = "Поле должно быть заполнено";
+               settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+           }).GetHtml()</td>
+        </tr>
+        <tr>
+            <td>@Html.DevExpress().Label(settings => { settings.Width = 140; settings.Text = "Логин*"; }).GetHtml()</td>
+            <td>@Html.DevExpress().TextBoxFor(model => model.Login, settings =>{
+               settings.Name = "Login";
+               settings.Width = 200;
+               settings.ShowModelErrors = true;
+               settings.Properties.ValidationSettings.ValidationGroup = "UserVG";
+               settings.Properties.ValidationSettings.RequiredField.IsRequired = true;
+               settings.Properties.ValidationSettings.RequiredField.ErrorText = "Поле должно быть заполнено";
+               settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+           }).GetHtml()</td>
+        </tr>
+        <tr>
+            <td>@Html.DevExpress().Label(settings => { settings.Width = 140; settings.Text = "Пароль*"; }).GetHtml()</td>
+            <td>@Html.DevExpress().TextBox(settings =>{
+               settings.Name = "Password";
+               settings.Width = 200;
+               settings.ShowModelErrors = true;
+               settings.Properties.Password = true;
+               settings.Properties.ValidationSettings.ValidationGroup = "UserVG";
+               settings.Properties.ValidationSettings.RequiredField.IsRequired = true;
+               settings.Properties.ValidationSettings.RequiredField.ErrorText = "Обязательное поле";
+               settings.Properties.ValidationSettings.RegularExpression.ValidationExpression = @"(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$";
+               settings.Properties.ValidationSettings.RegularExpression.ErrorText = "Пароль не удовлетворяет требованиям безопасности ";
+               settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+           }).GetHtml()</td>
+        </tr>
+        <tr>
+            <td>@Html.DevExpress().Label(settings => { settings.Width = 140; settings.Text = "Телефон*"; }).GetHtml()</td>
+            <td>@Html.DevExpress().TextBoxFor(model => model.Phone, settings =>{
+               settings.Name = "Phone";
+               settings.Width = 200;
+               settings.Properties.ValidationSettings.ValidationGroup = "UserVG";
+               settings.Properties.MaskSettings.Mask = "8-(000) 000-00-00";
+               settings.Properties.MaskSettings.ErrorText = "Неверно указан номер";
+               settings.Properties.MaskSettings.IncludeLiterals = MaskIncludeLiteralsMode.None;
+               settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+           }).GetHtml()</td>
+        </tr>
+        <tr>
+            <td>@Html.DevExpress().Label(settings => { settings.Width = 140; settings.Text = "Электронная почта"; }).GetHtml()</td>
+            <td>@Html.DevExpress().TextBoxFor(model => model.Email, settings =>{
+               settings.Name = "Email";
+               settings.Width = 200;
+               settings.ShowModelErrors = true;
+               settings.Properties.ValidationSettings.ValidationGroup = "UserVG";
+               settings.Properties.ValidationSettings.RegularExpression.ValidationExpression = @"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}";
+               settings.Properties.ValidationSettings.RegularExpression.ErrorText = "Некорректный адрес";
+               settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+           }).GetHtml()</td>
+        </tr>
+        <tr>
+            <td>@Html.DevExpress().Label(settings => { settings.Width = 140; settings.Text = "Комментарии"; }).GetHtml()</td>
+            <td>@Html.DevExpress().MemoFor(m => m.Comment, settings =>{
+               settings.Properties.NullText = "";
+               settings.Width = 200;
+               settings.Height = 100;
+           }).GetHtml()</td>
+        </tr>
+        <tr>
+            <td>@Html.DevExpress().LabelFor(model => model.Certificates, settings =>{
+                settings.Width = 140;
+                settings.Name = "Certificates";
+                settings.Text = "Сертификат";
+            }).GetHtml()</td>
+            <td>@Html.DevExpress().UploadControl(settings =>{
+               settings.Name = "fileUploadCreat";
+               settings.FileInputCount = 1;
+               settings.Width = 320;
+               string[] AllowedFileExtensions = { ".cer", ".p7b" };
+               settings.ValidationSettings.AllowedFileExtensions = AllowedFileExtensions;
+           }).GetHtml()</td>
+        </tr>
+    </table>
+</fieldset>
+
+<table>
+    <tr>
+        <td>
+            <button class="action bluebtn" type="button"  onclick="javascript:Create_User();"><span class="label">Добавить</span></button>
+            
+       </td>
+        <td>
+            <button class="action" type="button" onclick="javascript:pcModalModeCreateUser.Hide();"><span class="label">Отмена</span></button>
+       </td>
+    </tr>
+</table>
+<div  class="LoadingPanel">
+@Html.DevExpress().LoadingPanel(
+        settings => {
+            settings.Name = "LoadingPanel";
+            settings.Text = "Добавление Пользователя";
+            settings.Modal = true;             
+        }
+    ).GetHtml()
+</div>
+ }

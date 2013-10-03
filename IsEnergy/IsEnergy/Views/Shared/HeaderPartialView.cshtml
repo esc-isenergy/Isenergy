@@ -1,0 +1,39 @@
+<div class="headerTop">
+    <div class="templateTitle">
+        <table border="0">
+            <tr>
+                <td rowspan="3">
+                    <img src="~/Content/Images/logoECH.gif"></td>
+                </tr>
+             
+        </table>
+    </div>
+    <div id="Log">
+        @if (Request.IsAuthenticated)
+        {
+
+            Html.RenderAction("GetUserInformation", "Account", new { Login = User.Identity.Name });
+        }
+      
+    </div>
+ </div>     
+
+<div class="headerMenu">
+    @if(Request.IsAuthenticated) {
+        if (IsEnergyModel.Filters.AuthorizeMeAll.Authorize("Administrators",User.Identity.Name))
+        {    
+             @Html.Partial("MainMenu/MenuAdmin")
+        }
+        else if (IsEnergyModel.Filters.AuthorizeMeAll.Authorize("Operators", User.Identity.Name))
+        {    
+             @Html.Partial("MainMenu/MenuOperators")
+        }
+        else
+        {
+            @Html.Partial("MainMenu/MenuSubscriber")
+        }
+    }
+   
+   
+    
+</div>

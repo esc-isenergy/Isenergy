@@ -1,0 +1,42 @@
+﻿@using IsEnergyModel;
+
+@{
+    ViewBag.Title = "Детали";
+}
+
+
+<script type="text/javascript">
+
+    function Edit_Subdivision() {
+        if (ASPxClientEdit.ValidateGroup('ErrSubCreate')) {
+            $('form#EditSubdivisionForm').submit();
+        }
+    }
+    function Delete_Subdivision() {
+        if (confirm("Удалить подразделение ?")) {
+            $.post('/Subscriber/DeleteSubdivision', { identifierSubscriber: $('#identifierSubscriber').val(), id: $('#RequisiteSub_idSubdivision').val() }, function (data) { $('#TreeListPartialArea').html(data), pcModalModeDetailsSubdivision.Hide(); });
+
+        }
+    }
+    
+</script>
+  
+<div id="EditSubForm">
+    <fieldset>
+        <legend>Подразделение</legend>
+       <div id="RequisiteEdit"></div>
+   </fieldset>
+       <div id="AddressEdit"></div>   
+   <table>
+     <tr>
+       <td>
+           <button class="action bluebtn" type="button" onclick="javascript:Edit_Subdivision();"><span class="label">Редактировать</span></button>
+       </td>
+         
+       <td> 
+           <button class="action redbtn" type="button"  onclick="javascript:Delete_Subdivision();"><span class="label">Удалить</span></button>
+      </td>
+    </tr>
+  </table> 
+</div>
+

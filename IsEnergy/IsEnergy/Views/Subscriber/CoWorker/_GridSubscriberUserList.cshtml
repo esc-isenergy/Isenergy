@@ -1,0 +1,86 @@
+
+@{
+	var grid = Html.DevExpress().GridView(settings => {
+        settings.Name = "GridViewSubscriberUserList";
+        settings.CallbackRouteValues = new { Controller = "Subscriber", Action = "GridUserList", identifierSubscriber = ViewData["IdentifierSubscriber"] };
+
+        GridViewCommandColumnCustomButton Details = new GridViewCommandColumnCustomButton();
+        Details.Text = "Детали";        
+        Details.ID = "Details";
+
+        settings.ClientSideEvents.CustomButtonClick = "function(s, e){ if(e.buttonID == 'Details') DetailsFromUserListST(s,e) ; if(e.buttonID == 'Delete')  DeleteFromUserListST(s, e); if(e.buttonID == 'AppointChief') AppointChiefUserST(s, e); }";
+   
+        
+        GridViewCommandColumnCustomButton Delete = new GridViewCommandColumnCustomButton();
+        Delete.Text = "Исключить";
+        Delete.ID = "Delete";
+        GridViewCommandColumnCustomButton AppointChief = new GridViewCommandColumnCustomButton();
+        AppointChief.Text = "Назначить главным";
+        AppointChief.ID = "AppointChief";
+        settings.CommandColumn.CustomButtons.Add(Details, Delete, AppointChief);
+        settings.CommandColumn.Caption = "Действия";
+        settings.ClientSideEvents.RowDblClick =
+          String.Format("function(s, e) {{ window.location.href='{0}/' + s.GetRowKey(e.visibleIndex, 'IdUser'); }}", DevExpressHelper.GetUrl(new { Controller = "Users", Action = "Details" }));
+
+        settings.SettingsBehavior.AllowFocusedRow = true;
+        settings.SettingsEditing.Mode = GridViewEditingMode.EditFormAndDisplayRow;
+        settings.SettingsBehavior.ConfirmDelete = true;		
+		settings.CommandColumn.Visible = true;				
+		settings.KeyFieldName = "IdUsersList";        
+		settings.SettingsPager.Visible = true;
+		settings.Settings.ShowFilterRow = true;
+		settings.SettingsBehavior.AllowSelectByRowClick = true;
+
+        settings.SettingsPager.Position = System.Web.UI.WebControls.PagerPosition.Bottom;
+        settings.SettingsPager.FirstPageButton.Visible = true;
+        settings.SettingsPager.LastPageButton.Visible = true;
+        settings.SettingsPager.PageSizeItemSettings.Visible = true;
+        settings.SettingsPager.PageSizeItemSettings.Items = new string[] { "10", "20", "50" };
+        
+        
+        
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Users.FirstName";
+            column.Caption = "Фамилия";
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Users.MidleName";
+            column.Caption = "Имя";
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Users.LastName";
+            column.Caption = "Отчество";
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Users.Login";
+            column.Caption = "Логин";
+        });
+   
+        settings.Columns.Add(column =>
+        {
+            column.ColumnType = MVCxGridViewColumnType.CheckBox;
+            column.FieldName = "Active";
+            column.Caption = "Главный сотрудник";
+
+        });
+        
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "SubscribersSubdivision.SubdivisionName";
+            column.Caption = "Подразделение";
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Comment";
+            column.Caption = "Примечание";
+
+        });
+        
+			});
+    }
+@grid.Bind(Model).GetHtml()

@@ -1,0 +1,53 @@
+﻿@model IsEnergyModel.Contractors
+@{
+    ViewBag.Title = "Добавление контрагента";
+}
+
+<script type="text/javascript">
+    function ReloadContragentsList() {
+        $.post('/Contractors/GridViewPartialOutputInvitation', function (data) {
+            $('#OutputInvitationArea').html(data);});                            
+        }
+
+</script>
+
+@using (Ajax.BeginForm("AddContractorCreate", "Contractors", new AjaxOptions { UpdateTargetId = "InputInvitationArea", OnComplete = "javascript:ReloadContragentsList();" }))
+{
+    <table> 
+        <tr><td>@Html.DevExpress().LabelFor(model => model.IdentifierSubscriberContractor, settings =>{
+                         settings.Text = "Абонент*";
+                         settings.Width = 60;
+                       }).GetHtml()</td>
+    <td>@Html.DevExpress().ComboBoxFor(model => model.IdentifierSubscriberContractor,
+                             settings =>
+                            {
+                                settings.Width = 440;
+                                settings.SelectedIndex = 0;
+                                settings.Properties.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+                                settings.Properties.DropDownStyle = DropDownStyle.DropDownList;
+                                settings.Properties.TextFormatString = "{0} / {1}";
+                                settings.Properties.ValueField = "IdentifierSubscriber";
+                                settings.Properties.AnimationType = AnimationType.Auto;
+                                settings.Properties.ValueType = typeof(string);
+                                settings.Properties.Columns.Add("Name", "Имя", 150);
+                                settings.Properties.Columns.Add("Requisites", "Реквизиты", 500);
+                                settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+                                }).BindList(ViewData["Subscribers"]).GetHtml()</td>  
+</tr>
+</table>
+    
+    @Html.DevExpress().LabelFor(model => model.InvitationText, settings =>{
+                         settings.Text = "Текст приглашения"; 
+                       }).GetHtml()
+           
+    @Html.DevExpress().MemoFor(model => model.InvitationText, settings=>{
+               settings.Width = 505;
+               settings.Height = 75;
+               
+                       }).GetHtml()
+
+      <button class="action bluebtn" type="submit" onclick="javascript:pcModalModeCreateContractor.Hide();"><span class="label">Отправить приглашение</span></button>
+
+<button class="action" type="button" onclick="javascript:pcModalModeCreateContractor.Hide();"><span class="label">Отмена</span></button>        
+
+}

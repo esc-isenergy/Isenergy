@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IsEnergy", "IsEnergy\IsEnergy.csproj", "{22018DCD-9D13-4B2A-9647-6928EA488BA9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IsEnergyModel", "IsEnergyModel\IsEnergyModel.csproj", "{F97CF8F7-1E71-4087-B3FB-A2A7A1BA0951}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{22018DCD-9D13-4B2A-9647-6928EA488BA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22018DCD-9D13-4B2A-9647-6928EA488BA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22018DCD-9D13-4B2A-9647-6928EA488BA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22018DCD-9D13-4B2A-9647-6928EA488BA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F97CF8F7-1E71-4087-B3FB-A2A7A1BA0951}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F97CF8F7-1E71-4087-B3FB-A2A7A1BA0951}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F97CF8F7-1E71-4087-B3FB-A2A7A1BA0951}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F97CF8F7-1E71-4087-B3FB-A2A7A1BA0951}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

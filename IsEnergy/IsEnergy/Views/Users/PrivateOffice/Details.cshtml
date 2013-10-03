@@ -1,0 +1,58 @@
+﻿@model IsEnergyModel.Users
+@{
+    ViewBag.Title = "Детали";
+}
+ <div class="align_center_to_left">
+        <div class="align_center_to_right">
+                    <div class="align_centerInCss">
+    @Html.DevExpress().PageControl(PageControlsettings =>
+    {
+        PageControlsettings.Name = "PrivateOfficeDetails";
+        PageControlsettings.TabPages.Add("Информация").SetContent(() =>
+        {
+            using (Html.BeginForm("PrivateEdit", "Users", FormMethod.Post, new { id = "UserPrivateEdit" }))
+            {
+                Html.RenderPartial("PrivateOffice/RequisiteUser", Model);
+            }
+         
+        });
+        PageControlsettings.TabPages.Add("Сертификаты").SetContent(() =>
+        {
+            @Html.RenderPartial("PrivateOffice/CertificateDetails", Model);
+        });
+        PageControlsettings.TabPages.Add("Настройки уведомлений").SetContent(() =>
+        {
+            using (Html.BeginForm("EditNotificationSettings", "Users", FormMethod.Post, new { id = "UserNotificationSettingsPrivateOffice" }))
+            {
+                @Html.RenderPartial("PrivateOffice/NotificationSettings", Model);
+            }
+        }); 
+        
+     }).GetHtml() 
+  
+<div class ="Back">@Html.ActionLink("Назад", "Index")</div>
+</div></div></div>
+
+
+
+@Html.DevExpress().PopupControl(
+    settings =>
+    {
+        settings.Name = "pcModalModePrivateEditPassword";
+        settings.Width =300;
+        settings.Height= 100;
+        settings.AllowDragging = true;
+        settings.CloseAction = CloseAction.CloseButton;
+        settings.PopupAnimationType = AnimationType.None;
+        settings.HeaderText = "Смена пароля";
+        settings.ShowLoadingPanel = true;
+       
+        settings.Modal = true;
+        settings.PopupHorizontalAlign = PopupHorizontalAlign.WindowCenter;
+        settings.PopupVerticalAlign = PopupVerticalAlign.WindowCenter;
+        settings.SetContent(() =>
+        {
+                Html.RenderPartial("PrivateOffice/_EditPasswordPartial");
+        });
+        //settings.ClientSideEvents.CloseUp = "function(s, e){ fileUploadEdit.ClearText();  }";
+    }).GetHtml()

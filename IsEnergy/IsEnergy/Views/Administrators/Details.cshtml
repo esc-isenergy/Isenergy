@@ -1,0 +1,38 @@
+﻿@model IsEnergyModel.Administrators
+
+@{
+    ViewBag.Title = "Детали";
+}
+<script type="text/javascript">
+        function Delete_Admin() {
+                if (confirm("Удалить администратора?")) {
+                    $('#EditAdminForm').attr('action', '/Administrators/Delete');
+                    $("#EditAdminForm").submit();
+                }            
+        }
+
+</script>
+<div class="align_center_to_left">
+    <div class="align_center_to_right">
+
+        <h3>Детали администратора</h3>
+
+        @Html.AntiForgeryToken()
+
+        @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "EditAdminForm", enctype = "Multipart/form-data" }))
+        {
+            @Html.Action("DetailsPartial",Model)
+        }
+            <table>
+                <tr>
+                    <td>
+        <button class="action bluebtn" type="button" onclick="javascript:Edit_Admin();"><span class="label">Редактировать</span></button>
+                   </td>
+                    <td>                        
+        <button class="action redbtn" type="button" onclick="javascript:Delete_Admin();"><span class="label">Удалить</span></button>
+                    </td>
+                </tr>
+            </table>
+        
+        @Html.ActionLink("Назад", "Index")</div>
+</div>

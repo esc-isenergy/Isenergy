@@ -1,0 +1,220 @@
+﻿@model IsEnergyModel.Subscribers
+
+        <div id="fieldsetElectricityPrimaryDocuments" class="fieldsetInCss" >
+            <table>
+                <tr>
+                    <td>
+                        @Html.DevExpress().CheckBoxFor(model=>model.AccessElectricityPrimaryDocuments,settings =>
+           {
+               settings.Name = "AccessElectricityPrimaryDocuments";
+               settings.Checked = false;
+               settings.Width = 370;
+               settings.Text = "Первичная документация";
+           }).GetHtml()
+                    </td>
+                    <td>
+                        <table>
+                            <tr>
+                                <td>
+                                    @Html.DevExpress().Label(settings =>
+                               {
+                                   settings.Name = "LabelDateFromElectricityPrimaryDocuments";
+                                   settings.Text = "Начало обслуживания";
+                                   settings.Width = 150;
+
+                               }).GetHtml()
+                                </td>
+                                <td>
+                                    @Html.DevExpress().DateEditFor(model=>model.AccessElectricityPrimaryDocumentsDateStart,settings =>
+                               {
+                                   settings.Name = "AccessElectricityPrimaryDocumentsDateStart";
+                                   settings.Date = DateTime.Now;
+                                   settings.Width = 90;
+
+                               }).GetHtml()
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    @Html.DevExpress().Label(settings =>
+                               {
+                                   settings.Name = "LabelDateBeforeElectricityPrimaryDocuments";
+                                   settings.Text = "Конец обслуживания";
+
+                                   settings.Width = 150;
+
+                               }).GetHtml()
+                                </td>
+                                <td>
+                                    @Html.DevExpress().DateEditFor(model=>model.AccessElectricityPrimaryDocumentsDateEnd,settings =>
+                               {
+                                   settings.Name = "AccessElectricityPrimaryDocumentsDateEnd";
+                                   settings.Date = DateTime.Now.AddYears(1);
+                                   settings.Width = 90;
+
+                               }).GetHtml()
+                                </td>
+                            </tr>
+
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div id="fieldsetInElectricityForm80020" class="fieldsetInCss">
+            <table>
+
+                <tr>
+                    <td>
+                        @Html.DevExpress().CheckBoxFor(model=>model.AccessElectricityForm80020 ,settings =>
+           {
+               settings.Name = "AccessElectricityForm80020";
+               settings.Checked = false;
+               settings.Width = 160;
+               settings.Text = "Форма № 80020";
+           }).GetHtml()
+                    </td>
+                    <td>@Html.DevExpress().Label(settings =>
+                   {
+                       settings.Name = "NumberOfElectricityForm80020";
+                       settings.Text = "Количество счётчиков";
+                       settings.Width = 100;
+                   }).GetHtml()
+
+                    </td>
+                    <td>
+                        @Html.DevExpress().SpinEditFor(model=>model.AccessElectricityForm80020Amount,settings =>
+               {
+                   settings.Name = "AccessElectricityForm80020Amount";
+                   settings.Width = 100;
+               }).GetHtml()
+                    </td>
+                    <td>
+                        <table>
+                            <tr>
+                                <td>
+                                    @Html.DevExpress().Label(settings =>
+                               {
+                                   settings.Name = "LabelDateFromElectricityForm80020";
+                                   settings.Text = "Начало обслуживания";
+                                   settings.Width = 150;
+
+                               }).GetHtml()
+                                </td>
+                                <td>
+                                    @Html.DevExpress().DateEditFor(model=>model.AccessElectricityForm80020DateStart,settings =>
+                               {
+                                   settings.Name = "AccessElectricityForm80020DateStart";
+                                   settings.Date = DateTime.Now;
+                                   settings.Width = 90;
+
+                               }).GetHtml()
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    @Html.DevExpress().Label(settings =>
+                               {
+                                   settings.Name = "LabelDateBeforeElectricityForm80020";
+                                   settings.Text = "Конец обслуживания";
+                                   settings.Width = 150;
+
+                               }).GetHtml()
+                                </td>
+                                <td>
+                                    @Html.DevExpress().DateEditFor(model=>model.AccessElectricityForm80020DateEnd,settings =>
+                               {
+                                   settings.Name = "AccessElectricityForm80020DateEnd";
+                                   settings.Date = DateTime.Now.AddYears(1);
+                                   settings.Width = 90;
+
+                               }).GetHtml()
+                                </td>
+                            </tr>
+
+                        </table>
+                    </td>
+
+                </tr>
+            </table>
+        </div>
+
+        <div id="fieldsetInElectricityForm16" class="fieldsetInCss">
+            <table>
+
+                <tr>
+                    <td>
+                        @Html.DevExpress().CheckBoxFor(model=>model.AccessElectricityForm16,settings =>
+           {
+               settings.Name = "AccessElectricityForm16";
+               settings.Checked = false;
+               settings.Width = 160;
+               settings.Text = "Форма № 16";
+           }).GetHtml()
+                    </td>
+                    <td>@Html.DevExpress().Label(settings =>
+                   {
+                       settings.Name = "NumberOfElectricityForm16";
+                       settings.Text = "Количество счётчиков";
+                       settings.Width = 100;
+                   }).GetHtml()
+
+                    </td>
+                    <td>
+                        @Html.DevExpress().SpinEditFor(model=>model.AccessElectricityForm16Amount,settings =>
+               {
+                   settings.Name = "AccessElectricityForm16Amount";
+                   settings.Width = 100;
+               }).GetHtml()
+                    </td>
+                    <td>
+                        <table>
+                            <tr>
+                                <td>
+                                    @Html.DevExpress().Label(settings =>
+                               {
+                                   settings.Name = "LabelDateFromElectricityForm16";
+                                   settings.Text = "Начало обслуживания";
+                                   settings.Width = 150;
+
+                               }).GetHtml()
+                                </td>
+                                <td>
+                                    @Html.DevExpress().DateEditFor(model=>model.AccessElectricityForm16DateStart,settings =>
+                               {
+                                   settings.Name = "AccessElectricityForm16DateStart";
+                                   settings.Date = DateTime.Now;
+                                   settings.Width = 90;
+
+                               }).GetHtml()
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    @Html.DevExpress().Label(settings =>
+                               {
+                                   settings.Name = "LabelDateBeforeElectricityForm16";
+                                   settings.Text = "Конец обслуживания";
+                                   settings.Width = 150;
+
+                               }).GetHtml()
+                                </td>
+                                <td>
+                                    @Html.DevExpress().DateEditFor(model=>model.AccessElectricityForm16DateEnd,settings =>
+                               {
+                                   settings.Name = "AccessElectricityForm16DateEnd";
+                                   settings.Date = DateTime.Now.AddYears(1);
+                                   settings.Width = 90;
+
+                               }).GetHtml()
+                                </td>
+                            </tr>
+
+                        </table>
+                    </td>
+
+                </tr>
+            </table>
+        </div>
+

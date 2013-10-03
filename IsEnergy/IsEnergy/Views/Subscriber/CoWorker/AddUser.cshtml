@@ -1,0 +1,43 @@
+﻿@model IsEnergyModel.SubscribersUserList
+<div id ="AddUserArea">
+
+<table>
+    <tr>
+        <td>@Html.DevExpress().Label(settings => { settings.Name = "UserLabel"; settings.Width = 100; settings.Text = "Пользователь"; }).GetHtml()</td>
+        <td>@Html.DevExpress().ComboBox(settings =>{
+           settings.Name = "IdUserAddUser";
+            settings.Width = 300;
+            settings.SelectedIndex = 0;
+            settings.Properties.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+            settings.Properties.DropDownStyle = DropDownStyle.DropDownList;
+            settings.Properties.TextFormatString = "{0} {1} {2}";
+            settings.Properties.ValueField = "IdUser";
+            settings.Properties.AnimationType = AnimationType.Auto;
+            settings.Properties.ValueType = typeof(int);
+            settings.Properties.Columns.Add("FirstName", "Фамилия", 50);
+            settings.Properties.Columns.Add("MidleName", "Имя", 50);
+            settings.Properties.Columns.Add("LastName", "Отчество", 50);
+            settings.Properties.Columns.Add("Login", "Логин", 50);
+        }).BindList(ViewData["Users"]).GetHtml()</td>
+    </tr>
+    <tr>
+        <td>@Html.DevExpress().Label(settings => {settings.Name = "UserSubdivision"; settings.Width = 100; settings.Text = "Подразделение"; }).GetHtml()</td>
+        <td>@Html.DevExpress().ComboBox(settings =>{
+            settings.Name = "IdSubdivisionAddUser";
+            settings.Width = 300;
+            settings.SelectedIndex = 0;
+            settings.Properties.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+            settings.Properties.DropDownStyle = DropDownStyle.DropDownList;
+            settings.Properties.TextFormatString = "({1}) {0}";
+            settings.Properties.ValueField = "IdSubdivision";
+            settings.Properties.AnimationType = AnimationType.Auto;
+            settings.Properties.ValueType = typeof(int);
+            settings.Properties.Columns.Add("SubdivisionName", "Название подразделения", 150);
+            settings.Properties.Columns.Add("SubdivisionCode", "Код подразделения", 50);
+        }).BindList(ViewData["Subdivision"]).GetHtml()</td>                
+    </tr>
+</table>
+            <button class="action bluebtn" type="submit" ><span class="label">Добавить</span></button>
+            <button class="action" type ="button" onclick="javascript:pcModalModeUsers.Hide();"><span class="label">Отмена</span></button>
+
+    </div>

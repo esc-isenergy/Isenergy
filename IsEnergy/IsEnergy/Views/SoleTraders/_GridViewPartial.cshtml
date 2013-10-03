@@ -1,0 +1,77 @@
+﻿@{
+	var grid = Html.DevExpress().GridView(settings => {
+        settings.Name = "GridViewSoleTraders";
+        settings.CallbackRouteValues = new { Controller = "SoleTraders", Action = "GridViewPartial" };
+        			
+		settings.KeyFieldName = "IdSoleTrader";
+        settings.CommandColumn.Visible = true;
+        settings.CommandColumn.Caption = " ";
+        settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
+        settings.Height = System.Web.UI.WebControls.Unit.Percentage(100);
+     
+        GridViewCommandColumnCustomButton Details = new GridViewCommandColumnCustomButton();
+        Details.Text = "Детали";
+        Details.ID = "Details";
+        settings.CommandColumn.CustomButtons.Add(Details);
+        settings.ClientSideEvents.CustomButtonClick =
+            String.Format("function(s, e) {{ if(e.buttonID == 'Details') window.location.href='{0}/' + s.GetRowKey(e.visibleIndex); }}", DevExpressHelper.GetUrl(new { Controller = "SoleTraders", Action = "Details" }));
+        settings.ClientSideEvents.RowDblClick=
+            String.Format("function(s, e) {{ window.location.href='{0}/' + s.GetRowKey(e.visibleIndex); }}", DevExpressHelper.GetUrl(new { Controller = "SoleTraders", Action = "Details" }));
+        settings.Settings.ShowGroupPanel = true;		
+		settings.SettingsPager.Visible = true;
+		settings.Settings.ShowFilterRow = true;
+		settings.SettingsBehavior.AllowSelectByRowClick = true;
+
+
+        settings.SettingsPager.Position = System.Web.UI.WebControls.PagerPosition.Bottom;
+        settings.SettingsPager.FirstPageButton.Visible = true;
+        settings.SettingsPager.LastPageButton.Visible = true;
+        settings.SettingsPager.PageSizeItemSettings.Visible = true;
+        settings.SettingsPager.PageSizeItemSettings.Items = new string[] { "10", "20", "50" };
+       
+                settings.Columns.Add(column =>
+                {
+                    column.FieldName = "ShortName";
+                    column.Caption = "Ф. И. О.";
+                });
+                settings.Columns.Add(column =>
+                {
+                    column.FieldName = "INN";
+                    column.Caption = "ИНН";
+                });
+                settings.Columns.Add(column =>
+                {
+                    column.FieldName = "OGRN";
+                    column.Caption = "ОГРН";
+                });
+                settings.Columns.Add(column =>
+                {
+                    column.FieldName = "IFNS.Name";
+                    column.Caption = "ИФНС";
+                });
+                settings.Columns.Add(column =>
+                {
+                    column.FieldName = "Address.AddressShort";
+                    column.Caption = "Юридический адресс";
+                });
+                settings.Columns.Add(column =>
+                {
+                    column.FieldName = "ContactFaceShort";
+                    column.Caption = "Контактное лицо";
+                });
+                settings.Columns.Add(column =>
+                {
+                    column.FieldName = "Phone";
+                    column.Caption = "Телефон";
+                });
+                settings.Columns.Add(column =>
+                {
+                    column.FieldName = "Email";
+                    column.Caption = "E-mail";
+                });	
+			});
+		if (ViewData["EditError"] != null){
+        grid.SetEditErrorText((string)ViewData["EditError"]);
+    }
+	}
+@grid.Bind(Model).GetHtml()

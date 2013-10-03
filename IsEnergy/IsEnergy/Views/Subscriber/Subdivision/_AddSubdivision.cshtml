@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Детали";
+}
+
+
+<script type="text/javascript">
+       
+    function Create_Subdivision() {
+        if (ASPxClientEdit.ValidateGroup('ErrSubCreate')) {
+            $('form#AddSubdivisionForm').submit();
+        }
+     }
+  
+</script>
+  
+<div id="AddSubForm">
+
+  
+    <fieldset>
+        <legend>Подразделение</legend>
+       <div id="RequisiteAdd"></div>
+   </fieldset>
+       <div id="AddressAdd"></div>
+   
+    <table>
+    <tr>
+        <td>
+            <button class="action bluebtn" id="xxx" type="button" onclick="javascript:Create_Subdivision()"><span class="label">Добавить</span></button>
+            
+       </td>
+        <td>
+            <button class="action" type="button" onclick="javascript:pcModalModeLegalEntities.Hide();"><span class="label">Отмена</span></button>
+       </td>
+    </tr>
+</table>
+
+</div>
+

@@ -7,3 +7,12 @@ E:\IsEnergy\IsEnergyModel\bin\Release\ru\EntityFramework.resources.dll
 E:\IsEnergy\IsEnergyModel\obj\Release\IsEnergyModel.dll
 E:\IsEnergy\IsEnergyModel\obj\Release\IsEnergyModel.pdb
 E:\IsEnergy\IsEnergyModel\obj\Release\IsEnergyModel.csprojResolveAssemblyReference.cache
+D:\IsEnergy\IsEnergy\IsEnergyModel\obj\Release\IsEnergyModel.csprojResolveAssemblyReference.cache
+D:\IsEnergy\IsEnergy\IsEnergyModel\obj\Release\IsEnergyModel.dll
+D:\IsEnergy\IsEnergy\IsEnergyModel\obj\Release\IsEnergyModel.pdb
+D:\IsEnergy\IsEnergy\IsEnergyModel\bin\Release\IsEnergyModel.dll.config
+D:\IsEnergy\IsEnergy\IsEnergyModel\bin\Release\IsEnergyModel.dll
+D:\IsEnergy\IsEnergy\IsEnergyModel\bin\Release\IsEnergyModel.pdb
+D:\IsEnergy\IsEnergy\IsEnergyModel\bin\Release\EntityFramework.dll
+D:\IsEnergy\IsEnergy\IsEnergyModel\bin\Release\EntityFramework.xml
+D:\IsEnergy\IsEnergy\IsEnergyModel\bin\Release\ru\EntityFramework.resources.dll

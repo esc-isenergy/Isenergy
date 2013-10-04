@@ -12,3 +12,17 @@ E:\IsEnergy\IsEnergy\obj\Release\IsEnergy.dll
 E:\IsEnergy\IsEnergy\obj\Release\IsEnergy.pdb
 E:\IsEnergy\IsEnergy\obj\Release\IsEnergy.csprojResolveAssemblyReference.cache
 E:\IsEnergy\IsEnergy\bin\IsEnergyModel.pdb
+D:\IsEnergy\IsEnergy\IsEnergy\bin\IsEnergy.dll
+D:\IsEnergy\IsEnergy\IsEnergy\bin\IsEnergy.pdb
+D:\IsEnergy\IsEnergy\IsEnergy\bin\EntityFramework.dll
+D:\IsEnergy\IsEnergy\IsEnergy\bin\IsEnergyModel.dll
+D:\IsEnergy\IsEnergy\IsEnergy\bin\WebMatrix.Data.dll
+D:\IsEnergy\IsEnergy\IsEnergy\bin\WebMatrix.WebData.dll
+D:\IsEnergy\IsEnergy\IsEnergy\bin\IsEnergyModel.pdb
+D:\IsEnergy\IsEnergy\IsEnergy\bin\EntityFramework.xml
+D:\IsEnergy\IsEnergy\IsEnergy\bin\WebMatrix.Data.xml
+D:\IsEnergy\IsEnergy\IsEnergy\bin\WebMatrix.WebData.xml
+D:\IsEnergy\IsEnergy\IsEnergy\bin\ru\EntityFramework.resources.dll
+D:\IsEnergy\IsEnergy\IsEnergy\obj\Release\IsEnergy.csprojResolveAssemblyReference.cache
+D:\IsEnergy\IsEnergy\IsEnergy\obj\Release\IsEnergy.dll
+D:\IsEnergy\IsEnergy\IsEnergy\obj\Release\IsEnergy.pdb

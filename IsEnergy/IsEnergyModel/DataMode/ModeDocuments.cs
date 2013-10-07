@@ -60,7 +60,7 @@ namespace IsEnergyModel.DataMode
             catch (Exception ex) { return new ResultMode() { Executed = false, StrError = ex.Message, StrResult = "Не удалось добавить документ" }; }
         }
 
-        public ResultMode EditDocumentTemp(string userName, int idDocumentTemp, string IdentifierSubscriberReceive, int idSubdivisionSenderReceiver = 0)
+        public ResultMode EditDocumentTemp(string userName, int idDocumentTemp,  bool signatureContractor,  string comment)
         {
 
             try
@@ -76,12 +76,8 @@ namespace IsEnergyModel.DataMode
                         Is_EnergyEntities db = new Is_EnergyEntities();
                         DocumentsTemp documents = db.DocumentsTemp.Find(idDocumentTemp);
                         db.Entry(documents).State = EntityState.Modified;
-                        documents.IdUserCreate = user.IdUser;
-                        documents.IdentifierSubscriberSender = subscribers.IdentifierSubscriber;
-                        documents.idSubdivisionSender = (subscribersSubdivision != null) ? subscribersSubdivision.idSubdivision : 0;
-                        if (!String.IsNullOrEmpty(IdentifierSubscriberReceive)) { documents.IdentifierSubscriberReceiver = IdentifierSubscriberReceive; }
-                        else { documents.IdentifierSubscriberReceiver = subscribers.IdentifierSubscriber; }
-                        documents.idSubdivisionReceiver = idSubdivisionSenderReceiver;
+                        documents.SignatureContractor = signatureContractor;
+                        documents.Comment = comment;
                         db.SaveChanges();
                         return new ResultMode() { Executed = true, StrError = string.Empty, StrResult = "Документ изменен" };
                     }

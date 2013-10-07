@@ -11,7 +11,6 @@ function SignDocuments(key) {
             certSubjectName = data;
            var singdata = SignCreate(certSubjectName, hashSignDocumentTemp);
            $.post('/DocumentFlow/SaveDocumentTempInRealAndSend', { IdDocumentTemp: key, dataSing: singdata }, function (data) {
-             
                if (data == 'True')
                {
                    $.post('/DocumentFlow/GridViewDocuments', function (data) {

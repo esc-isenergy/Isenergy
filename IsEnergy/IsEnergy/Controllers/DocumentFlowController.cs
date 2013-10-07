@@ -100,6 +100,22 @@ namespace IsEnergy.Controllers
             return PartialView("~/Views/DocumentFlow/DocumentPanel.cshtml", model.ToList());
 
         }
+        public bool GetSignatureContractor(int IdDocumentTemp, bool check)
+        {
+            //запросить подпись контрагента
+            return true;
+        }
+        public bool SelecTypeKontragent(int Type)
+        {
+            //выбор типа контрагента (внутренний , исходящий б роуминг)
+            return true;
+        }
+ 
+         public bool SelecIdentifierSubscriber(string identifierSubscriber)
+        {
+            // выбор IdentifierSubscriber получателя
+            return true;
+        }
 
         public ActionResult UploadDocument(UploadedFile[] UploadDocuments, string GetIdentifierSubscriber=null, int GetIdSubdivision=0)
         {

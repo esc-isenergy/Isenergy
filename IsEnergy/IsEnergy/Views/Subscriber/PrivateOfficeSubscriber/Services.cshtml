@@ -237,31 +237,10 @@
       @Html.Partial("~/Views/Subscriber/PrivateOfficeSubscriber/ElectricConsumer.cshtml")
             <div class ="ContractsAndEnumerators">
                     <div class="ContractsOfSubscriber">
-                    @Html.DevExpress().GridView(settings=>{
-                   settings.Name = "GridViewSubscriberContacts1";
-                   //settings.CallbackRouteValues = new { Controller = "Subscriber", Action = "GridViewPartialpcModalModeCreateContract", IdentifierSubscriber = ViewData["IdentifierSubscriber"] };
-		            settings.KeyFieldName = "IdContractSubscriber";
-		            settings.SettingsPager.Visible = true;
-                    settings.SettingsPager.ShowNumericButtons = false; 
-		            settings.Settings.ShowFilterRow = true;
-		            settings.SettingsBehavior.AllowSelectByRowClick = true;
-                    settings.Columns.Add(column =>
-                    {   column.FieldName = "NumberContract";
-                        column.Caption = "Номер договора";});
-                   }).Bind(Model.SubscribersContracts).GetHtml()
+                        @Html.Action("GridViewPartialpcModalModeCreateContract1", new { IdentifierSubscriber = Model.IdentifierSubscriber })                     
                     </div>
-
                     <div class="EnumeratorsOfSubscriber">
-                    @Html.DevExpress().GridView(settings => {
-                    settings.Name = "GridViewpcModalModeCreateEnumerator1";
-                    //settings.CallbackRouteValues = new { Controller = "Subscriber", Action = "GridViewpcModalModeCreateEnumerator", IdentifierSubscriber = ViewData["IdentifierSubscriber"] };
-		            settings.KeyFieldName = "IdEnumerator";		
-		            settings.SettingsPager.Visible = true;
-		            settings.Settings.ShowFilterRow = true;
-		            settings.SettingsBehavior.AllowSelectByRowClick = true;		
-				    settings.Columns.Add("Code", "Номер счетчика");                   
-                    settings.Columns.Add("SubscribersContracts.NumberContract", "Номер договора");
-                    }).Bind(ViewBag.subscribersEnumerator).GetHtml()
+                        @Html.Action("GridViewPartialpcModalModeCreateEnumerator1", new { IdentifierSubscriber = Model.IdentifierSubscriber })           
                        </div>
                     </div> 
                      

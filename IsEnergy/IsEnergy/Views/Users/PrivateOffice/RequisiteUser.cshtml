@@ -106,9 +106,9 @@
                  settings.Width = 200;
                  settings.ShowModelErrors = true;
                  settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
-                 settings.Properties.ValidationSettings.ValidationGroup = "UserVG";
-                 settings.Properties.ValidationSettings.RegularExpression.ValidationExpression = @"(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$";
-                 settings.Properties.ValidationSettings.RegularExpression.ErrorText = "Пароль не удовлетворяет требованиям безопасности ";
+                 settings.Properties.ValidationSettings.ValidationGroup = "UserEditVG";
+                 settings.Properties.ValidationSettings.RegularExpression.ValidationExpression = @"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}";
+                 settings.Properties.ValidationSettings.RegularExpression.ErrorText = "Некорректный адрес";
                 }).GetHtml()</td>
        
    </tr> 

@@ -242,6 +242,7 @@
                
                  settings.ShowModelErrors = true;
                  settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+                 settings.Properties.ValidationSettings.RegularExpression.ValidationExpression = @"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}";
                  settings.Properties.ValidationSettings.ErrorText = "Не верно указан E-mail";
                  settings.Properties.ValidationSettings.ValidationGroup = "err";
                    

@@ -93,7 +93,7 @@
         <td>@Html.DevExpress().TextBoxFor(m => m.Phone, settings => {
                  settings.Name = "Phone";
                  settings.Width = 200;
-                 settings.Properties.MaskSettings.Mask = "8-(000) 000-00-00";
+                 //settings.Properties.MaskSettings.Mask = "8-(000)-000-00-00";
                  settings.Properties.MaskSettings.IncludeLiterals = MaskIncludeLiteralsMode.None;
                  settings.Properties.ValidationSettings.ValidationGroup = "UserEditVG";
                  settings.Properties.ValidationSettings.RequiredField.IsRequired = true;

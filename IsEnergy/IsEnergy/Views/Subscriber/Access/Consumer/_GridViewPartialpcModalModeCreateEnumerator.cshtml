@@ -1,12 +1,13 @@
 @{
 	var grid = Html.DevExpress().GridView(settings => {
         settings.Name = "GridViewpcModalModeCreateEnumerator";
-        settings.CallbackRouteValues = new { Controller = "Subscriber", Action = "GridViewpcModalModeCreateEnumerator",   IdentifierSubscriber = ViewData["subscribersEnumerator"]  };
+        settings.CallbackRouteValues = new { Controller = "Subscriber", Action = "GridViewPartialpcModalModeCreateEnumerator", IdentifierSubscriber = ViewData["subscribersEnumerator"] };
 
         settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "Subscriber", Action = "EnumeratorDelete" };
-
+        settings.SettingsPager.Visible = true;
+        settings.SettingsPager.ShowDefaultImages = false;
         settings.SettingsBehavior.ConfirmDelete = true;
-
+        settings.Settings.ShowFilterRow = true;
         settings.CommandColumn.Visible = true;
         settings.CommandColumn.DeleteButton.Visible = true;
 		settings.KeyFieldName = "IdEnumerator";

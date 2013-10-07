@@ -4,9 +4,10 @@
   SubscribersEnumerator subscribersEnumerator = new SubscribersEnumerator();
   subscribersEnumerator = ViewBag.subscribersEnumerator;
   }
+
 @using (Ajax.BeginForm("CreateEnumeratorSubscriber", "Subscriber", new AjaxOptions { UpdateTargetId = "GridViewEnumeratorSubscriber" }))
 {
-<div id="CreateNewEnumerator">
+//<div id="CreateNewEnumerator">
 <table>
     <tr><td>@Html.DevExpress().Label(settings => { settings.Text = "Номер счетчика"; }).GetHtml()</td>
         <td>@Html.DevExpress().TextBoxFor(model => subscribersEnumerator.Code, settings => {
@@ -29,5 +30,5 @@
         }).BindList(ViewData["Contracts"]).GetHtml()</td></tr>
 </table>
 <button class="action bluebtn" type="submit"  onclick="javascript:pcModalModeCreateEnumerator.Hide();"><span class="label">Добавить</span></button>
-</div>
+//</div>
 }

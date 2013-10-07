@@ -305,6 +305,8 @@
     <Content Include="Views\Contractors\_GridViewPartialInputInvitation.cshtml" />
     <Content Include="Views\Contractors\_GridViewPartialOutputInvitation.cshtml" />
     <Content Include="Views\DocumentFlow\DetailsDocuments.cshtml" />
+    <Content Include="Views\Subscriber\PrivateOfficeSubscriber\_GridViewPartialpcModalModeCreateEnumerator1.cshtml" />
+    <Content Include="Views\Subscriber\PrivateOfficeSubscriber\_GridViewPartialpcModalModeCreateContract1.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -360,7 +362,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>41647</DevelopmentServerPort>
+          <DevelopmentServerPort>2372</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://IsEnergy</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

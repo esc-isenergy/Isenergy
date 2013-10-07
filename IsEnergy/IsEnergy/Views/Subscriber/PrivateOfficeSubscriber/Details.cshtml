@@ -10,15 +10,15 @@
        
         using (Html.BeginForm(null,null, FormMethod.Post, new { id = "SubscriberPrivateEdit" }))
         {
-            if(Model.TypeElementAbonent == 1)
+            if((Model.TypeElementAbonent == 1) && (Model.LegalEntities.Count!=0))
             {
                 Html.RenderPartial("PrivateOfficeSubscriber/RequisiteLegalEntitied", Model.LegalEntities.First());  
             }
-            else if(Model.TypeElementAbonent == 2)
+            else if ((Model.TypeElementAbonent == 2) && (Model.SoleTraders.Count != 0))
             {
                 Html.RenderPartial("PrivateOfficeSubscriber/RequisiteSoleTrader", Model.SoleTraders.First());
             }
-            else if(Model.TypeElementAbonent == 3)
+            else if ((Model.TypeElementAbonent == 3) && (Model.PhysicalPersons.Count != 0))
             {
                 Html.RenderPartial("PrivateOfficeSubscriber/RequisitePhysicalPerson", Model.PhysicalPersons.First());
             }

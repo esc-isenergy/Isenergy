@@ -285,7 +285,7 @@ namespace IsEnergyModel.DataMode
                         documentFlow.DateCreate = GlobalMetods.CommonMethods.GetDataTimeNow;
                         documentFlow.IdDocumentMain = doc.IdDocument;
                         documentFlow.NameDocument = doc.NameDocument;
-                        documentFlow.NameSign = doc.NameDocument;
+                        documentFlow.NameSign = doc.NameDocument + ".sig"; ;
                         documentFlow.State = 2;
                         db.DocumentFlow.Add(documentFlow);
                         db.SaveChanges();
@@ -441,11 +441,12 @@ namespace IsEnergyModel.DataMode
             catch (Exception ex) { return new ResultMode() { Executed = false, StrError = ex.Message, StrResult = "Не удалось сохранить" }; }
         }
 
-        public ResultMode Stemp_4_ConfirmationReceiptOperatorInSubscriberInvoices(int idDocument)
+        public ResultMode Stemp_4_ConfirmationReceiptOperatorInSubscriberInvoices(string userName,int idDocument)
         {
             try
             {
                 Is_EnergyEntities db = new Is_EnergyEntities();
+                Users user = Filters.AuthorizeMeAll.GetCurrentUser(userName);
                 //находим документ 
                 Documents doc = db.Documents.Find(idDocument);
                 if (doc != null)
@@ -454,8 +455,10 @@ namespace IsEnergyModel.DataMode
                     Subscribers subscribersSender = db.Subscribers.Find(doc.IdentifierSubscriberSender);
                     Subscribers subscribersReceiver = db.Subscribers.Find(doc.IdentifierSubscriberReceiver);
                     DateTime dateNow = GlobalMetods.CommonMethods.GetDataTimeNow;
-                    string nameFileNoExpansion = doc.NameFile.Substring(0, doc.NameFile.LastIndexOf('.'));
                     DocumentFlow parentDocumentFlow = doc.DocumentFlow.FirstOrDefault(u => u.State == 3);
+                    string nameFileNoExpansion = parentDocumentFlow.NameFile.Substring(0, parentDocumentFlow.NameFile.LastIndexOf('.'));
+
+                    DateTime TimeNow = GlobalMetods.CommonMethods.GetDataTimeNow;
                     //Создаем потверждение оператора
                     string ID_File = string.Format("DP_IZVPOL_{0}_{1}_{2}_{3}",ConfigModel.idOperEDO, doc.IdentifierSubscriberSender,  dateNow.ToString("yyyyMMdd"), Guid.NewGuid());
 
@@ -465,111 +468,67 @@ namespace IsEnergyModel.DataMode
                     XSD.DP_IZVPOL_1_982_00_01_01_01.ФайлДокумент файлДокумент = new XSD.DP_IZVPOL_1_982_00_01_01_01.ФайлДокумент();
 
                     XSD.DP_IZVPOL_1_982_00_01_01_01.ФайлДокументУчастЭДО УчастЭДО = new XSD.DP_IZVPOL_1_982_00_01_01_01.ФайлДокументУчастЭДО();
+                    УчастЭДО.ИдУчастЭДО = subscribersSender.IdentifierSubscriber;
 
-                    файлДокумент.УчастЭДО  = УчастЭДО;
-
-                    DP_IZVPOL.Документ = файлДокумент;
-
-                    /*
-                    XSD.DP_IZVPOL_1_982_00_01_01_01.ФайлДокументОперЭДО оперЭДО = new XSD.DP_IZVPOL_1_982_00_01_01_01.ФайлДокументОперЭДО();
-                    оперЭДО.ИдОперЭДО = ConfigModel.idOperEDO;
-                    оперЭДО.ИННЮЛ = ConfigModel.INNOperEDO;
-                    оперЭДО.НаимОрг = ConfigModel.NameOperEDO;
-                    файлДокумент.ОперЭДО = оперЭДО;
-
-                    XSD.DP_PDPOL_1_984_00_01_01_01.ФайлДокументСведПодтв сведПодтв = new XSD.DP_PDPOL_1_984_00_01_01_01.ФайлДокументСведПодтв();
-                    сведПодтв.ДатаОтпр = dateNow.ToString("dd.MM.yyyy");
-                    сведПодтв.ВремяОтпр = dateNow.ToString("HH:mm:ss");
-
-                    XSD.DP_PDPOL_1_984_00_01_01_01.ФайлДокументСведПодтвСведОтпрФайл сведОтпрФайл = new XSD.DP_PDPOL_1_984_00_01_01_01.ФайлДокументСведПодтвСведОтпрФайл();
-                    сведОтпрФайл.ИмяПостФайла = nameFileNoExpansion;
-                    if (parentDocumentFlow == null) return new ResultMode() { Executed = false, StrError = string.Empty, StrResult = "Документ не подписан отправителем" };
-                    сведОтпрФайл.ЭЦППолФайл = Convert.ToBase64String(parentDocumentFlow.DataSign);
-                    сведПодтв.СведОтпрФайл = сведОтпрФайл;
-
-                    файлДокумент.СведПодтв = сведПодтв;
-
-                    XSD.DP_PDPOL_1_984_00_01_01_01.УчастЭДО отпрДок = new XSD.DP_PDPOL_1_984_00_01_01_01.УчастЭДО();
-                    отпрДок.ИдУчастЭДО = subscribersSender.IdentifierSubscriber;
-
+                    
                     if (subscribersSender.TypeElementAbonent == 1)
                     {
                         LegalEntities legalEntitiesSender = subscribersSender.LegalEntities.FirstOrDefault();
-                        XSD.DP_PDPOL_1_984_00_01_01_01.УчастЭДОЮЛ участЭДОSender = new XSD.DP_PDPOL_1_984_00_01_01_01.УчастЭДОЮЛ();
+                        XSD.DP_IZVPOL_1_982_00_01_01_01.ЮЛТип участЭДОSender = new XSD.DP_IZVPOL_1_982_00_01_01_01.ЮЛТип();
                         участЭДОSender.ИННЮЛ = legalEntitiesSender.INN;
                         участЭДОSender.КПП = legalEntitiesSender.KPP;
                         участЭДОSender.НаимОрг = legalEntitiesSender.NameOrganization;
-                        отпрДок.Item = участЭДОSender;
+                        УчастЭДО.Item = участЭДОSender;
                     }
                     else if (subscribersSender.TypeElementAbonent == 2)
                     {
                         SoleTraders soleTradersSender = subscribersSender.SoleTraders.FirstOrDefault();
-                        XSD.DP_PDPOL_1_984_00_01_01_01.УчастЭДОИП участЭДОSender = new XSD.DP_PDPOL_1_984_00_01_01_01.УчастЭДОИП();
+                        XSD.DP_IZVPOL_1_982_00_01_01_01.ФЛТип участЭДОSender = new XSD.DP_IZVPOL_1_982_00_01_01_01.ФЛТип();
                         участЭДОSender.ИННФЛ = soleTradersSender.INN;
-                        участЭДОSender.ФИО = new XSD.DP_PDPOL_1_984_00_01_01_01.ФИОТип() { Имя = soleTradersSender.MidleName, Фамилия = soleTradersSender.FirstName, Отчество = soleTradersSender.LastName };
-                        отпрДок.Item = участЭДОSender;
+                        участЭДОSender.ФИО = new XSD.DP_IZVPOL_1_982_00_01_01_01.ФИОТип() { Имя = soleTradersSender.MidleName, Фамилия = soleTradersSender.FirstName, Отчество = soleTradersSender.LastName };
+                        УчастЭДО.Item = участЭДОSender;
                     }
                     else { return new ResultMode() { Executed = false, StrError = string.Empty, StrResult = "Не определен тип отправителя" }; }
+                    
+                    файлДокумент.УчастЭДО = УчастЭДО;
 
-                    файлДокумент.ОтпрДок = отпрДок;
+                    XSD.DP_IZVPOL_1_982_00_01_01_01.ФайлДокументСвИзвПолуч СвИзвПолуч = new XSD.DP_IZVPOL_1_982_00_01_01_01.ФайлДокументСвИзвПолуч();
+                    СвИзвПолуч.ДатаПол = TimeNow.ToString("dd.MM.yyyy");
+                    СвИзвПолуч.ВремяПол = TimeNow.ToString("HH:mm:ss");
+                    XSD.DP_IZVPOL_1_982_00_01_01_01.ФайлДокументСвИзвПолучСведПолФайл СведПолФайл = new XSD.DP_IZVPOL_1_982_00_01_01_01.ФайлДокументСвИзвПолучСведПолФайл();
+                    СведПолФайл.ИмяПостФайла = nameFileNoExpansion;
+                    СведПолФайл.ЭЦППолФайл = Convert.ToBase64String(parentDocumentFlow.DataSign);
+                    СвИзвПолуч.СведПолФайл = СведПолФайл;
 
-                    XSD.DP_PDPOL_1_984_00_01_01_01.УчастЭДО полДок = new XSD.DP_PDPOL_1_984_00_01_01_01.УчастЭДО();
-                    полДок.ИдУчастЭДО = subscribersReceiver.IdentifierSubscriber;
+                    файлДокумент.СвИзвПолуч = СвИзвПолуч;
 
-                    if (subscribersSender.TypeElementAbonent == 1)
-                    {
-                        LegalEntities legalEntitiesSender = subscribersReceiver.LegalEntities.FirstOrDefault();
-                        XSD.DP_PDPOL_1_984_00_01_01_01.УчастЭДОЮЛ участЭДОSender = new XSD.DP_PDPOL_1_984_00_01_01_01.УчастЭДОЮЛ();
-                        участЭДОSender.ИННЮЛ = legalEntitiesSender.INN;
-                        участЭДОSender.КПП = legalEntitiesSender.KPP;
-                        участЭДОSender.НаимОрг = legalEntitiesSender.NameOrganization;
-                        полДок.Item = участЭДОSender;
-                    }
-                    else if (subscribersSender.TypeElementAbonent == 2)
-                    {
-                        SoleTraders soleTradersSender = subscribersReceiver.SoleTraders.FirstOrDefault();
-                        XSD.DP_PDPOL_1_984_00_01_01_01.УчастЭДОИП участЭДОSender = new XSD.DP_PDPOL_1_984_00_01_01_01.УчастЭДОИП();
-                        участЭДОSender.ИННФЛ = soleTradersSender.INN;
-                        участЭДОSender.ФИО = new XSD.DP_PDPOL_1_984_00_01_01_01.ФИОТип() { Имя = soleTradersSender.MidleName, Фамилия = soleTradersSender.FirstName, Отчество = soleTradersSender.LastName };
-                        полДок.Item = участЭДОSender;
-                    }
-                    else { return new ResultMode() { Executed = false, StrError = string.Empty, StrResult = "Не определен тип получателя" }; }
+                    XSD.DP_IZVPOL_1_982_00_01_01_01.ФайлДокументОтпрДок ОтпрДок = new XSD.DP_IZVPOL_1_982_00_01_01_01.ФайлДокументОтпрДок();
+                    ОтпрДок.ИдУчастЭДО = ConfigModel.idOperEDO;
 
-                    файлДокумент.ПолДок = полДок;
+                    XSD.DP_IZVPOL_1_982_00_01_01_01.ФайлДокументОтпрДокОперЭДО ОтпрДокSender = new XSD.DP_IZVPOL_1_982_00_01_01_01.ФайлДокументОтпрДокОперЭДО();
+                    ОтпрДокSender.ИННЮЛ = ConfigModel.INNOperEDO;
+                    ОтпрДокSender.ИдОперЭДО = ConfigModel.idOperEDO;
+                    ОтпрДокSender.НаимОрг = ConfigModel.NameOperEDO;
+                    ОтпрДок.Item = ОтпрДокSender;
 
-                    файлДокумент.Подписант = new XSD.DP_PDPOL_1_984_00_01_01_01.ФайлДокументПодписант()
-                    {
-                        Должность = ConfigModel.postSingerOperEDO,
-                        ФИО = new XSD.DP_PDPOL_1_984_00_01_01_01.ФИОТип
-                        {
-                            Имя = ConfigModel.MidelNameSingerOperEDO,
-                            Отчество = ConfigModel.LastNameSingerOperEDO,
-                            Фамилия = ConfigModel.FirstNameSingerOperEDO
-                        }
-                    };
+                    файлДокумент.ОтпрДок = ОтпрДок;
 
-                    */
-
+                    XSD.DP_IZVPOL_1_982_00_01_01_01.ФайлДокументПодписант Подписант = new XSD.DP_IZVPOL_1_982_00_01_01_01.ФайлДокументПодписант();
+                    Подписант.Должность = string.Empty;
+                    Подписант.ФИО = new XSD.DP_IZVPOL_1_982_00_01_01_01.ФИОТип() { Имя = user.MidleName, Фамилия = user.FirstName, Отчество = user.LastName };
+                    файлДокумент.Подписант = Подписант;
+                    DP_IZVPOL.Документ = файлДокумент;
 
 
                     byte[] Byte_DP_IZVPOL = GlobalMetods.XmlSerializationHelper.Serialize(DP_IZVPOL);
-
-                    Gost3410CryptoServiceProvider CSP = new Gost3410CryptoServiceProvider(ConfigModel.CSP_cp);
-                    Gost3411CryptoServiceProvider CSPHash = new Gost3411CryptoServiceProvider();
-
-                    byte[] Byte_DP_PDPOLSing = CSP.SignData(Byte_DP_IZVPOL, CSPHash);
-
-                    if (CSP.VerifyData(Byte_DP_IZVPOL, CSPHash, Byte_DP_PDPOLSing))
+                    if (Byte_DP_IZVPOL!=null)
                     {
                         //Сохраняем в БД(Документооборот) документ и его подись 
                         DocumentFlow documentFlow = new DocumentFlow();
                         documentFlow.DataFile = Byte_DP_IZVPOL;
                         documentFlow.NameFile = nameFileNoExpansion + ".xml";
-                        documentFlow.DataSign = Byte_DP_PDPOLSing;
-                        documentFlow.DateCreate = GlobalMetods.CommonMethods.GetDataTimeNow;
                         documentFlow.IdDocumentMain = doc.IdDocument;
                         documentFlow.NameDocument = "Подтверждение оператора даты получения";
-                        documentFlow.NameSign = nameFileNoExpansion + ".xml.sig";
                         documentFlow.State = 4;
                         db.DocumentFlow.Add(documentFlow);
                         db.SaveChanges();
@@ -578,6 +537,44 @@ namespace IsEnergyModel.DataMode
                         doc.State = 4;
                         db.SaveChanges();
                         return new ResultMode() { Executed = true, StrError = string.Empty, StrResult = "Документ сохранен" };
+                    }
+                    return new ResultMode() { Executed = false, StrError = string.Empty, StrResult = "Документ не создан" };
+                }
+                return new ResultMode() { Executed = false, StrError = string.Empty, StrResult = "Документ не найден" };
+            }
+            catch (Exception ex) { return new ResultMode() { Executed = false, StrError = ex.Message, StrResult = "Не удалось сохранить" }; }
+        }
+
+        public ResultMode Stemp_5_ConfirmationReceiptOperatorInSubscriberInvoicesVerifyAndSave(string userName, int idDocument, byte[] fileDataSign)
+        {
+            try
+            {
+                Is_EnergyEntities db = new Is_EnergyEntities();
+                //находим документ 
+                DocumentFlow parentDocumentFlow = db.DocumentFlow.Find(idDocument);
+                db.Entry(parentDocumentFlow).State = EntityState.Modified;
+
+                Documents doc = db.Documents.Find(parentDocumentFlow.IdDocumentMain);
+                if (doc != null)
+                {
+                    Gost3410CryptoServiceProvider CSP = new Gost3410CryptoServiceProvider(ConfigModel.CSP_cp);
+                    Gost3411CryptoServiceProvider CSPHash = new Gost3411CryptoServiceProvider();
+                    //Проверяем правильность подписи и выводим результат.
+                    bool CSPVerify = CSP.VerifyHash(GetHashDocument(doc), fileDataSign);
+                    if (true)
+                    {
+                        //Сохраняем в БД(Документооборот) документ и его подись 
+                        DocumentFlow documentFlow = new DocumentFlow();
+                        documentFlow.DataSign = fileDataSign;
+                        documentFlow.DateCreate = GlobalMetods.CommonMethods.GetDataTimeNow;
+                        documentFlow.NameSign = documentFlow.NameFile + ".xml.sig";
+                        documentFlow.State = 5;
+                        db.SaveChanges();
+                        //Сохраняем в БД изменение статуса 
+                        db.Entry(doc).State = EntityState.Modified;
+                        doc.State = 2;
+                        db.SaveChanges();
+                        return new ResultMode() { Executed = true, StrError = string.Empty, StrResult = "Документ сохранен", ObjectResult = doc };
                     }
                     return new ResultMode() { Executed = false, StrError = string.Empty, StrResult = "Документ не прошёл проверку ЭЦП" };
                 }

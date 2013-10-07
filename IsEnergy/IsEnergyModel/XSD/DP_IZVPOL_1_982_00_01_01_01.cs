@@ -439,7 +439,7 @@
     public partial class ФайлДокументСвИзвПолучСведПолФайл
     {
 
-        private string[] эЦППолФайлField;
+        private string эЦППолФайлField;
 
         private ФайлДокументСвИзвПолучСведПолФайлДанПолучДок данПолучДокField;
 
@@ -447,7 +447,7 @@
 
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("ЭЦППолФайл")]
-        public string[] ЭЦППолФайл
+        public string ЭЦППолФайл
         {
             get
             {

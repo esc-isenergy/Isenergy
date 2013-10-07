@@ -1,0 +1,20 @@
+@{
+	var grid = Html.DevExpress().GridView(settings => {
+        settings.Name = "GridViewSubscriberContacts1";
+        settings.CallbackRouteValues = new { Controller = "Subscriber", Action = "GridViewPartialpcModalModeCreateContract1",  IdentifierSubscriber = ViewData["IdentifierSubscriber"]};
+		settings.KeyFieldName = "IdContractSubscriber";
+		settings.SettingsPager.Visible = true;        
+		settings.Settings.ShowFilterRow = true;
+		settings.SettingsBehavior.AllowSelectByRowClick = true;
+                settings.Columns.Add(column =>
+                {
+                    column.FieldName = "NumberContract";
+                    column.Caption = "Номер договора";
+                    column.Width = 40;
+                });
+			});
+		if (ViewData["EditError"] != null){
+        grid.SetEditErrorText((string)ViewData["EditError"]);
+    }
+	}
+@grid.Bind(Model).GetHtml()

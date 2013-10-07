@@ -459,12 +459,12 @@ margin: 1em 0em;
     margin-left:405px;
 }
 /*================================Окно с сервисами=======================================*/
-
+/*++++!!!!!!!!!!!!++++*/
 .GridViewContractsSubscriberArea {
     margin-top:40px;
 }
 
-.GridViewEnumeratorSubscriber {
+.GridViewEnumeratorSubscriberArea {
     margin-top:40px;
 }
 
@@ -481,7 +481,7 @@ width:100%;
 .EnumeratorsOfSubscriber {
     width:40%;
      float: right;
-     /*position:relative;*/
+     position:relative;
 }
 
 .BelongingGroups {

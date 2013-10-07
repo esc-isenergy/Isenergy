@@ -3,31 +3,9 @@
          <fieldset  class="ContractsOfSubscriber">
              <legend><b>Договора с энергосбытом</b></legend>
              <button id="ForCreateContracts"  type="button" onclick="javascript:pcModalModeCreateContract.Show();"><span class="label">Добавить</span></button>
-             <div class="GridViewContractsSubscriberArea">
+             <div id="GridViewContractsSubscriber" class="GridViewContractsSubscriberArea">
                  @Html.Action("GridViewPartialpcModalModeCreateContract", new { IdentifierSubscriber = Model.IdentifierSubscriber })
              </div>
          </fieldset> 
-    
-@Html.DevExpress().PopupControl(
-    settings =>
-    {
-        settings.Name = "pcModalModeCreateContract";
-       // settings.Height= 400;
-       settings.Width = 400;
-        settings.AllowDragging = true;
-        settings.CloseAction = CloseAction.CloseButton;
-        settings.PopupAnimationType = AnimationType.None;
-        settings.HeaderText = "Добавление договор";
-        settings.ShowLoadingPanel = true;
-        settings.Modal = true;
-        settings.PopupHorizontalAlign = PopupHorizontalAlign.WindowCenter;
-        settings.PopupVerticalAlign = PopupVerticalAlign.WindowCenter;
-        settings.ClientSideEvents.CloseUp = "function(s, e){ ASPxClientEdit.ClearEditorsInContainer(pcModalModeCreateContract, '', true);}";
-        settings.SetContent(() =>
-        {          
-                Html.RenderAction("CreateContractStart");           
-        });
-    }).GetHtml()
-} 
-
+}
  

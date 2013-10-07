@@ -301,6 +301,9 @@ namespace IsEnergy.Controllers
             ViewData["IdentifierSubscriber"] = IdentifierSubscriber;
             return PartialView("Access/Consumer/_GridViewPartialpcModalModeCreateContract", model.ToList());
         }
+
+      
+       
         
         public ActionResult CreateContractStart(Subscribers subscribers)
         {
@@ -313,24 +316,17 @@ namespace IsEnergy.Controllers
         [IsEnergyModel.Filters.AuthorizeMe(Groups = "Administrators,Operators")]
         public ActionResult CreateContractSubscriber(SubscribersContracts subscribersContracts)
         {
-            try
+            ResultMode result = subs.AddContract(User.Identity.Name, subscribersContracts);
+            if (result.Executed)
             {
-                ResultMode result = subs.AddContract(User.Identity.Name, subscribersContracts);
-                if (result.Executed)
-                {
-                    ViewData["Contracts"] = db.SubscribersContracts.Where(u => u.IdentifierSubscriber == subscribersContracts.IdentifierSubscriber).ToList();
-                    var model = db.SubscribersContracts.Where(u => u.IdentifierSubscriber == subscribersContracts.IdentifierSubscriber);
-                    ViewData["IdentifierSubscriber"] = subscribersContracts.IdentifierSubscriber;
-                    return PartialView("~/Views/Subscriber/Access/Consumer/_GridViewPartialpcModalModeCreateContract.cshtml", model.ToList());
+                ViewData["Contracts"] = db.SubscribersContracts.Where(u => u.IdentifierSubscriber == subscribersContracts.IdentifierSubscriber).ToList();
+                var model = db.SubscribersContracts.Where(u => u.IdentifierSubscriber == subscribersContracts.IdentifierSubscriber);
+                ViewData["IdentifierSubscriber"] = subscribersContracts.IdentifierSubscriber;
+                return PartialView("Access/Consumer/_GridViewPartialpcModalModeCreateContract", model.ToList());
                     
-                }
-                return RedirectToAction("Error", "Error", new { StrError = result.StrError, StrResult = result.StrResult });
+            }
+            return RedirectToAction("Error", "Error", new { StrError = result.StrError, StrResult = result.StrResult });
 
-            }
-            catch
-            {
-                return RedirectToAction("Error", "Error", new { StrError = "Ошибка", StrResult = "Что то пошло не так" });
-            }
         }
 
         public ActionResult CreateEnumeratorStart(string IdentifierSubscriber)
@@ -350,7 +346,10 @@ namespace IsEnergy.Controllers
                 result = subs.AddEnumerator(User.Identity.Name, subscribersEnumerator);
                 if (result.Executed)
                 {
-                    return RedirectToAction("GridViewPartialpcModalModeCreateEnumerator", new { IdentifierSubscriber = subscribersEnumerator.SubscribersContracts.IdentifierSubscriber });
+                    var model = db.SubscribersEnumerator.Where(u => u.SubscribersContracts.IdentifierSubscriber == subscribersEnumerator.SubscribersContracts.IdentifierSubscriber);
+                    ViewData["subscribersEnumerator"] = subscribersEnumerator.SubscribersContracts.IdentifierSubscriber;
+                    return PartialView("Access/Consumer/_GridViewPartialpcModalModeCreateEnumerator", model.ToList());
+                    //return RedirectToAction("GridViewPartialpcModalModeCreateEnumerator", new { IdentifierSubscriber = subscribersEnumerator.SubscribersContracts.IdentifierSubscriber });
 
                 }
                 return RedirectToAction("Error", "Error", new { StrError = "Ошибка", StrResult = "Что то пошло не так" });
@@ -413,28 +412,40 @@ namespace IsEnergy.Controllers
             return PartialView("Access/Consumer/_GridViewPartialpcModalModeCreateEnumerator", model.ToList());
         }
 
+
+        [ValidateInput(false)]
+        public ActionResult GridViewPartialpcModalModeCreateEnumerator1(string IdentifierSubscriber)
+        {
+            var model = db.SubscribersEnumerator.Where(u => u.SubscribersContracts.IdentifierSubscriber == IdentifierSubscriber);
+            ViewData["subscribersEnumerator"] = IdentifierSubscriber;
+            return PartialView("PrivateOfficeSubscriber/_GridViewPartialpcModalModeCreateEnumerator1", model.ToList());
+        }
+
+          [ValidateInput(false)]
+        public ActionResult GridViewPartialpcModalModeCreateContract1(string IdentifierSubscriber)
+        {
+            var model = db.SubscribersContracts.Where(u => u.IdentifierSubscriber == IdentifierSubscriber);
+            ViewData["IdentifierSubscriber"] = IdentifierSubscriber;
+            return PartialView("PrivateOfficeSubscriber/_GridViewPartialpcModalModeCreateContract1", model.ToList());
+        }
+
         [Authorize]
         public ActionResult PrivateOfficeSubscriber()
         {
-            ViewData["IFNS"] = db.IFNS.ToList();
-
-
-
-            Users user = db.Users.First(s => s.Login == User.Identity.Name);
-
-
-            var model = db.SubscribersEnumerator.Where(u => u.SubscribersContracts.IdentifierSubscriber == user.IdentifierSubscriberDefault);
-            var model2 = db.SubscribersSubdivision.Where(u => u.Subscribers.TypeGroupElectricity == 2);
-            var model3 = db.SubscribersSubdivision.Where(u => u.Subscribers.TypeGroupElectricity == 3);
-            ViewBag.subscribersEnumerator = model.ToList();
-            ViewBag.subscribersSubdivision1 = model2.ToList();
-            ViewBag.subscribersSubdivision2 = model3.ToList();
-            Subscribers subscr = db.Subscribers.FirstOrDefault(y=>y.IdentifierSubscriber==user.IdentifierSubscriberDefault);
-            ViewData["IdentifierSubscriber"] = subscr.IdentifierSubscriber;
-            if (subscr != null)
-                return View("PrivateOfficeSubscriber/Details", subscr);
-            else
-                return RedirectToAction("Error", "Error", new { StrError = "Ошибка", StrResult = "Абонент не выбран" });
+            try
+            {
+                ViewData["IFNS"] = db.IFNS.ToList();
+                Users user = db.Users.First(s => s.Login == User.Identity.Name);
+                Subscribers subscr = db.Subscribers.FirstOrDefault(y => y.IdentifierSubscriber == user.IdentifierSubscriberDefault);
+                if (subscr != null)
+                    return View("PrivateOfficeSubscriber/Details", subscr);
+                else
+                    return RedirectToAction("Error", "Error", new { StrError = "Ошибка", StrResult = "Абонент не выбран" });
+            }
+            catch
+            {
+                return RedirectToAction("Error", "Error", new { StrError = "Ошибка", StrResult = "Абонент некорректный" });
+            }
         }        
     }
 }

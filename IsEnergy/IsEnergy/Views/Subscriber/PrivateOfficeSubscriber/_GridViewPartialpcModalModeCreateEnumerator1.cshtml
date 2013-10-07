@@ -1,0 +1,16 @@
+@{
+	var grid = Html.DevExpress().GridView(settings => {
+        settings.Name = "GridViewpcModalModeCreateEnumerator1";
+        settings.CallbackRouteValues = new { Controller = "Subscriber", Action = "GridViewpcModalModeCreateEnumerator1",   IdentifierSubscriber = ViewData["subscribersEnumerator"]  };
+
+		settings.KeyFieldName = "IdEnumerator";
+		
+		settings.SettingsPager.Visible = true;
+		settings.Settings.ShowFilterRow = true;
+		settings.SettingsBehavior.AllowSelectByRowClick = true;
+		
+				settings.Columns.Add("Code", "Номер счетчика");
+                settings.Columns.Add("SubscribersContracts.NumberContract", "Номер договора");
+			});
+	}
+@grid.Bind(Model).GetHtml()

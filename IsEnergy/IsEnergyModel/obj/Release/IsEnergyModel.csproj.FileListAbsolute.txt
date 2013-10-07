@@ -16,3 +16,12 @@ D:\IsEnergy\IsEnergy\IsEnergyModel\bin\Release\IsEnergyModel.pdb
 D:\IsEnergy\IsEnergy\IsEnergyModel\bin\Release\EntityFramework.dll
 D:\IsEnergy\IsEnergy\IsEnergyModel\bin\Release\EntityFramework.xml
 D:\IsEnergy\IsEnergy\IsEnergyModel\bin\Release\ru\EntityFramework.resources.dll
+D:\GitIsEnergy\IsEnergy\IsEnergyModel\bin\Release\IsEnergyModel.dll.config
+D:\GitIsEnergy\IsEnergy\IsEnergyModel\bin\Release\IsEnergyModel.dll
+D:\GitIsEnergy\IsEnergy\IsEnergyModel\bin\Release\IsEnergyModel.pdb
+D:\GitIsEnergy\IsEnergy\IsEnergyModel\bin\Release\EntityFramework.dll
+D:\GitIsEnergy\IsEnergy\IsEnergyModel\bin\Release\EntityFramework.xml
+D:\GitIsEnergy\IsEnergy\IsEnergyModel\bin\Release\ru\EntityFramework.resources.dll
+D:\GitIsEnergy\IsEnergy\IsEnergyModel\obj\Release\IsEnergyModel.csprojResolveAssemblyReference.cache
+D:\GitIsEnergy\IsEnergy\IsEnergyModel\obj\Release\IsEnergyModel.dll
+D:\GitIsEnergy\IsEnergy\IsEnergyModel\obj\Release\IsEnergyModel.pdb

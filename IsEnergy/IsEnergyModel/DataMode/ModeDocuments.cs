@@ -60,6 +60,71 @@ namespace IsEnergyModel.DataMode
             catch (Exception ex) { return new ResultMode() { Executed = false, StrError = ex.Message, StrResult = "Не удалось добавить документ" }; }
         }
 
+        public ResultMode EditDocumentTemp(string userName, int idDocumentTemp, string IdentifierSubscriberReceive, int idSubdivisionSenderReceiver = 0)
+        {
+
+            try
+            {
+                Users user = Filters.AuthorizeMeAll.GetCurrentUser(userName);
+                if (user != null)
+                {
+                    Subscribers subscribers = Filters.AuthorizeMeAll.GetCurrentSubscriber(user);
+                    if (subscribers != null)
+                    {
+                        SubscribersSubdivision subscribersSubdivision = Filters.AuthorizeMeAll.GetCurrentSubscribersSubdivision(userName);
+
+                        Is_EnergyEntities db = new Is_EnergyEntities();
+                        DocumentsTemp documents = db.DocumentsTemp.Find(idDocumentTemp);
+                        db.Entry(documents).State = EntityState.Modified;
+                        documents.IdUserCreate = user.IdUser;
+                        documents.IdentifierSubscriberSender = subscribers.IdentifierSubscriber;
+                        documents.idSubdivisionSender = (subscribersSubdivision != null) ? subscribersSubdivision.idSubdivision : 0;
+                        if (!String.IsNullOrEmpty(IdentifierSubscriberReceive)) { documents.IdentifierSubscriberReceiver = IdentifierSubscriberReceive; }
+                        else { documents.IdentifierSubscriberReceiver = subscribers.IdentifierSubscriber; }
+                        documents.idSubdivisionReceiver = idSubdivisionSenderReceiver;
+                        db.SaveChanges();
+                        return new ResultMode() { Executed = true, StrError = string.Empty, StrResult = "Документ изменен" };
+                    }
+                }
+                return new ResultMode() { Executed = false, StrError = string.Empty, StrResult = "Не удалось изменен документ" };
+            }
+            catch (Exception ex) { return new ResultMode() { Executed = false, StrError = ex.Message, StrResult = "Не удалось изменить документ" }; }
+        }
+
+        public ResultMode EditDocumentsTemp(string userName, string IdentifierSubscriberReceive, int idSubdivisionSenderReceiver = 0)
+        {
+
+            try
+            {
+                Users user = Filters.AuthorizeMeAll.GetCurrentUser(userName);
+                if (user != null)
+                {
+                    Subscribers subscribers = Filters.AuthorizeMeAll.GetCurrentSubscriber(user);
+                    if (subscribers != null)
+                    {
+                        SubscribersSubdivision subscribersSubdivision = Filters.AuthorizeMeAll.GetCurrentSubscribersSubdivision(userName);
+
+                        Is_EnergyEntities db = new Is_EnergyEntities();
+                        var documentsList = db.DocumentsTemp.Where(u=>u.IdUserCreate == user.IdUser);
+                        foreach (DocumentsTemp document in documentsList)
+                        {
+                            db.Entry(document).State = EntityState.Modified;
+                            document.IdUserCreate = user.IdUser;
+                            document.IdentifierSubscriberSender = subscribers.IdentifierSubscriber;
+                            document.idSubdivisionSender = (subscribersSubdivision != null) ? subscribersSubdivision.idSubdivision : 0;
+                            if (!String.IsNullOrEmpty(IdentifierSubscriberReceive)) { document.IdentifierSubscriberReceiver = IdentifierSubscriberReceive; }
+                            else { document.IdentifierSubscriberReceiver = subscribers.IdentifierSubscriber; }
+                            document.idSubdivisionReceiver = idSubdivisionSenderReceiver;
+                            db.SaveChanges();
+                        }
+                        return new ResultMode() { Executed = true, StrError = string.Empty, StrResult = "Документ изменен" };
+                    }
+                }
+                return new ResultMode() { Executed = false, StrError = string.Empty, StrResult = "Не удалось изменен документ" };
+            }
+            catch (Exception ex) { return new ResultMode() { Executed = false, StrError = ex.Message, StrResult = "Не удалось изменить документ" }; }
+        }
+
         public ResultMode ClearDocumentsTempUser(string userName)
         {
             try

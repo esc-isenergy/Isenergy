@@ -26,3 +26,17 @@ D:\IsEnergy\IsEnergy\IsEnergy\bin\ru\EntityFramework.resources.dll
 D:\IsEnergy\IsEnergy\IsEnergy\obj\Release\IsEnergy.csprojResolveAssemblyReference.cache
 D:\IsEnergy\IsEnergy\IsEnergy\obj\Release\IsEnergy.dll
 D:\IsEnergy\IsEnergy\IsEnergy\obj\Release\IsEnergy.pdb
+D:\GitIsEnergy\IsEnergy\IsEnergy\bin\IsEnergy.dll
+D:\GitIsEnergy\IsEnergy\IsEnergy\bin\IsEnergy.pdb
+D:\GitIsEnergy\IsEnergy\IsEnergy\bin\EntityFramework.dll
+D:\GitIsEnergy\IsEnergy\IsEnergy\bin\IsEnergyModel.dll
+D:\GitIsEnergy\IsEnergy\IsEnergy\bin\WebMatrix.Data.dll
+D:\GitIsEnergy\IsEnergy\IsEnergy\bin\WebMatrix.WebData.dll
+D:\GitIsEnergy\IsEnergy\IsEnergy\bin\IsEnergyModel.pdb
+D:\GitIsEnergy\IsEnergy\IsEnergy\bin\EntityFramework.xml
+D:\GitIsEnergy\IsEnergy\IsEnergy\bin\WebMatrix.Data.xml
+D:\GitIsEnergy\IsEnergy\IsEnergy\bin\WebMatrix.WebData.xml
+D:\GitIsEnergy\IsEnergy\IsEnergy\bin\ru\EntityFramework.resources.dll
+D:\GitIsEnergy\IsEnergy\IsEnergy\obj\Release\IsEnergy.csprojResolveAssemblyReference.cache
+D:\GitIsEnergy\IsEnergy\IsEnergy\obj\Release\IsEnergy.dll
+D:\GitIsEnergy\IsEnergy\IsEnergy\obj\Release\IsEnergy.pdb

@@ -536,7 +536,7 @@ namespace IsEnergyModel.DataMode
                         db.Entry(doc).State = EntityState.Modified;
                         doc.State = 4;
                         db.SaveChanges();
-                        return new ResultMode() { Executed = true, StrError = string.Empty, StrResult = "Документ сохранен" };
+                        return new ResultMode() { Executed = true, StrError = string.Empty, StrResult = "Документ сохранен", ObjectResult = documentFlow };
                     }
                     return new ResultMode() { Executed = false, StrError = string.Empty, StrResult = "Документ не создан" };
                 }

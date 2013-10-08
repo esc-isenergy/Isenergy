@@ -64,7 +64,11 @@
         <AssociationConnector Association="Is_EnergyModel.FK_DocumentFlow_Documents" />
         <EntityTypeShape EntityType="Is_EnergyModel.Contractors" Width="1.5" PointX="7.3116134550942169" PointY="11.317841401006021" />
         <AssociationConnector Association="Is_EnergyModel.FK_Contractors_Subscribers" />
+<<<<<<< HEAD
         <EntityTypeShape EntityType="Is_EnergyModel.Maquettes16" Width="1.5" PointX="10.394153644514342" PointY="26.895862800486324" />
+=======
+        <EntityTypeShape EntityType="Is_EnergyModel.Maquettes16" Width="1.5" PointX="7.3797224980684568" PointY="16.250174693879753" />
+>>>>>>> 051dc9f7c63956cc962cdcfd381a2ca068b2f9ce
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

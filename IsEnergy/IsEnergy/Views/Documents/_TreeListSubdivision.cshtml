@@ -4,7 +4,7 @@
     var treeList = Html.DevExpress().TreeList(settings =>
     {
         settings.Name = "TreeListSubdivision";
-        settings.CallbackRouteValues = new { Controller = "DocumentFlow", Action = "TreeListSubdivision", identifierSubscriber = ViewData["IdentifierSubscriber"] };
+        settings.CallbackRouteValues = new { Controller = "Documents", Action = "TreeListSubdivision", identifierSubscriber = ViewData["IdentifierSubscriber"] };
        // settings.Width = 850;
         settings.Width = System.Web.UI.WebControls.Unit.Percentage(90);
         settings.Height = System.Web.UI.WebControls.Unit.Percentage(100);

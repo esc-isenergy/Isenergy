@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "CreateInvoice";
+}
+
+<div style="margin-left:10px">
+   <table>
+       <tr>
+           <td>
+             <label style="font-size:20px">Счёт-Фактура</label>
+           </td>
+           <td>
+           @Html.DevExpress().TextBox( settings => {
+                       
+                             settings.Width = 170;
+                             settings.Height = 30;
+                             settings.ControlStyle.Font.Size = 13;
+                             settings.Name = "SerialNumber";
+                             settings.ShowModelErrors = true;
+                             settings.Properties.ValidationSettings.RequiredField.IsRequired = true;
+                             settings.Properties.ValidationSettings.RequiredField.ErrorText = "Обязательное поле";
+                             settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.None;
+                             
+                            }).GetHtml()    
+           </td>
+           <td>
+            <label style="font-size:50px">-</label>
+          </td>
+           <td>
+           @Html.DevExpress().DateEdit(
+                            settings => {
+                                settings.ControlStyle.Font.Size = 13;
+                                settings.Height = 30;
+                                settings.Name = "dateEdit1";
+                                settings.Properties.EditFormatString = "MM/dd/yyyy";
+                             }).GetHtml()
+      
+           </td>
+       </tr>
+   </table>
+    <div>
+        <label style="font-size:16px;">Продавец:</label>
+    </div>
+     <div>
+        <label style="font-size:16px;">Грузоотправитель:</label>
+    </div>
+    <div>
+        <label style="font-size:16px;">Грузополучатель:</label>
+    </div>
+
+</div>

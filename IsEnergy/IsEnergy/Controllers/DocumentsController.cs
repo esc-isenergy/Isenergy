@@ -6,10 +6,11 @@ using System.Web.Mvc;
 using IsEnergy;
 using IsEnergyModel;
 using DevExpress.Web.ASPxUploadControl;
+using DevExpress.Web.ASPxEditors;
 
 namespace IsEnergy.Controllers
 {
-    public class DocumentFlowController : Controller
+    public class DocumentsController : Controller
     {
         private Is_EnergyEntities db = new Is_EnergyEntities();
         IsEnergyModel.DataMode.ModeDocuments doc = new IsEnergyModel.DataMode.ModeDocuments();
@@ -74,14 +75,14 @@ namespace IsEnergy.Controllers
         {
             Users user = IsEnergyModel.Filters.AuthorizeMeAll.GetCurrentUser(User.Identity.Name);
             var model = db.DocumentsTemp.Where(u => u.IdUserCreate == user.IdUser);
-            return PartialView("~/Views/DocumentFlow/DocumentPanel.cshtml", model.ToList());
+            return PartialView("~/Views/Documents/DocumentPanel.cshtml", model.ToList());
         }
         public ActionResult ClearDocumentsTemp()
         {
             doc.ClearDocumentsTempUser(User.Identity.Name);
             Users user = IsEnergyModel.Filters.AuthorizeMeAll.GetCurrentUser(User.Identity.Name);
             var model = db.DocumentsTemp.Where(u => u.IdUserCreate == user.IdUser);
-            return PartialView("~/Views/DocumentFlow/DocumentPanel.cshtml", model.ToList());
+            return PartialView("~/Views/Documents/DocumentPanel.cshtml", model.ToList());
  
         }
         public ActionResult SaveDocumentTempInReal(int IdDocumentTemp)
@@ -89,7 +90,7 @@ namespace IsEnergy.Controllers
             Users user = IsEnergyModel.Filters.AuthorizeMeAll.GetCurrentUser(User.Identity.Name);
             doc.SaveDocumentTempInReal(IdDocumentTemp);
             var model = db.DocumentsTemp.Where(u => u.IdUserCreate == user.IdUser);
-            return PartialView("~/Views/DocumentFlow/DocumentPanel.cshtml", model.ToList());
+            return PartialView("~/Views/Documents/DocumentPanel.cshtml", model.ToList());
 
         }
         public ActionResult ClearDocumentFromTempList(int IdDocumentTemp)
@@ -97,26 +98,9 @@ namespace IsEnergy.Controllers
             Users user = IsEnergyModel.Filters.AuthorizeMeAll.GetCurrentUser(User.Identity.Name);
             doc.DelDocumentTemp(IdDocumentTemp);
             var model = db.DocumentsTemp.Where(u => u.IdUserCreate == user.IdUser);
-            return PartialView("~/Views/DocumentFlow/DocumentPanel.cshtml", model.ToList());
+            return PartialView("~/Views/Documents/DocumentPanel.cshtml", model.ToList());
 
         }
-        public bool GetSignatureContractor(int IdDocumentTemp, bool check)
-        {
-            //запросить подпись контрагента
-            return true;
-        }
-        public bool SelecTypeKontragent(int Type)
-        {
-            //выбор типа контрагента (внутренний , исходящий б роуминг)
-            return true;
-        }
- 
-         public bool SelecIdentifierSubscriber(string identifierSubscriber)
-        {
-            // выбор IdentifierSubscriber получателя
-            return true;
-        }
-
         public ActionResult UploadDocument(UploadedFile[] UploadDocuments, string GetIdentifierSubscriber=null, int GetIdSubdivision=0)
         {
             byte[] DataArrey = null;
@@ -133,21 +117,24 @@ namespace IsEnergy.Controllers
 
             return View();
         }
-
-        public byte[] HashSignDocumentTemp (int IdDocumentTemp)
+        public ActionResult DocumentOnSign(int iddocumenttemp, int typeKontragent, string identifierSubscriber, bool checkSignatureContractor, string comment = null)
         {
-            return doc.GetHashDocumentTemp(IdDocumentTemp);
-        }
+            byte[] HashDocument = doc.GetHashDocumentTemp(iddocumenttemp);
+            string CertSubjectName = docuser.GetCertSubjectName(User.Identity.Name);
+            var result = new { HashDocument = HashDocument, CertSubjectName = CertSubjectName, iddocumenttemp = iddocumenttemp };
+            return Json(result, JsonRequestBehavior.AllowGet);
 
-        public string CertSubjectNameSignDocumentTemp (int IdDocumentTemp)
-        {
-           return  docuser.GetCertSubjectName(User.Identity.Name);
         }
-
+      
         public bool SaveDocumentTempInRealAndSend (int IdDocumentTemp,byte[] dataSing)
         {
            ResultMode result = doc.Steps_0_to_3(User.Identity.Name, IdDocumentTemp, dataSing);
            return result.Executed;
+        }
+
+        public ActionResult CreateInvoice()
+        {
+            return View();
         }
 
 

@@ -1,0 +1,63 @@
+﻿   @model IEnumerable<IsEnergyModel.DocumentsTemp>
+       <script type="text/javascript">
+           function SignDocument(iddoc) {
+               var idcheckboxSignContractor = '#' + iddoc;
+               var CheckSignatureContractor = $(idcheckboxSignContractor).is(':checked');
+               var Commentid = '#' + 'comment' + iddoc;
+               var Comment = $(Commentid).val();
+               var TypeKontragent = SelecTypeKontragent.GetSelectedIndex();
+               var identifierSubscriber = IdentifierSubscriberComboBox.GetValue();
+               var Subdivision = $('#GetIdSubdivision').val();
+               $.getJSON('/Documents/DocumentOnSign', {
+                   iddocumenttemp: iddoc, typeKontragent: TypeKontragent, identifierSubscriber: identifierSubscriber,
+                   checkSignatureContractor: CheckSignatureContractor, comment: Comment
+               }, function CallBack(data) { SignPlagin(data) }
+               );    
+           }
+           function MassSign() {
+              
+               if (IdentifierSubscriberComboBox.GetValue() == null) {
+                   alert('Не указан контрагент');
+                   return;
+               }
+               LoadingPanel.Show();
+               $('Input.IdDoc').each(function () {
+                   SignDocument($(this).val()); 
+               });
+               LoadingPanel.Hide();
+           }
+           function SignOneDocument(iddocument) {
+               if (IdentifierSubscriberComboBox.GetValue()== null) {
+                   alert('Не указан контрагент');
+                   return;
+               }
+               LoadingPanel.Show();
+               SignDocument(iddocument);
+               LoadingPanel.Hide();
+           }
+        </script>  
+        <div class="DocumentPanelContent" id="sample">
+            @foreach (var item in Model) {
+               <input class="IdDoc"  type="hidden" value="@item.IdDocumentTemp" />
+               <img src="~/Content/Images/AddButton.png"><label style="font-size:14px">@Html.DisplayFor(modelItem => item.NameDocument )</label><label style="font-size:14px; margin-left:10px">Тип:  </label><label style="font-size:14px">@Html.DisplayFor(modelItem => item.TypeDocumentName)</label>
+                if (item.TypeDocument != 1115101)
+                {   
+                  <label style="float:right; margin-right:20px"><input type="checkbox"   class="CheckboxSignContractor" id="@item.IdDocumentTemp" /> Запросить подпись контрагента</label><br />
+                }
+               <textarea id="@String.Format("comment{0}", item.IdDocumentTemp)" style="margin-left:5px; width:600px;"></textarea><br />
+                <table>
+                     <tr>
+                      <td>
+                            <a href="#" onclick="SignOneDocument(@item.IdDocumentTemp)">Подписать и отправить</a>  
+                     </td>
+         
+                      <td> 
+                            @Ajax.ActionLink("Сохранить в черновиках", "SaveDocumentTempInReal", new { IdDocumentTemp = item.IdDocumentTemp }, new AjaxOptions { UpdateTargetId = "DocumentPanel" })
+                     </td>
+                     <td>
+                           @Ajax.ActionLink("Удалить", "ClearDocumentFromTempList", new { IdDocumentTemp = item.IdDocumentTemp }, new AjaxOptions { UpdateTargetId = "DocumentPanel" })
+                    </td>
+                </table> 
+                <hr />
+              } 
+      </div>

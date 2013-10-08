@@ -4,7 +4,7 @@
     var grid = Html.DevExpress().GridView(settings =>
     {
         settings.Name = "GridView";
-        settings.CallbackRouteValues = new { Controller = "DocumentFlow", Action = "GridViewPartial" };
+        settings.CallbackRouteValues = new { Controller = "Documents", Action = "GridViewPartial" };
         settings.SettingsBehavior.ConfirmDelete = true;
         settings.CommandColumn.Visible = true;
         settings.CommandColumn.Caption = " ";
@@ -16,7 +16,7 @@
         Details.Text = "Детали";
         Details.ID = "Details";
         settings.CommandColumn.CustomButtons.Add(Details);
-        settings.ClientSideEvents.CustomButtonClick = String.Format("function(s, e) {{ if(e.buttonID == 'Details') window.location.href='{0}/' + s.GetRowKey(e.visibleIndex); }}", DevExpressHelper.GetUrl(new { Controller = "DocumentFlow", Action = "DetailsDocuments" }));
+        settings.ClientSideEvents.CustomButtonClick = String.Format("function(s, e) {{ if(e.buttonID == 'Details') window.location.href='{0}/' + s.GetRowKey(e.visibleIndex); }}", DevExpressHelper.GetUrl(new { Controller = "Documents", Action = "DetailsDocuments" }));
         settings.SettingsPager.Visible = true;
         settings.Settings.ShowGroupPanel = true;
         settings.Settings.ShowFilterRow = true;

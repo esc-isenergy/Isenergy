@@ -258,16 +258,16 @@
     <Content Include="Views\SoleTraders\Details\Requisite\Requisite.cshtml" />
     <Content Include="Views\SoleTraders\Details\Details.cshtml" />
     <Content Include="Views\SoleTraders\_GridViewPartial.cshtml" />
-    <Content Include="Views\DocumentFlow\Index.cshtml" />
-    <Content Include="Views\DocumentFlow\LeftPanel.cshtml" />
-    <Content Include="Views\DocumentFlow\_GridViewPartial.cshtml" />
+    <Content Include="Views\Documents\Index.cshtml" />
+    <Content Include="Views\Documents\LeftPanel.cshtml" />
+    <Content Include="Views\Documents\_GridViewPartial.cshtml" />
     <Content Include="Views\Subscriber\Access\Consumer\CreateContractSubscriberPartial.cshtml" />
     <Content Include="Views\Subscriber\Access\_AccessPartial.cshtml" />
     <Content Include="Views\Subscriber\Access\Consumer\_ContractsSubscriberPartial.cshtml" />
     <Content Include="Views\Subscriber\Access\Consumer\_ElectricConsumerPartial.cshtml" />
     <Content Include="Views\Subscriber\Access\Consumer\_GridViewPartialpcModalModeCreateContract.cshtml" />
     <Content Include="Views\Shared\MainMenu\MenuOperators.cshtml" />
-    <Content Include="Views\DocumentFlow\AddDocumentsWindow.cshtml" />
+    <Content Include="Views\Documents\AddDocumentsWindow.cshtml" />
     <Content Include="Views\Subscriber\Access\Consumer\_TreeListEnergosbytOfSubscriberPartial.cshtml">
       <SubType>Code</SubType>
     </Content>
@@ -280,14 +280,14 @@
     <Content Include="Views\Subscriber\Access\Consumer\CreateEnumeratorSubscriberPartial.cshtml">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="Views\DocumentFlow\_TreeListSubdivision.cshtml" />
+    <Content Include="Views\Documents\_TreeListSubdivision.cshtml" />
     <Content Include="Views\Subscriber\PrivateOfficeSubscriber\Details.cshtml" />
     <Content Include="Views\Subscriber\PrivateOfficeSubscriber\RequisiteLegalEntitied.cshtml" />
     <Content Include="Views\Subscriber\PrivateOfficeSubscriber\RequisiteSoleTrader.cshtml" />
     <Content Include="Views\Subscriber\PrivateOfficeSubscriber\RequisitePhysicalPerson.cshtml" />
     <Content Include="Views\Subscriber\PrivateOfficeSubscriber\Subdivisions.cshtml" />
     <Content Include="Views\Subscriber\PrivateOfficeSubscriber\Services.cshtml" />
-    <Content Include="Views\DocumentFlow\DocumentPanel.cshtml" />
+    <Content Include="Views\Documents\DocumentPanel.cshtml" />
     <Content Include="Views\Subscriber\PrivateOfficeSubscriber\ElectricConsumer.cshtml">
       <SubType>Code</SubType>
     </Content>
@@ -304,9 +304,10 @@
     <Content Include="Views\Contractors\InputInvitationContractors.cshtml" />
     <Content Include="Views\Contractors\_GridViewPartialInputInvitation.cshtml" />
     <Content Include="Views\Contractors\_GridViewPartialOutputInvitation.cshtml" />
-    <Content Include="Views\DocumentFlow\DetailsDocuments.cshtml" />
+    <Content Include="Views\Documents\DetailsDocuments.cshtml" />
     <Content Include="Views\Subscriber\PrivateOfficeSubscriber\_GridViewPartialpcModalModeCreateEnumerator1.cshtml" />
     <Content Include="Views\Subscriber\PrivateOfficeSubscriber\_GridViewPartialpcModalModeCreateContract1.cshtml" />
+    <Content Include="Views\Documents\CreateInvoice.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -319,7 +320,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdministratorsController.cs" />
     <Compile Include="Controllers\ContractorsController.cs" />
-    <Compile Include="Controllers\DocumentFlowController.cs" />
+    <Compile Include="Controllers\DocumentsController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LegalEntitiesController.cs" />
@@ -362,7 +363,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>2372</DevelopmentServerPort>
+          <DevelopmentServerPort>32981</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://IsEnergy</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

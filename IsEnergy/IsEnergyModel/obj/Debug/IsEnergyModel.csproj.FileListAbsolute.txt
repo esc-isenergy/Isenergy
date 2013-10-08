@@ -1,9 +1,0 @@
-E:\IsEnergy\IsEnergyModel\bin\Debug\IsEnergyModel.dll.config
-E:\IsEnergy\IsEnergyModel\bin\Debug\IsEnergyModel.dll
-E:\IsEnergy\IsEnergyModel\bin\Debug\IsEnergyModel.pdb
-E:\IsEnergy\IsEnergyModel\bin\Debug\EntityFramework.dll
-E:\IsEnergy\IsEnergyModel\bin\Debug\EntityFramework.xml
-E:\IsEnergy\IsEnergyModel\bin\Debug\ru\EntityFramework.resources.dll
-E:\IsEnergy\IsEnergyModel\obj\Debug\IsEnergyModel.dll
-E:\IsEnergy\IsEnergyModel\obj\Debug\IsEnergyModel.pdb
-E:\IsEnergy\IsEnergyModel\obj\Debug\IsEnergyModel.csprojResolveAssemblyReference.cache

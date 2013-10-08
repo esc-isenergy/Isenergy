@@ -42,6 +42,8 @@ namespace IsEnergyModel
         public static string AssemblyVersionProg = "1.2.0.1";
         public static string idOperEDO = "2DL";
         public static string INNOperEDO = "1657055576";
+        public static string KPPOperEDO = "165701001";
+        public static string OGRNOperEDO = "1051629047843";
         public static string NameOperEDO = "ООО «Центр Электронных Услуг»";
 
         public static string postSingerOperEDO = "Генеральный директор";

@@ -1,0 +1,30 @@
+﻿<script type="text/javascript">
+	   $(document).ready(function () {
+	         $("#DocumentAddMenu").hide(); 
+	        
+	         $("h3").click(function () {
+	             $("h3 span").parent().next().slideToggle(50);
+	         });
+	   });
+    $(document).click( function(event){
+        if ($(event.target).closest(".box").length)
+	return;
+        $("#DocumentAddMenu").slideUp(50);
+       
+	   event.stopPropagation();
+   });
+    
+  
+</script>
+
+<div class="box" id="DocumentAddMenuDiv">
+   
+	<h3><span class="menu"><img src="~/Content/Images/AddButton.png"><button  style=" display: none;" id="xxx"></button>Добавить документ</span></h3>
+
+	<div id="DocumentAddMenu">
+
+    <p><a  onclick="javascript:ClearDocumentsTemp();pcModalAddMaquettes16.Show()" ><img src="~/Content/Images/UploadDocument.png"> Загрузить с компьютера...</a></p>  
+       
+    <p><a href="#"  onclick="alert('Осталось придумать как сделать')"> Загрузить макет №16</a></p>  
+   </div>
+ </div>

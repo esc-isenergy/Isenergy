@@ -397,5 +397,29 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Maquettes16">
+      <EntityTypeMapping TypeName="Is_EnergyModel.Maquettes16">
+        <MappingFragment StoreEntitySet="Maquettes16">
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="SignatureContractor" ColumnName="SignatureContractor" />
+          <ScalarProperty Name="DateSendSK" ColumnName="DateSendSK" />
+          <ScalarProperty Name="idSubdivisionSK" ColumnName="idSubdivisionSK" />
+          <ScalarProperty Name="IdentifierSubscriberSK" ColumnName="IdentifierSubscriberSK" />
+          <ScalarProperty Name="DateSendPC" ColumnName="DateSendPC" />
+          <ScalarProperty Name="idSubdivisionPC" ColumnName="idSubdivisionPC" />
+          <ScalarProperty Name="IdentifierSubscriberPC" ColumnName="IdentifierSubscriberPC" />
+          <ScalarProperty Name="DateSendES" ColumnName="DateSendES" />
+          <ScalarProperty Name="idSubdivisionES" ColumnName="idSubdivisionES" />
+          <ScalarProperty Name="IdentifierSubscriberES" ColumnName="IdentifierSubscriberES" />
+          <ScalarProperty Name="DataFileObject" ColumnName="DataFileObject" />
+          <ScalarProperty Name="DataFile" ColumnName="DataFile" />
+          <ScalarProperty Name="NameFile" ColumnName="NameFile" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="TypeDocument" ColumnName="TypeDocument" />
+          <ScalarProperty Name="NameDocument" ColumnName="NameDocument" />
+          <ScalarProperty Name="IdMaquette16" ColumnName="IdMaquette16" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

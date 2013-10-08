@@ -12,6 +12,7 @@
     <EntitySet Name="DocumentsTemp" EntityType="Хранилище Is_EnergyModel.DocumentsTemp" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="IFNS" EntityType="Хранилище Is_EnergyModel.IFNS" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="LegalEntities" EntityType="Хранилище Is_EnergyModel.LegalEntities" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Maquettes16" EntityType="Хранилище Is_EnergyModel.Maquettes16" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Operators" EntityType="Хранилище Is_EnergyModel.Operators" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="PhysicalPersons" EntityType="Хранилище Is_EnergyModel.PhysicalPersons" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Regions" EntityType="Хранилище Is_EnergyModel.Regions" store:Type="Tables" Schema="dbo" />
@@ -316,6 +317,29 @@
     <Property Name="IdIFNS" Type="int" Nullable="false" />
     <Property Name="IdentifierSubscriber" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="IdAddress" Type="int" />
+  </EntityType>
+  <EntityType Name="Maquettes16">
+    <Key>
+      <PropertyRef Name="IdMaquette16" />
+    </Key>
+    <Property Name="IdMaquette16" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="NameDocument" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TypeDocument" Type="int" Nullable="false" />
+    <Property Name="State" Type="int" Nullable="false" />
+    <Property Name="NameFile" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DataFile" Type="varbinary(max)" Nullable="false" />
+    <Property Name="DataFileObject" Type="varbinary(max)" Nullable="false" />
+    <Property Name="IdentifierSubscriberES" Type="nvarchar" MaxLength="50" />
+    <Property Name="idSubdivisionES" Type="int" />
+    <Property Name="DateSendES" Type="datetime" />
+    <Property Name="IdentifierSubscriberPC" Type="nvarchar" MaxLength="50" />
+    <Property Name="idSubdivisionPC" Type="int" />
+    <Property Name="DateSendPC" Type="datetime" />
+    <Property Name="IdentifierSubscriberSK" Type="nvarchar" MaxLength="50" />
+    <Property Name="idSubdivisionSK" Type="int" />
+    <Property Name="DateSendSK" Type="datetime" />
+    <Property Name="SignatureContractor" Type="bit" />
+    <Property Name="Comment" Type="text" />
   </EntityType>
   <EntityType Name="Operators">
     <Key>

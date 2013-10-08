@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="8d111189bddf4bbfbb1c70cc97d3ab9e" Name="Диаграмма1" ZoomLevel="95">
+      <Diagram DiagramId="8d111189bddf4bbfbb1c70cc97d3ab9e" Name="Диаграмма1" ZoomLevel="61">
         <EntityTypeShape EntityType="Is_EnergyModel.Address" Width="1.5" PointX="4.5" PointY="5.25" />
         <EntityTypeShape EntityType="Is_EnergyModel.Administrators" Width="1.5" PointX="2" PointY="12.375" />
         <EntityTypeShape EntityType="Is_EnergyModel.Certificates" Width="1.5" PointX="0.5" PointY="2.875" />
@@ -64,6 +64,7 @@
         <AssociationConnector Association="Is_EnergyModel.FK_DocumentFlow_Documents" />
         <EntityTypeShape EntityType="Is_EnergyModel.Contractors" Width="1.5" PointX="7.3116134550942169" PointY="11.317841401006021" />
         <AssociationConnector Association="Is_EnergyModel.FK_Contractors_Subscribers" />
+        <EntityTypeShape EntityType="Is_EnergyModel.Maquettes16" Width="1.5" PointX="10.394153644514342" PointY="26.895862800486324" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

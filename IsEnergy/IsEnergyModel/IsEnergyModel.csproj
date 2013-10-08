@@ -118,6 +118,9 @@
     <Compile Include="LegalEntities.cs">
       <DependentUpon>IsEnergy_db.tt</DependentUpon>
     </Compile>
+    <Compile Include="Maquettes16.cs">
+      <DependentUpon>IsEnergy_db.tt</DependentUpon>
+    </Compile>
     <Compile Include="MetaData\MetaDataContractors.cs" />
     <Compile Include="MetaData\MetaDataDocumentsTemp.cs" />
     <Compile Include="MetaData\MetaDataLegalEntities.cs" />

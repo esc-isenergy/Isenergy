@@ -17,6 +17,7 @@
           <EntitySet Name="DocumentsTemp" EntityType="Хранилище Is_EnergyModel.DocumentsTemp" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="IFNS" EntityType="Хранилище Is_EnergyModel.IFNS" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="LegalEntities" EntityType="Хранилище Is_EnergyModel.LegalEntities" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Maquettes16" EntityType="Хранилище Is_EnergyModel.Maquettes16" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Operators" EntityType="Хранилище Is_EnergyModel.Operators" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="PhysicalPersons" EntityType="Хранилище Is_EnergyModel.PhysicalPersons" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Regions" EntityType="Хранилище Is_EnergyModel.Regions" store:Type="Tables" Schema="dbo" />
@@ -321,6 +322,29 @@
           <Property Name="IdIFNS" Type="int" Nullable="false" />
           <Property Name="IdentifierSubscriber" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="IdAddress" Type="int" />
+        </EntityType>
+        <EntityType Name="Maquettes16">
+          <Key>
+            <PropertyRef Name="IdMaquette16" />
+          </Key>
+          <Property Name="IdMaquette16" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NameDocument" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="TypeDocument" Type="int" Nullable="false" />
+          <Property Name="State" Type="int" Nullable="false" />
+          <Property Name="NameFile" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DataFile" Type="varbinary(max)" Nullable="false" />
+          <Property Name="DataFileObject" Type="varbinary(max)" Nullable="false" />
+          <Property Name="IdentifierSubscriberES" Type="nvarchar" MaxLength="50" />
+          <Property Name="idSubdivisionES" Type="int" />
+          <Property Name="DateSendES" Type="datetime" />
+          <Property Name="IdentifierSubscriberPC" Type="nvarchar" MaxLength="50" />
+          <Property Name="idSubdivisionPC" Type="int" />
+          <Property Name="DateSendPC" Type="datetime" />
+          <Property Name="IdentifierSubscriberSK" Type="nvarchar" MaxLength="50" />
+          <Property Name="idSubdivisionSK" Type="int" />
+          <Property Name="DateSendSK" Type="datetime" />
+          <Property Name="SignatureContractor" Type="bit" />
+          <Property Name="Comment" Type="text" />
         </EntityType>
         <EntityType Name="Operators">
           <Key>
@@ -1119,6 +1143,7 @@
             <End Role="Subscribers" EntitySet="Subscribers" />
             <End Role="Contractors" EntitySet="Contractors" />
           </AssociationSet>
+          <EntitySet Name="Maquettes16" EntityType="Is_EnergyModel.Maquettes16" />
         </EntityContainer>
         <EntityType Name="Address">
           <Key>
@@ -1981,6 +2006,29 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Maquettes16">
+          <Key>
+            <PropertyRef Name="IdMaquette16" />
+          </Key>
+          <Property Type="Int32" Name="IdMaquette16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="NameDocument" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="TypeDocument" Nullable="false" />
+          <Property Type="Int32" Name="State" Nullable="false" />
+          <Property Type="String" Name="NameFile" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Binary" Name="DataFile" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Type="Binary" Name="DataFileObject" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Type="String" Name="IdentifierSubscriberES" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="idSubdivisionES" />
+          <Property Type="DateTime" Name="DateSendES" Precision="3" />
+          <Property Type="String" Name="IdentifierSubscriberPC" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="idSubdivisionPC" />
+          <Property Type="DateTime" Name="DateSendPC" Precision="3" />
+          <Property Type="String" Name="IdentifierSubscriberSK" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="idSubdivisionSK" />
+          <Property Type="DateTime" Name="DateSendSK" Precision="3" />
+          <Property Type="Boolean" Name="SignatureContractor" />
+          <Property Type="String" Name="Comment" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2380,6 +2428,30 @@
                 <ScalarProperty Name="Comment" ColumnName="Comment" />
                 <ScalarProperty Name="IdentifierSubscriber" ColumnName="IdentifierSubscriber" />
                 <ScalarProperty Name="IdContractor" ColumnName="IdContractor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Maquettes16">
+            <EntityTypeMapping TypeName="Is_EnergyModel.Maquettes16">
+              <MappingFragment StoreEntitySet="Maquettes16">
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="SignatureContractor" ColumnName="SignatureContractor" />
+                <ScalarProperty Name="DateSendSK" ColumnName="DateSendSK" />
+                <ScalarProperty Name="idSubdivisionSK" ColumnName="idSubdivisionSK" />
+                <ScalarProperty Name="IdentifierSubscriberSK" ColumnName="IdentifierSubscriberSK" />
+                <ScalarProperty Name="DateSendPC" ColumnName="DateSendPC" />
+                <ScalarProperty Name="idSubdivisionPC" ColumnName="idSubdivisionPC" />
+                <ScalarProperty Name="IdentifierSubscriberPC" ColumnName="IdentifierSubscriberPC" />
+                <ScalarProperty Name="DateSendES" ColumnName="DateSendES" />
+                <ScalarProperty Name="idSubdivisionES" ColumnName="idSubdivisionES" />
+                <ScalarProperty Name="IdentifierSubscriberES" ColumnName="IdentifierSubscriberES" />
+                <ScalarProperty Name="DataFileObject" ColumnName="DataFileObject" />
+                <ScalarProperty Name="DataFile" ColumnName="DataFile" />
+                <ScalarProperty Name="NameFile" ColumnName="NameFile" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="TypeDocument" ColumnName="TypeDocument" />
+                <ScalarProperty Name="NameDocument" ColumnName="NameDocument" />
+                <ScalarProperty Name="IdMaquette16" ColumnName="IdMaquette16" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

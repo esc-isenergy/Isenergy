@@ -1,0 +1,81 @@
+﻿@model IsEnergyModel.Maquettes16
+@{
+    ViewBag.Title = "Index";
+}
+
+<div id="ContentMaquettes16">
+    @Html.DevExpress().Splitter(settings =>
+{
+    settings.Name = "Maquettes16Splitter";
+
+    settings.Orientation = System.Web.UI.WebControls.Orientation.Horizontal;
+    settings.Width = System.Web.UI.WebControls.Unit.Percentage(98);
+    settings.Height = System.Web.UI.WebControls.Unit.Pixel(500);
+    settings.Styles.Pane.Paddings.Padding = System.Web.UI.WebControls.Unit.Pixel(0);
+    settings.Styles.Pane.Border.BorderWidth = System.Web.UI.WebControls.Unit.Pixel(1);
+
+
+    settings.Panes.Add(subpane =>
+    {
+        subpane.PaneStyle.CssClass = "leftPanelMaquettes16";
+        subpane.Separators.Visible = DefaultBoolean.True;
+        subpane.ShowCollapseBackwardButton = DefaultBoolean.True;
+        subpane.ShowSeparatorImage = DefaultBoolean.True;
+        subpane.Size = System.Web.UI.WebControls.Unit.Percentage(18);
+        subpane.AutoHeight = true;
+
+        subpane.SetContent(() =>
+        {
+            Html.RenderPartial("LeftPanel");
+        });
+    });
+    settings.Panes.Add(subpane =>
+    {
+        subpane.Name = "ContentMaquettes16";
+        subpane.ScrollBars = System.Web.UI.WebControls.ScrollBars.Vertical;
+        subpane.PaneStyle.CssClass = "mainContentPane";
+        subpane.ShowCollapseBackwardButton = DefaultBoolean.True;
+        subpane.Size = System.Web.UI.WebControls.Unit.Percentage(100);
+        subpane.AutoHeight = true;
+        subpane.SetContent(() =>
+        {
+            Html.RenderPartial("ContentPanel");
+        });
+    });
+
+
+}).GetHtml()
+
+</div>
+
+@Html.DevExpress().PopupControl(
+    settings =>
+    {
+        settings.Name = "pcModalAddMaquettes16";
+        settings.DragElement = DragElement.Window;
+        settings.Width = 915;
+        settings.AllowDragging = true;
+        settings.CloseAction = CloseAction.CloseButton;
+        settings.PopupAnimationType = AnimationType.None;
+        settings.HeaderText = "Загрузка макетов";
+        settings.ShowLoadingPanel = true;
+        settings.Modal = true;
+        settings.PopupHorizontalAlign = PopupHorizontalAlign.WindowCenter;
+        settings.PopupVerticalAlign = PopupVerticalAlign.WindowCenter;
+        settings.ClientSideEvents.CloseButtonClick = "function(s, e) { ClearDocumentsTemp() }";
+        settings.SetContent(() =>
+        {
+            //Html.RenderPartial("AddMaquettes16Window"); 
+        });
+    }).GetHtml()
+
+@Html.DevExpress().LoadingPanel(
+        settings =>
+        {
+            settings.Name = "LoadingPanel";
+            settings.Text = "Подпись...";
+            settings.Modal = true;
+        }
+    ).GetHtml()
+}
+

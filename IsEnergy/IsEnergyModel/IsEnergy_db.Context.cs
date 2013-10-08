@@ -52,5 +52,6 @@ namespace IsEnergyModel
         public DbSet<DocumentsTemp> DocumentsTemp { get; set; }
         public DbSet<DocumentFlow> DocumentFlow { get; set; }
         public DbSet<Contractors> Contractors { get; set; }
+        public DbSet<Maquettes16> Maquettes16 { get; set; }
     }
 }

@@ -1,0 +1,39 @@
+@{
+    var grid = Html.DevExpress().GridView(settings =>
+    {
+        settings.Name = "GridView";
+        settings.CallbackRouteValues = new { Controller = "MaquettesF16", Action = "GridViewPartial" };
+
+        GridViewCommandColumnCustomButton Details = new GridViewCommandColumnCustomButton();
+        Details.Text = "Детали";
+        Details.ID = "Details";
+        settings.CommandColumn.CustomButtons.Add(Details);
+        settings.ClientSideEvents.CustomButtonClick = String.Format("function(s, e) {{ if(e.buttonID == 'Details') window.location.href='{0}/' + s.GetRowKey(e.visibleIndex); }}", DevExpressHelper.GetUrl(new { Controller = "MaquettesF16", Action = "DetailsMaquettesF16" }));
+
+        settings.Width = System.Web.UI.WebControls.Unit.Percentage(99);
+        settings.Height = System.Web.UI.WebControls.Unit.Percentage(100);
+        
+        settings.CommandColumn.Visible = true;
+        settings.KeyFieldName = "IdMaquette16";
+        settings.SettingsPager.Visible = true;
+        settings.Settings.ShowGroupPanel = true;
+        settings.Settings.ShowFilterRow = true;
+        settings.SettingsBehavior.AllowSelectByRowClick = true;
+        settings.CommandColumn.ShowSelectCheckbox = true;
+        settings.ClientSideEvents.SelectionChanged = "SelectionChanged";
+
+        settings.Columns.Add("NameDocument", "Имя макета");
+        settings.Columns.Add("IdentifierSubscriberES", "Энергосбыт");//Энергосбыт
+        settings.Columns.Add("DateSendES", "Дата отправки");//Дата отправки от Энергосбыта
+        settings.Columns.Add("IdentifierSubscriberPC", "Потребитель");//Потребитель
+        settings.Columns.Add("DateSendPC", "Дата отправки потребителем");//Дата отправки потребителем        
+        settings.Columns.Add("IdentifierSubscriberSK", "РЭС");//Сетевая
+        settings.Columns.Add("DateSendSK", "Дата принятия РЭС");//Дата принятия сетевой
+        settings.Columns.Add("State", "Статус");
+    });
+    if (ViewData["EditError"] != null)
+    {
+        grid.SetEditErrorText((string)ViewData["EditError"]);
+    }
+}
+@grid.Bind(Model).GetHtml()

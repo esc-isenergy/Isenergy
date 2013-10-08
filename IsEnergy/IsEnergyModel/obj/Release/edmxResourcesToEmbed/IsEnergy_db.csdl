@@ -156,6 +156,7 @@
       <End Role="Subscribers" EntitySet="Subscribers" />
       <End Role="Contractors" EntitySet="Contractors" />
     </AssociationSet>
+    <EntitySet Name="Maquettes16" EntityType="Is_EnergyModel.Maquettes16" />
   </EntityContainer>
   <EntityType Name="Address">
     <Key>
@@ -1018,4 +1019,27 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="Maquettes16">
+    <Key>
+      <PropertyRef Name="IdMaquette16" />
+    </Key>
+    <Property Type="Int32" Name="IdMaquette16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="NameDocument" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="TypeDocument" Nullable="false" />
+    <Property Type="Int32" Name="State" Nullable="false" />
+    <Property Type="String" Name="NameFile" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Binary" Name="DataFile" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Type="Binary" Name="DataFileObject" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Type="String" Name="IdentifierSubscriberES" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="idSubdivisionES" />
+    <Property Type="DateTime" Name="DateSendES" Precision="3" />
+    <Property Type="String" Name="IdentifierSubscriberPC" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="idSubdivisionPC" />
+    <Property Type="DateTime" Name="DateSendPC" Precision="3" />
+    <Property Type="String" Name="IdentifierSubscriberSK" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="idSubdivisionSK" />
+    <Property Type="DateTime" Name="DateSendSK" Precision="3" />
+    <Property Type="Boolean" Name="SignatureContractor" />
+    <Property Type="String" Name="Comment" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
 </Schema>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8d111189bddf4bbfbb1c70cc97d3ab9e" Name="Диаграмма1" ZoomLevel="61">
+        <EntityTypeShape EntityType="Is_EnergyModel.Address" Width="1.5" PointX="4.5" PointY="5.25" />
+        <EntityTypeShape EntityType="Is_EnergyModel.Administrators" Width="1.5" PointX="2" PointY="12.375" />
+        <EntityTypeShape EntityType="Is_EnergyModel.Certificates" Width="1.5" PointX="0.5" PointY="2.875" />
+        <EntityTypeShape EntityType="Is_EnergyModel.Cities" Width="1.5" PointX="5.5" PointY="20.125" />
+        <EntityTypeShape EntityType="Is_EnergyModel.Countries" Width="1.5" PointX="4" PointY="2.25" />
+        <EntityTypeShape EntityType="Is_EnergyModel.IFNS" Width="1.5" PointX="1.9051702478458967" PointY="28.024434236820991" />
+        <EntityTypeShape EntityType="Is_EnergyModel.LegalEntities" Width="1.5" PointX="4.875" PointY="30" />
+        <EntityTypeShape EntityType="Is_EnergyModel.Operators" Width="1.5" PointX="11.25" PointY="26.625" />
+        <EntityTypeShape EntityType="Is_EnergyModel.PhysicalPersons" Width="1.5" PointX="2.2350058770901553" PointY="19.455599421381763" />
+        <EntityTypeShape EntityType="Is_EnergyModel.Regions" Width="1.5" PointX="6.1874404466652493" PointY="23.394608583019398" />
+        <EntityTypeShape EntityType="Is_EnergyModel.RelateDocuments" Width="1.5" PointX="2.375" PointY="5.75" />
+        <EntityTypeShape EntityType="Is_EnergyModel.SoleTraders" Width="1.5" PointX="8.1717728135044574" PointY="15.396214686052973" />
+        <EntityTypeShape EntityType="Is_EnergyModel.Subscribers" Width="1.5" PointX="5.7823534038767" PointY="6.4735605746850187" />
+        <EntityTypeShape EntityType="Is_EnergyModel.SubscribersCodesEnergySales" Width="1.5" PointX="7.875" PointY="1.25" />
+        <EntityTypeShape EntityType="Is_EnergyModel.SubscribersCodesGridCompany" Width="1.5" PointX="7.625" PointY="30.125" />
+        <EntityTypeShape EntityType="Is_EnergyModel.SubscribersConnectEnergySales" Width="1.5" PointX="10.411971184616895" PointY="7.9636067785153193" />
+        <EntityTypeShape EntityType="Is_EnergyModel.SubscribersConnectGridCompany" Width="1.5" PointX="8.125" PointY="27.5" />
+        <EntityTypeShape EntityType="Is_EnergyModel.SubscribersContracts" Width="1.5" PointX="10.75" PointY="4.75" />
+        <EntityTypeShape EntityType="Is_EnergyModel.SubscribersEnumerator" Width="1.5" PointX="2.1491337819719378" PointY="15.848601512540412" />
+        <EntityTypeShape EntityType="Is_EnergyModel.SubscribersSubdivision" Width="1.5" PointX="6.4084357500115576" PointY="15.835999496204778" />
+        <EntityTypeShape EntityType="Is_EnergyModel.SubscribersUserList" Width="1.5" PointX="10.625" PointY="19" />
+        <EntityTypeShape EntityType="Is_EnergyModel.Users" Width="1.5" PointX="0.76331793366154566" PointY="21.878982226307961" />
+        <AssociationConnector Association="Is_EnergyModel.FK_Address_Countries" />
+        <AssociationConnector Association="Is_EnergyModel.FK_Address_Regions" />
+        <AssociationConnector Association="Is_EnergyModel.FK_LegalEntities_Address" />
+        <AssociationConnector Association="Is_EnergyModel.FK_PhysicalPersons_Address" />
+        <AssociationConnector Association="Is_EnergyModel.FK_SoleTraders_Address" />
+        <AssociationConnector Association="Is_EnergyModel.FK_SubscribersSubdivision_Address" />
+        <AssociationConnector Association="Is_EnergyModel.FK_Administrators_Subscribers" />
+        <AssociationConnector Association="Is_EnergyModel.FK_Administrators_Users" />
+        <AssociationConnector Association="Is_EnergyModel.FK_LegalEntities_Certificates" />
+        <AssociationConnector Association="Is_EnergyModel.FK_Users_Certificates" />
+        <AssociationConnector Association="Is_EnergyModel.FK_LegalEntities_IFNS" />
+        <AssociationConnector Association="Is_EnergyModel.FK_SoleTraders_IFNS" />
+        <AssociationConnector Association="Is_EnergyModel.FK_LegalEntities_Subscribers" />
+        <AssociationConnector Association="Is_EnergyModel.FK_Operators_Subscribers" />
+        <AssociationConnector Association="Is_EnergyModel.FK_Operators_Users" />
+        <AssociationConnector Association="Is_EnergyModel.FK_PhysicalPersons_Subscribers" />
+        <AssociationConnector Association="Is_EnergyModel.FK_SoleTraders_Subscribers" />
+        <AssociationConnector Association="Is_EnergyModel.FK_SubscribersConnectEnergySales_Subscribers" />
+        <AssociationConnector Association="Is_EnergyModel.FK_SubscribersConnectGridCompany_Subscribers" />
+        <AssociationConnector Association="Is_EnergyModel.FK_SubscribersContracts_Subscribers" />
+        <AssociationConnector Association="Is_EnergyModel.FK_SubscribersSubdivision_Subscribers" />
+        <AssociationConnector Association="Is_EnergyModel.FK_SubscribersCodesEnergySales_SubscribersSubdivision" />
+        <AssociationConnector Association="Is_EnergyModel.FK_SubscribersCodesGridCompany_SubscribersSubdivision" />
+        <AssociationConnector Association="Is_EnergyModel.FK_SubscribersEnumerator_SubscribersContracts" />
+        <AssociationConnector Association="Is_EnergyModel.FK_LegalEnitiesUserList_LegalEnitiesSubdivision" />
+        <AssociationConnector Association="Is_EnergyModel.FK_LegalEnitiesUserList_Users" />
+        <EntityTypeShape EntityType="Is_EnergyModel.SubscribesLog" Width="1.5" PointX="3.3175999574910846" PointY="26.157147360107466" />
+        <AssociationConnector Association="Is_EnergyModel.FK_SubscribesLog_Subscribers" />
+        <AssociationConnector Association="Is_EnergyModel.FK_SoleTraders_Certificates" />
+        <EntityTypeShape EntityType="Is_EnergyModel.Documents" Width="1.5" PointX="14.125" PointY="26.75" />
+        <EntityTypeShape EntityType="Is_EnergyModel.DocumentsTemp" Width="1.5" PointX="2.375" PointY="5.625" />
+        <AssociationConnector Association="Is_EnergyModel.FK_RelateDocuments_Documents" />
+        <AssociationConnector Association="Is_EnergyModel.FK_DocumentsTemp_Users" />
+        <EntityTypeShape EntityType="Is_EnergyModel.DocumentFlow" Width="1.5" PointX="5.875" PointY="25.875" />
+        <AssociationConnector Association="Is_EnergyModel.FK_DocumentFlow_Documents" />
+        <EntityTypeShape EntityType="Is_EnergyModel.Contractors" Width="1.5" PointX="7.3116134550942169" PointY="11.317841401006021" />
+        <AssociationConnector Association="Is_EnergyModel.FK_Contractors_Subscribers" />
+<<<<<<< HEAD
+        <EntityTypeShape EntityType="Is_EnergyModel.Maquettes16" Width="1.5" PointX="10.394153644514342" PointY="26.895862800486324" />
+=======
+        <EntityTypeShape EntityType="Is_EnergyModel.Maquettes16" Width="1.5" PointX="7.3797224980684568" PointY="16.250174693879753" />
+>>>>>>> 051dc9f7c63956cc962cdcfd381a2ca068b2f9ce
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

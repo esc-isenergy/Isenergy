@@ -1,0 +1,28 @@
+﻿@model IsEnergyModel.Maquettes16
+
+@{
+    ViewBag.Title = "ContentPanel";
+}
+
+<h2>ContentPanel</h2>
+
+<table>
+    <tr>
+<td><button class="action bluebtn" type="button"  onclick="javascript:pcModalAddMaquettes16.Show();"><span class="label">Добавить</span></button>
+</td></tr>
+    <tr><td>
+@Html.DevExpress().ComboBox(settings=> {
+    settings.Name = "comboBoxDownLoad";
+    settings.Width = 180;
+    settings.Properties.NullText = "Скачать";
+    settings.Properties.ValueType = typeof(string);
+    ListEditItem Item1 = new ListEditItem();
+    settings.Properties.Items.Add(".tes");
+    settings.Properties.Items.Add(".tes Excel");
+    settings.Properties.Items.Add("Форма №16");
+    settings.CallbackRouteValues = new { Controller = "Maquettes16", Action = "DetailsMaquettesF16" };
+    settings.Properties.EnableCallbackMode = true;
+
+}).GetHtml()</td></tr>
+</table>
+@Html.Action("GridViewPartial")

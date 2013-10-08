@@ -1,0 +1,425 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище Is_EnergyModelContainer" CdmEntityContainer="Is_EnergyEntities">
+    <EntitySetMapping Name="Address">
+      <EntityTypeMapping TypeName="Is_EnergyModel.Address">
+        <MappingFragment StoreEntitySet="Address">
+          <ScalarProperty Name="AddressShort" ColumnName="AddressShort" />
+          <ScalarProperty Name="OtherCountry_IdCountry" ColumnName="OtherCountry_IdCountry" />
+          <ScalarProperty Name="OtherCountry_Address" ColumnName="OtherCountry_Address" />
+          <ScalarProperty Name="RF_OfficeOrApartment" ColumnName="RF_OfficeOrApartment" />
+          <ScalarProperty Name="RF_Housing" ColumnName="RF_Housing" />
+          <ScalarProperty Name="RF_Home" ColumnName="RF_Home" />
+          <ScalarProperty Name="RF_Street" ColumnName="RF_Street" />
+          <ScalarProperty Name="RF_localityCity" ColumnName="RF_localityCity" />
+          <ScalarProperty Name="RF_City" ColumnName="RF_City" />
+          <ScalarProperty Name="RF_Area" ColumnName="RF_Area" />
+          <ScalarProperty Name="RF_IdRegion" ColumnName="RF_IdRegion" />
+          <ScalarProperty Name="RF_Index" ColumnName="RF_Index" />
+          <ScalarProperty Name="TypeAddress" ColumnName="TypeAddress" />
+          <ScalarProperty Name="IdAddress" ColumnName="IdAddress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Administrators">
+      <EntityTypeMapping TypeName="Is_EnergyModel.Administrators">
+        <MappingFragment StoreEntitySet="Administrators">
+          <ScalarProperty Name="IdentifierSubscriber" ColumnName="IdentifierSubscriber" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="ModifyingMailing" ColumnName="ModifyingMailing" />
+          <ScalarProperty Name="ModifyingNews" ColumnName="ModifyingNews" />
+          <ScalarProperty Name="ModifyingOperators" ColumnName="ModifyingOperators" />
+          <ScalarProperty Name="ModifyingAdministrators" ColumnName="ModifyingAdministrators" />
+          <ScalarProperty Name="MainAdministrators" ColumnName="MainAdministrators" />
+          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+          <ScalarProperty Name="IdAdministrator" ColumnName="IdAdministrator" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Certificates">
+      <EntityTypeMapping TypeName="Is_EnergyModel.Certificates">
+        <MappingFragment StoreEntitySet="Certificates">
+          <ScalarProperty Name="CertificateCN" ColumnName="CertificateCN" />
+          <ScalarProperty Name="CertificateSubject" ColumnName="CertificateSubject" />
+          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+          <ScalarProperty Name="PublisherCertificate" ColumnName="PublisherCertificate" />
+          <ScalarProperty Name="CertificateFile" ColumnName="CertificateFile" />
+          <ScalarProperty Name="CertificateSubjectFIO" ColumnName="CertificateSubjectFIO" />
+          <ScalarProperty Name="CertificateValidUntil" ColumnName="CertificateValidUntil" />
+          <ScalarProperty Name="CertificateValidFrom" ColumnName="CertificateValidFrom" />
+          <ScalarProperty Name="CertificateSerialNumber" ColumnName="CertificateSerialNumber" />
+          <ScalarProperty Name="IdCertificate" ColumnName="IdCertificate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cities">
+      <EntityTypeMapping TypeName="Is_EnergyModel.Cities">
+        <MappingFragment StoreEntitySet="Cities">
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="IdRegion" ColumnName="IdRegion" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IdCity" ColumnName="IdCity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="Is_EnergyModel.Countries">
+        <MappingFragment StoreEntitySet="Countries">
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IdCountry" ColumnName="IdCountry" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IFNS">
+      <EntityTypeMapping TypeName="Is_EnergyModel.IFNS">
+        <MappingFragment StoreEntitySet="IFNS">
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="IdRegion" ColumnName="IdRegion" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IdIFNS" ColumnName="IdIFNS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LegalEntities">
+      <EntityTypeMapping TypeName="Is_EnergyModel.LegalEntities">
+        <MappingFragment StoreEntitySet="LegalEntities">
+          <ScalarProperty Name="IdAddress" ColumnName="IdAddress" />
+          <ScalarProperty Name="IdentifierSubscriber" ColumnName="IdentifierSubscriber" />
+          <ScalarProperty Name="IdIFNS" ColumnName="IdIFNS" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="ContactFaceLastName" ColumnName="ContactFaceLastName" />
+          <ScalarProperty Name="ContactFaceMidleName" ColumnName="ContactFaceMidleName" />
+          <ScalarProperty Name="ContactFaceFirstName" ColumnName="ContactFaceFirstName" />
+          <ScalarProperty Name="OGRN" ColumnName="OGRN" />
+          <ScalarProperty Name="KPP" ColumnName="KPP" />
+          <ScalarProperty Name="INN" ColumnName="INN" />
+          <ScalarProperty Name="NameOrganization" ColumnName="NameOrganization" />
+          <ScalarProperty Name="IdCertificate" ColumnName="IdCertificate" />
+          <ScalarProperty Name="IdOrganization" ColumnName="IdOrganization" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Operators">
+      <EntityTypeMapping TypeName="Is_EnergyModel.Operators">
+        <MappingFragment StoreEntitySet="Operators">
+          <ScalarProperty Name="IdentifierSubscriber" ColumnName="IdentifierSubscriber" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="ModifyingMailing" ColumnName="ModifyingMailing" />
+          <ScalarProperty Name="ModifyingNews" ColumnName="ModifyingNews" />
+          <ScalarProperty Name="MainOperator" ColumnName="MainOperator" />
+          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+          <ScalarProperty Name="IdOperator" ColumnName="IdOperator" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhysicalPersons">
+      <EntityTypeMapping TypeName="Is_EnergyModel.PhysicalPersons">
+        <MappingFragment StoreEntitySet="PhysicalPersons">
+          <ScalarProperty Name="IdAddress" ColumnName="IdAddress" />
+          <ScalarProperty Name="IdentifierSubscriber" ColumnName="IdentifierSubscriber" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="INN" ColumnName="INN" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="MidleName" ColumnName="MidleName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="IdCertificate" ColumnName="IdCertificate" />
+          <ScalarProperty Name="IdPhysicalPerson" ColumnName="IdPhysicalPerson" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Regions">
+      <EntityTypeMapping TypeName="Is_EnergyModel.Regions">
+        <MappingFragment StoreEntitySet="Regions">
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IdRegion" ColumnName="IdRegion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RelateDocuments">
+      <EntityTypeMapping TypeName="Is_EnergyModel.RelateDocuments">
+        <MappingFragment StoreEntitySet="RelateDocuments">
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Idchildren" ColumnName="Idchildren" />
+          <ScalarProperty Name="IdMainDocument" ColumnName="IdMainDocument" />
+          <ScalarProperty Name="IdRelateDocument" ColumnName="IdRelateDocument" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SoleTraders">
+      <EntityTypeMapping TypeName="Is_EnergyModel.SoleTraders">
+        <MappingFragment StoreEntitySet="SoleTraders">
+          <ScalarProperty Name="IdAddress" ColumnName="IdAddress" />
+          <ScalarProperty Name="IdentifierSubscriber" ColumnName="IdentifierSubscriber" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="ContactFaceLastName" ColumnName="ContactFaceLastName" />
+          <ScalarProperty Name="ContactFaceMidleName" ColumnName="ContactFaceMidleName" />
+          <ScalarProperty Name="ContactFaceFirstName" ColumnName="ContactFaceFirstName" />
+          <ScalarProperty Name="IdIFNS" ColumnName="IdIFNS" />
+          <ScalarProperty Name="OGRN" ColumnName="OGRN" />
+          <ScalarProperty Name="INN" ColumnName="INN" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="MidleName" ColumnName="MidleName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="IdCertificate" ColumnName="IdCertificate" />
+          <ScalarProperty Name="IdSoleTrader" ColumnName="IdSoleTrader" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Subscribers">
+      <EntityTypeMapping TypeName="Is_EnergyModel.Subscribers">
+        <MappingFragment StoreEntitySet="Subscribers">
+          <ScalarProperty Name="AccessElectricityForm16DateEnd" ColumnName="AccessElectricityForm16DateEnd" />
+          <ScalarProperty Name="AccessElectricityForm16DateStart" ColumnName="AccessElectricityForm16DateStart" />
+          <ScalarProperty Name="AccessElectricityForm16Amount" ColumnName="AccessElectricityForm16Amount" />
+          <ScalarProperty Name="AccessElectricityForm80020DateEnd" ColumnName="AccessElectricityForm80020DateEnd" />
+          <ScalarProperty Name="AccessElectricityForm80020DateStart" ColumnName="AccessElectricityForm80020DateStart" />
+          <ScalarProperty Name="AccessElectricityForm80020Amount" ColumnName="AccessElectricityForm80020Amount" />
+          <ScalarProperty Name="AccessElectricityPrimaryDocumentsDateEnd" ColumnName="AccessElectricityPrimaryDocumentsDateEnd" />
+          <ScalarProperty Name="AccessElectricityPrimaryDocumentsDateStart" ColumnName="AccessElectricityPrimaryDocumentsDateStart" />
+          <ScalarProperty Name="AccessUnformalizedDocumentsDateEnd" ColumnName="AccessUnformalizedDocumentsDateEnd" />
+          <ScalarProperty Name="AccessUnformalizedDocumentsDateStart" ColumnName="AccessUnformalizedDocumentsDateStart" />
+          <ScalarProperty Name="AccessUnformalizedDocumentsAmount" ColumnName="AccessUnformalizedDocumentsAmount" />
+          <ScalarProperty Name="AccessFormalizedDocumentsDateEnd" ColumnName="AccessFormalizedDocumentsDateEnd" />
+          <ScalarProperty Name="AccessFormalizedDocumentsDateStart" ColumnName="AccessFormalizedDocumentsDateStart" />
+          <ScalarProperty Name="AccessFormalizedDocumentsAmount" ColumnName="AccessFormalizedDocumentsAmount" />
+          <ScalarProperty Name="AccessElectricityForm16" ColumnName="AccessElectricityForm16" />
+          <ScalarProperty Name="AccessElectricityForm80020" ColumnName="AccessElectricityForm80020" />
+          <ScalarProperty Name="AccessElectricityPrimaryDocuments" ColumnName="AccessElectricityPrimaryDocuments" />
+          <ScalarProperty Name="TypeGroupElectricity" ColumnName="TypeGroupElectricity" />
+          <ScalarProperty Name="AccessUnformalizedDocuments" ColumnName="AccessUnformalizedDocuments" />
+          <ScalarProperty Name="AccessFormalizedDocuments" ColumnName="AccessFormalizedDocuments" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Requisites" ColumnName="Requisites" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="TypeElementAbonent" ColumnName="TypeElementAbonent" />
+          <ScalarProperty Name="IdentifierSubscriber" ColumnName="IdentifierSubscriber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubscribersCodesEnergySales">
+      <EntityTypeMapping TypeName="Is_EnergyModel.SubscribersCodesEnergySales">
+        <MappingFragment StoreEntitySet="SubscribersCodesEnergySales">
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="idSubdivision" ColumnName="idSubdivision" />
+          <ScalarProperty Name="IdCodeEnergySales" ColumnName="IdCodeEnergySales" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubscribersCodesGridCompany">
+      <EntityTypeMapping TypeName="Is_EnergyModel.SubscribersCodesGridCompany">
+        <MappingFragment StoreEntitySet="SubscribersCodesGridCompany">
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="idSubdivision" ColumnName="idSubdivision" />
+          <ScalarProperty Name="IdCodeGridCompany" ColumnName="IdCodeGridCompany" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubscribersConnectEnergySales">
+      <EntityTypeMapping TypeName="Is_EnergyModel.SubscribersConnectEnergySales">
+        <MappingFragment StoreEntitySet="SubscribersConnectEnergySales">
+          <ScalarProperty Name="IdentifierSubscriber" ColumnName="IdentifierSubscriber" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="idSubdivisionEnergySales" ColumnName="idSubdivisionEnergySales" />
+          <ScalarProperty Name="IdSubscribersConnectEnergySales" ColumnName="IdSubscribersConnectEnergySales" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubscribersConnectGridCompany">
+      <EntityTypeMapping TypeName="Is_EnergyModel.SubscribersConnectGridCompany">
+        <MappingFragment StoreEntitySet="SubscribersConnectGridCompany">
+          <ScalarProperty Name="IdentifierSubscriber" ColumnName="IdentifierSubscriber" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="idSubdivisionGridCompany" ColumnName="idSubdivisionGridCompany" />
+          <ScalarProperty Name="IdSubscribersConnectGridCompany" ColumnName="IdSubscribersConnectGridCompany" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubscribersContracts">
+      <EntityTypeMapping TypeName="Is_EnergyModel.SubscribersContracts">
+        <MappingFragment StoreEntitySet="SubscribersContracts">
+          <ScalarProperty Name="IdentifierSubscriber" ColumnName="IdentifierSubscriber" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="NumberContract" ColumnName="NumberContract" />
+          <ScalarProperty Name="IdContractSubscriber" ColumnName="IdContractSubscriber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubscribersEnumerator">
+      <EntityTypeMapping TypeName="Is_EnergyModel.SubscribersEnumerator">
+        <MappingFragment StoreEntitySet="SubscribersEnumerator">
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="IdContractSubscriber" ColumnName="IdContractSubscriber" />
+          <ScalarProperty Name="IdEnumerator" ColumnName="IdEnumerator" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubscribersSubdivision">
+      <EntityTypeMapping TypeName="Is_EnergyModel.SubscribersSubdivision">
+        <MappingFragment StoreEntitySet="SubscribersSubdivision">
+          <ScalarProperty Name="IdAddress" ColumnName="IdAddress" />
+          <ScalarProperty Name="IdentifierSubscriber" ColumnName="IdentifierSubscriber" />
+          <ScalarProperty Name="SubdivisionCode" ColumnName="SubdivisionCode" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="IdParent" ColumnName="IdParent" />
+          <ScalarProperty Name="SubdivisionName" ColumnName="SubdivisionName" />
+          <ScalarProperty Name="idSubdivision" ColumnName="idSubdivision" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubscribersUserList">
+      <EntityTypeMapping TypeName="Is_EnergyModel.SubscribersUserList">
+        <MappingFragment StoreEntitySet="SubscribersUserList">
+          <ScalarProperty Name="IdSubdivision" ColumnName="IdSubdivision" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+          <ScalarProperty Name="IdUsersList" ColumnName="IdUsersList" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="Is_EnergyModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="NoticesOutMessages" ColumnName="NoticesOutMessages" />
+          <ScalarProperty Name="NoticesInMessages" ColumnName="NoticesInMessages" />
+          <ScalarProperty Name="NoticesOutDoc" ColumnName="NoticesOutDoc" />
+          <ScalarProperty Name="NoticesInDoc" ColumnName="NoticesInDoc" />
+          <ScalarProperty Name="NoticesEnergyConsumptionMaquettes80020" ColumnName="NoticesEnergyConsumptionMaquettes80020" />
+          <ScalarProperty Name="NoticesEnergyConsumptionMaquettes16" ColumnName="NoticesEnergyConsumptionMaquettes16" />
+          <ScalarProperty Name="NoticesEnergyConsumptionPrimaryDocuments" ColumnName="NoticesEnergyConsumptionPrimaryDocuments" />
+          <ScalarProperty Name="NoticesNews" ColumnName="NoticesNews" />
+          <ScalarProperty Name="NoticesOutContractors" ColumnName="NoticesOutContractors" />
+          <ScalarProperty Name="NoticesIncomingContractors" ColumnName="NoticesIncomingContractors" />
+          <ScalarProperty Name="IdentifierSubscriberDefault" ColumnName="IdentifierSubscriberDefault" />
+          <ScalarProperty Name="IdCertificate" ColumnName="IdCertificate" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="MidleName" ColumnName="MidleName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubscribesLog">
+      <EntityTypeMapping TypeName="Is_EnergyModel.SubscribesLog">
+        <MappingFragment StoreEntitySet="SubscribesLog">
+          <ScalarProperty Name="NameUserEditor" ColumnName="NameUserEditor" />
+          <ScalarProperty Name="NameSubscriberEditor" ColumnName="NameSubscriberEditor" />
+          <ScalarProperty Name="IdentifierSubscriberEditor" ColumnName="IdentifierSubscriberEditor" />
+          <ScalarProperty Name="TextEdit" ColumnName="TextEdit" />
+          <ScalarProperty Name="DateEdit" ColumnName="DateEdit" />
+          <ScalarProperty Name="IdUserEditor" ColumnName="IdUserEditor" />
+          <ScalarProperty Name="IdentifierSubscriber" ColumnName="IdentifierSubscriber" />
+          <ScalarProperty Name="IdSubscriberLog" ColumnName="IdSubscriberLog" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Documents">
+      <EntityTypeMapping TypeName="Is_EnergyModel.Documents">
+        <MappingFragment StoreEntitySet="Documents">
+          <ScalarProperty Name="NameFile" ColumnName="NameFile" />
+          <ScalarProperty Name="DataFile" ColumnName="DataFile" />
+          <ScalarProperty Name="DateReceive" ColumnName="DateReceive" />
+          <ScalarProperty Name="SignatureContractor" ColumnName="SignatureContractor" />
+          <ScalarProperty Name="idSubdivisionReceiver" ColumnName="idSubdivisionReceiver" />
+          <ScalarProperty Name="idSubdivisionSender" ColumnName="idSubdivisionSender" />
+          <ScalarProperty Name="IdentifierSubscriberReceiver" ColumnName="IdentifierSubscriberReceiver" />
+          <ScalarProperty Name="IdentifierSubscriberSender" ColumnName="IdentifierSubscriberSender" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="DateSend" ColumnName="DateSend" />
+          <ScalarProperty Name="TypeDocument" ColumnName="TypeDocument" />
+          <ScalarProperty Name="NameDocument" ColumnName="NameDocument" />
+          <ScalarProperty Name="IdDocument" ColumnName="IdDocument" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DocumentsTemp">
+      <EntityTypeMapping TypeName="Is_EnergyModel.DocumentsTemp">
+        <MappingFragment StoreEntitySet="DocumentsTemp">
+          <ScalarProperty Name="NameFile" ColumnName="NameFile" />
+          <ScalarProperty Name="DataFile" ColumnName="DataFile" />
+          <ScalarProperty Name="SignatureContractor" ColumnName="SignatureContractor" />
+          <ScalarProperty Name="IdUserCreate" ColumnName="IdUserCreate" />
+          <ScalarProperty Name="idSubdivisionReceiver" ColumnName="idSubdivisionReceiver" />
+          <ScalarProperty Name="idSubdivisionSender" ColumnName="idSubdivisionSender" />
+          <ScalarProperty Name="IdentifierSubscriberReceiver" ColumnName="IdentifierSubscriberReceiver" />
+          <ScalarProperty Name="IdentifierSubscriberSender" ColumnName="IdentifierSubscriberSender" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="TypeDocument" ColumnName="TypeDocument" />
+          <ScalarProperty Name="NameDocument" ColumnName="NameDocument" />
+          <ScalarProperty Name="IdDocumentTemp" ColumnName="IdDocumentTemp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DocumentFlow">
+      <EntityTypeMapping TypeName="Is_EnergyModel.DocumentFlow">
+        <MappingFragment StoreEntitySet="DocumentFlow">
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="NameFile" ColumnName="NameFile" />
+          <ScalarProperty Name="DataFile" ColumnName="DataFile" />
+          <ScalarProperty Name="IndexDocumentFlow" ColumnName="IndexDocumentFlow" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="DateCreate" ColumnName="DateCreate" />
+          <ScalarProperty Name="DataSign" ColumnName="DataSign" />
+          <ScalarProperty Name="NameSign" ColumnName="NameSign" />
+          <ScalarProperty Name="NameDocument" ColumnName="NameDocument" />
+          <ScalarProperty Name="IdDocumentMain" ColumnName="IdDocumentMain" />
+          <ScalarProperty Name="IdDocumentFlow" ColumnName="IdDocumentFlow" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contractors">
+      <EntityTypeMapping TypeName="Is_EnergyModel.Contractors">
+        <MappingFragment StoreEntitySet="Contractors">
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="DenialText" ColumnName="DenialText" />
+          <ScalarProperty Name="InvitationText" ColumnName="InvitationText" />
+          <ScalarProperty Name="IdentifierSubscriberContractor" ColumnName="IdentifierSubscriberContractor" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="IdentifierSubscriber" ColumnName="IdentifierSubscriber" />
+          <ScalarProperty Name="IdContractor" ColumnName="IdContractor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Maquettes16">
+      <EntityTypeMapping TypeName="Is_EnergyModel.Maquettes16">
+        <MappingFragment StoreEntitySet="Maquettes16">
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="SignatureContractor" ColumnName="SignatureContractor" />
+          <ScalarProperty Name="DateSendSK" ColumnName="DateSendSK" />
+          <ScalarProperty Name="idSubdivisionSK" ColumnName="idSubdivisionSK" />
+          <ScalarProperty Name="IdentifierSubscriberSK" ColumnName="IdentifierSubscriberSK" />
+          <ScalarProperty Name="DateSendPC" ColumnName="DateSendPC" />
+          <ScalarProperty Name="idSubdivisionPC" ColumnName="idSubdivisionPC" />
+          <ScalarProperty Name="IdentifierSubscriberPC" ColumnName="IdentifierSubscriberPC" />
+          <ScalarProperty Name="DateSendES" ColumnName="DateSendES" />
+          <ScalarProperty Name="idSubdivisionES" ColumnName="idSubdivisionES" />
+          <ScalarProperty Name="IdentifierSubscriberES" ColumnName="IdentifierSubscriberES" />
+          <ScalarProperty Name="DataFileObject" ColumnName="DataFileObject" />
+          <ScalarProperty Name="DataFile" ColumnName="DataFile" />
+          <ScalarProperty Name="NameFile" ColumnName="NameFile" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="TypeDocument" ColumnName="TypeDocument" />
+          <ScalarProperty Name="NameDocument" ColumnName="NameDocument" />
+          <ScalarProperty Name="IdMaquette16" ColumnName="IdMaquette16" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

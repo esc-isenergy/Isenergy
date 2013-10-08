@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F97CF8F7-1E71-4087-B3FB-A2A7A1BA0951}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IsEnergyModel</RootNamespace>
+    <AssemblyName>IsEnergyModel</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CryptoPro.Sharpei.Base, Version=1.4.0.10, Culture=neutral, PublicKeyToken=473b8c5086e795f5, processorArchitecture=MSIL" />
+    <Reference Include="CryptoPro.Sharpei.ServiceModel, Version=1.4.0.1, Culture=neutral, PublicKeyToken=473b8c5086e795f5, processorArchitecture=MSIL" />
+    <Reference Include="CryptoPro.Sharpei.Xml, Version=1.4.0.10, Culture=neutral, PublicKeyToken=473b8c5086e795f5, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework">
+      <HintPath>..\IsEnergy\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.DirectoryServices.Protocols" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Serialization" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Address.cs">
+      <DependentUpon>IsEnergy_db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Administrators.cs">
+      <DependentUpon>IsEnergy_db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Certificates.cs">
+      <DependentUpon>IsEnergy_db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cities.cs">
+      <DependentUpon>IsEnergy_db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClassActiveDirectory.cs" />
+    <Compile Include="Contractors.cs">
+      <DependentUpon>IsEnergy_db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataMode\ModeContractors.cs" />
+    <Compile Include="DocumentsTemp.cs">
+      <DependentUpon>IsEnergy_db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalMetods\CommonMethods.cs" />
+    <Compile Include="Countries.cs">
+      <DependentUpon>IsEnergy_db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataMode\CertHelper.cs" />
+    <Compile Include="DataMode\ModeAddress.cs" />
+    <Compile Include="DataMode\ModeAdministrators.cs" />
+    <Compile Include="DataMode\ModeDocuments.cs" />
+    <Compile Include="DataMode\ModeLegalEntities.cs" />
+    <Compile Include="DataMode\ModeOperators.cs" />
+    <Compile Include="DataMode\ModePhysicalPersons.cs" />
+    <Compile Include="DataMode\ModeSoleTraders.cs" />
+    <Compile Include="DataMode\ModeSubscribers.cs" />
+    <Compile Include="DocumentFlow.cs">
+      <DependentUpon>IsEnergy_db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Documents.cs">
+      <DependentUpon>IsEnergy_db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalMetods\SendMailer.cs" />
+    <Compile Include="GlobalMetods\XmlSerializationHelper.cs" />
+    <Compile Include="IFNS.cs">
+      <DependentUpon>IsEnergy_db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IsEnergy_db.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IsEnergy_db.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IsEnergy_db.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IsEnergy_db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IsEnergy_db.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IsEnergy_db.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="LegalEntities.cs">
+      <DependentUpon>IsEnergy_db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Maquettes16.cs">
+      <DependentUpon>IsEnergy_db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MetaData\MetaDataContractors.cs" />
+    <Compile Include="MetaData\MetaDataDocumentsTemp.cs" />
+    <Compile Include="MetaData\MetaDataLegalEntities.cs" />
+    <Compile Include="MetaData\MetaDataSoleTraders.cs" />
+    <Compile Include="MetaData\MetaDataSubscribers.cs" />
+    <Compile Include="MetaData\MetaDataUsers.cs" />
+    <Compile Include="Filters\AuthorizeMe.cs" />
+    <Compile Include="DataMode\ModeUsers.cs" />
+    <Compile Include="MetaData\MetaPhysicalPersons.cs" />
+    <Compile Include="ConfigModel.cs" />
+    <Compile Include="Operators.cs">
+      <DependentUpon>IsEnergy_db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PhysicalPersons.cs">
+      <DependentUpon>IsEnergy_db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Regions.cs">
+      <DependentUpon>IsEnergy_db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RelateDocuments.cs">
+      <DependentUpon>IsEnergy_db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ResultMode.cs" />
+    <Compile Include="SoleTraders.cs">
+      <DependentUpon>IsEnergy_db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Subscribers.cs">
+      <DependentUpon>IsEnergy_db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SubscribersCodesEnergySales.cs">
+      <DependentUpon>IsEnergy_db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SubscribersCodesGridCompany.cs">
+      <DependentUpon>IsEnergy_db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SubscribersConnectEnergySales.cs">
+      <DependentUpon>IsEnergy_db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SubscribersConnectGridCompany.cs">
+      <DependentUpon>IsEnergy_db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SubscribersContracts.cs">
+      <DependentUpon>IsEnergy_db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SubscribersEnumerator.cs">
+      <DependentUpon>IsEnergy_db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SubscribersSubdivision.cs">
+      <DependentUpon>IsEnergy_db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SubscribersUserList.cs">
+      <DependentUpon>IsEnergy_db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SubscribesLog.cs">
+      <DependentUpon>IsEnergy_db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Users.cs">
+      <DependentUpon>IsEnergy_db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="XSD\DP_INFSOOB_1_981_00_05_01_01.cs" />
+    <Compile Include="XSD\DP_IZVPOL_1_982_00_01_01_01.cs" />
+    <Compile Include="XSD\DP_PDOTPR_1_983_00_01_01_01.cs" />
+    <Compile Include="XSD\DP_PDPOL_1_984_00_01_01_01.cs" />
+    <Compile Include="XSD\DP_UVUTOCH_1_985_00_01_01_01.cs" />
+    <Compile Include="XSD\ON_SFAKT_1_897_01_05_01_03.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="IsEnergy_db.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>IsEnergy_db.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="IsEnergy_db.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>IsEnergy_db.edmx</DependentUpon>
+      <LastGenOutput>IsEnergy_db.Context.cs</LastGenOutput>
+    </None>
+    <None Include="IsEnergy_db.edmx.diagram">
+      <DependentUpon>IsEnergy_db.edmx</DependentUpon>
+    </None>
+    <None Include="IsEnergy_db.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>IsEnergy_db.edmx</DependentUpon>
+      <LastGenOutput>IsEnergy_db.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
